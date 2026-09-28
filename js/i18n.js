@@ -26,6 +26,8 @@
       },
       hero_aria: { de: "Einleitung", en: "Introduction" },
       hero_eyebrow: { de: "IT-Beratung für KMU & Selbstständige", en: "IT consulting for SMEs & freelancers" },
+      hero_photo_alt: { de: "Foto von Janik Wahrheit", en: "Photo of Janik Wahrheit" },
+      hero_badge_role: { de: "Data Scientist · Mitgründer von gradias.ai", en: "Data Scientist · Co-founder of gradias.ai" },
       hero_h1: {
         de: 'Individuelle Software für Ihr Unternehmen — <span class="accent-text">persönlich entwickelt.</span>',
         en: 'Custom software for your business — <span class="accent-text">built by a real person.</span>'

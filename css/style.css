@@ -261,24 +261,29 @@ h1, h2, h3, p { margin: 0; }
 /* ---------- hero ---------- */
 .hero {
   position: relative;
-  padding: 96px 24px 88px;
-  text-align: center;
+  padding: 80px 0 96px;
   overflow: hidden;
 }
 .hero::before {
   content: "";
   position: absolute;
-  top: -220px;
-  left: 50%;
-  width: 900px;
-  height: 500px;
-  transform: translateX(-50%);
+  top: -160px;
+  right: -120px;
+  width: 760px;
+  height: 620px;
   background: radial-gradient(ellipse at center, var(--accent-soft) 0%, rgba(234,241,255,0) 70%);
   z-index: 0;
 }
-.hero-inner { position: relative; z-index: 1; max-width: 780px; margin: 0 auto; }
+.hero-grid {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  align-items: center;
+  gap: 72px;
+}
 .hero h1 {
-  font-size: clamp(2.3rem, 5vw, 3.4rem);
+  font-size: clamp(2.2rem, 4.2vw, 3.2rem);
   font-weight: 800;
   letter-spacing: -0.02em;
   line-height: 1.15;
@@ -286,18 +291,60 @@ h1, h2, h3, p { margin: 0; }
 }
 .hero h1 .accent-text { color: var(--accent); }
 .hero-sub {
-  margin: 20px auto 0;
-  max-width: 620px;
-  font-size: 1.15rem;
+  margin-top: 20px;
+  max-width: 560px;
+  font-size: 1.12rem;
   color: var(--text-muted);
 }
 .hero-cta {
   display: flex;
-  justify-content: center;
   gap: 14px;
   margin-top: 36px;
   flex-wrap: wrap;
 }
+
+/* portrait card with offset accent frame + name badge */
+.hero-figure {
+  position: relative;
+  margin: 0;
+  justify-self: end;
+  width: 100%;
+  max-width: 380px;
+}
+.hero-figure::before {
+  content: "";
+  position: absolute;
+  inset: 22px -22px -22px 22px;
+  border-radius: 28px;
+  background: var(--accent-soft);
+  border: 1px solid #d6e3ff;
+  z-index: 0;
+}
+.hero-portrait {
+  position: relative;
+  z-index: 1;
+  aspect-ratio: 4 / 5;
+  border-radius: 28px;
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  background: var(--bg-alt);
+}
+.hero-portrait img { width: 100%; height: 100%; object-fit: cover; object-position: center 30%; }
+.hero-badge {
+  position: absolute;
+  z-index: 2;
+  left: -28px;
+  bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 14px 18px;
+  background: var(--bg-card);
+  border-radius: 14px;
+  box-shadow: var(--shadow-lg);
+}
+.hero-badge strong { font-size: 0.98rem; font-weight: 700; color: var(--text); }
+.hero-badge span { font-size: 0.82rem; color: var(--text-muted); }
 
 /* ---------- services ---------- */
 .service-grid {
@@ -400,7 +447,9 @@ h1, h2, h3, p { margin: 0; }
   overflow: hidden;
   box-shadow: var(--shadow-md);
 }
-.teaser-avatar img { width: 100%; height: 100%; object-fit: cover; }
+.teaser-avatar { background: #fff; }
+/* memoji PNG has generous white padding — zoom so the face fills the circle */
+.teaser-avatar img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.7) translateY(2%); }
 .teaser-text p { color: var(--text-muted); font-size: 1rem; }
 .teaser-text p + p { margin-top: 10px; }
 .teaser-link {
@@ -767,6 +816,13 @@ h1, h2, h3, p { margin: 0; }
   .service-grid,
   .work-grid { grid-template-columns: 1fr; }
   .tech-grid { grid-template-columns: repeat(3, 1fr); }
+
+  .hero { padding: 56px 0 72px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 56px; text-align: center; }
+  .hero-sub { margin-left: auto; margin-right: auto; }
+  .hero-cta { justify-content: center; }
+  .hero-figure { justify-self: center; max-width: 300px; }
+  .hero-badge { left: 50%; transform: translateX(-50%); bottom: -24px; white-space: nowrap; text-align: center; }
 }
 
 @media (max-width: 860px) {
