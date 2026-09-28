@@ -27,11 +27,12 @@
   --accent: #2563eb;
   --accent-dark: #1d4ed8;
   --accent-soft: #eaf1ff;
+  --accent-ring: #c9d8fb; /* mid-strength tint: hover ring + hero highlight, visible against --bg */
 
   /* flat by default: a hairline ring instead of a drop shadow; depth only on hover */
   --shadow-sm: 0 0 0 1px var(--border-soft);
   --shadow-md: 0 0 0 1px var(--border-soft);
-  --shadow-lg: 0 0 0 1px #c9d8fb, 0 12px 28px -14px rgba(16,24,40,0.16);
+  --shadow-lg: 0 0 0 1px var(--accent-ring), 0 12px 28px -14px rgba(16,24,40,0.16);
 
   --media-bg: #eef1f5;
   --media-line: #94a0b4;
@@ -277,7 +278,7 @@ h1, h2, h3, p { margin: 0; }
 /* accent words: light-blue highlighter sweeps in after the headline has settled */
 .hero h1 .accent-text {
   color: var(--accent);
-  background: linear-gradient(#d6e4ff, #d6e4ff) no-repeat 0 85% / 0% 45%;
+  background: linear-gradient(var(--accent-ring), var(--accent-ring)) no-repeat 0 85% / 0% 48%;
   padding: 0 .08em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
