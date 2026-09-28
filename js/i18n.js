@@ -81,16 +81,17 @@
       teaser_link: { de: "Mehr über mich →", en: "More about me →" },
       teaser_img_alt: { de: "Memoji von Janik", en: "Memoji of Janik" },
 
-      contact_h2: { de: "Lassen Sie uns etwas gemeinsam aufbauen", en: "Let's build something together" },
+      contact_status: { de: "Verfügbar für neue Projekte", en: "Ready for new projects" },
+      contact_h2: { de: "Lassen Sie uns über Ihr Vorhaben sprechen", en: "Let's talk about your project" },
       contact_sub: {
-        de: "Haben Sie ein Projekt im Kopf? Ich freue mich, davon zu hören — meist melde ich mich innerhalb von ein bis zwei Tagen zurück.",
-        en: "Have a project in mind? I'd love to hear about it — I usually get back to you within a day or two."
+        de: "Ob maßgeschneidertes Backend-Tool oder performante Website: Schildern Sie mir kurz Ihre aktuelle Herausforderung. Ich melde mich innerhalb von 48 Stunden mit einer ersten Einschätzung.",
+        en: "Whether it's a custom backend tool or a high-performance website: tell me about your current challenge. I'll get back to you within 48 hours with an initial assessment."
       },
-      contact_email_btn: { de: "E-Mail schreiben", en: "Email me" },
+      contact_email_btn: { de: "Unverbindlich anfragen", en: "Get in touch" },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
       contact_meta: {
-        de: "Ansässig in Karlsruhe · arbeite remote mit Kunden überall",
-        en: "Based in Karlsruhe, Germany · working remotely with clients everywhere"
+        de: "Standort: Karlsruhe · Remote-Zusammenarbeit weltweit",
+        en: "Based in Karlsruhe, Germany · Working remotely with clients worldwide"
       }
     },
 
