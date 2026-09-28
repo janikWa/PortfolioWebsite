@@ -188,6 +188,21 @@ h1, h2, h3, p { margin: 0; }
   gap: 12px;
 }
 
+.lang-toggle {
+  border: 1px solid var(--border-soft);
+  background: var(--bg-card);
+  color: var(--text-muted);
+  font-family: var(--font);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  padding: 7px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  transition: border-color .15s ease, color .15s ease;
+}
+.lang-toggle:hover { border-color: var(--accent); color: var(--accent); }
+
 .nav-toggle {
   display: none;
   flex-direction: column;

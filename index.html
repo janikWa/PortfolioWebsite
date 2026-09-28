@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Janik Wahrheit — IT-Beratung für KMU</title>
-<meta name="description" content="Individuelle Websites, Backend-Apps und Dashboards für kleine und mittlere Unternehmen — von Janik Wahrheit, Data-Science-Student und freiberuflicher IT-Berater.">
+<title data-i18n-title="home.title">Janik Wahrheit — IT-Beratung für KMU</title>
+<meta name="description" data-i18n-content="home.meta_desc" content="Individuelle Websites, Backend-Apps und Dashboards für kleine und mittlere Unternehmen — von Janik Wahrheit, Data-Science-Student und freiberuflicher IT-Berater.">
 <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👋</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -13,22 +13,23 @@
 </head>
 <body>
 
-<a class="skip-link" href="#main">Zum Inhalt springen</a>
+<a class="skip-link" href="#main" data-i18n="common.skip_link">Zum Inhalt springen</a>
 
 <header class="site-header" id="top">
   <div class="wrap header-inner">
-    <a class="brand" href="index.html">janik wahrheit <span class="brand-tag">IT-Beratung</span></a>
+    <a class="brand" href="index.html">janik wahrheit <span class="brand-tag" data-i18n="common.brand_tag">IT-Beratung</span></a>
 
     <nav class="nav" id="nav">
-      <a href="index.html" class="active">Start</a>
-      <a href="index.html#services">Leistungen</a>
-      <a href="index.html#work">Arbeiten</a>
-      <a href="about.html">Über mich</a>
+      <a href="index.html" class="active" data-i18n="common.nav_home">Start</a>
+      <a href="index.html#services" data-i18n="common.nav_services">Leistungen</a>
+      <a href="index.html#work" data-i18n="common.nav_work">Arbeiten</a>
+      <a href="about.html" data-i18n="common.nav_about">Über mich</a>
     </nav>
 
     <div class="header-actions">
-      <a class="btn btn-primary btn-sm" href="index.html#contact">Kontakt</a>
-      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">
+      <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+      <a class="btn btn-primary btn-sm" href="index.html#contact" data-i18n="common.nav_contact_btn">Kontakt</a>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menü öffnen" data-i18n-attr="aria-label:common.nav_toggle_aria" aria-expanded="false" aria-controls="nav">
         <span></span><span></span><span></span>
       </button>
     </div>
@@ -40,12 +41,12 @@
   <!-- HERO -->
   <section class="hero" id="hero" aria-label="Einleitung">
     <div class="hero-inner">
-      <span class="eyebrow">IT-Beratung für KMU &amp; Selbstständige</span>
-      <h1>Individuelle Software für Ihr Unternehmen — <span class="accent-text">ohne Agentur-Overhead.</span></h1>
-      <p class="hero-sub">Ich entwickle moderne Websites, maßgeschneiderte Backend-Anwendungen und Dashboards, die zu Ihrem Unternehmen passen — mit echter Data-Science-Expertise statt Baukasten-Lösungen.</p>
+      <span class="eyebrow" data-i18n="home.hero_eyebrow">IT-Beratung für KMU &amp; Selbstständige</span>
+      <h1 data-i18n-html="home.hero_h1">Individuelle Software für Ihr Unternehmen — <span class="accent-text">persönlich entwickelt.</span></h1>
+      <p class="hero-sub" data-i18n="home.hero_sub">Ich entwickle Websites, Backend-Anwendungen und Dashboards, die wirklich zu Ihrem Unternehmen passen – persönlich betreut, verständlich erklärt und mit echter Freude an guter Arbeit.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary" href="#contact">Kontakt aufnehmen</a>
-        <a class="btn btn-secondary" href="#work">Meine Arbeiten ansehen</a>
+        <a class="btn btn-primary" href="#contact" data-i18n="home.hero_cta_primary">Kontakt aufnehmen</a>
+        <a class="btn btn-secondary" href="#work" data-i18n="home.hero_cta_secondary">Meine Arbeiten ansehen</a>
       </div>
     </div>
   </section>
@@ -54,9 +55,9 @@
   <section class="section" id="services">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Was ich anbiete</span>
-        <h2>Drei Wege, wie ich helfen kann</h2>
-        <p>Praktische, passgenaue Lösungen — keine aufgeblähten Agenturverträge, keine halbfertigen No-Code-Hacks.</p>
+        <span class="eyebrow" data-i18n="home.services_eyebrow">Was ich anbiete</span>
+        <h2 data-i18n="home.services_h2">Drei Wege, wie ich helfen kann</h2>
+        <p data-i18n="home.services_sub">Praktische Lösungen, die zu Ihrem Unternehmen passen — unkompliziert, transparent und ohne Umwege.</p>
       </div>
 
       <div class="service-grid">
@@ -64,24 +65,24 @@
           <div class="service-icon" aria-hidden="true">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 8.5h18"/><circle cx="6.5" cy="6.25" r="0.6" fill="currentColor" stroke="none"/><circle cx="8.7" cy="6.25" r="0.6" fill="currentColor" stroke="none"/></svg>
           </div>
-          <h3>Moderne Websites</h3>
-          <p>Schnelle, responsive Websites, die auf jedem Gerät überzeugen und aus Besuchern Kunden machen — von der Landingpage bis zur kompletten Unternehmenswebsite.</p>
+          <h3 data-i18n="home.service1_title">Moderne Websites</h3>
+          <p data-i18n="home.service1_desc">Schnelle, responsive Websites, die auf jedem Gerät überzeugen und aus Besuchern Kunden machen — von der Landingpage bis zur kompletten Unternehmenswebsite.</p>
         </article>
 
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="3" y="3" width="8" height="8" rx="1.5"/><rect x="13" y="3" width="8" height="5" rx="1.5"/><rect x="13" y="10" width="8" height="11" rx="1.5"/><rect x="3" y="13" width="8" height="8" rx="1.5"/></svg>
           </div>
-          <h3>Individuelle Backend-Apps &amp; Dashboards</h3>
-          <p>Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die zu Ihren echten Abläufen passen — keine Excel-Tabellen mehr, die aus allen Nähten platzen.</p>
+          <h3 data-i18n="home.service2_title">Individuelle Backend-Apps &amp; Dashboards</h3>
+          <p data-i18n="home.service2_desc">Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die zu Ihren echten Abläufen passen — keine Excel-Tabellen mehr, die aus allen Nähten platzen.</p>
         </article>
 
         <article class="service-card">
           <div class="service-icon" aria-hidden="true">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.5.4.8 1 .8 1.6v.5h5.4v-.5c0-.6.3-1.2.8-1.6A6 6 0 0 0 12 3Z"/></svg>
           </div>
-          <h3>IT-Beratung</h3>
-          <p>Strategische Beratung zu Daten, Software und digitalen Tools — damit Sie gleich in die richtige Technologie investieren, nicht in die gerade angesagteste.</p>
+          <h3 data-i18n="home.service3_title">IT-Beratung</h3>
+          <p data-i18n="home.service3_desc">Ehrliche Beratung zu Daten, Software und digitalen Tools — damit Sie von Anfang an die richtige Entscheidung treffen.</p>
         </article>
       </div>
     </div>
@@ -91,9 +92,9 @@
   <section class="section section--alt" id="work">
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Referenzen</span>
-        <h2>Ausgewählte Projekte</h2>
-        <p>Echte Web-Projekte, die zeigen, wie ich arbeite.</p>
+        <span class="eyebrow" data-i18n="home.work_eyebrow">Referenzen</span>
+        <h2 data-i18n="home.work_h2">Ausgewählte Projekte</h2>
+        <p data-i18n="home.work_sub">Echte Web-Projekte, die zeigen, wie ich arbeite.</p>
       </div>
 
       <div class="work-grid work-grid--2">
@@ -116,12 +117,12 @@
             </svg>
           </div>
           <div class="work-body">
-            <span class="work-category">Startup &middot; SaaS-Produkt</span>
-            <h3>gradias.ai</h3>
-            <p>Von der Idee bis zum Launch: Als Mitgründer habe ich ein SaaS-Produkt komplett selbst aufgebaut — von der Architektur bis zur Oberfläche. Genau die Erfahrung, die auch in Ihr Projekt einfließt.</p>
+            <span class="work-category" data-i18n="home.work1_cat">Startup &middot; SaaS-Produkt</span>
+            <h3 data-i18n="home.work1_title">gradias.ai</h3>
+            <p data-i18n="home.work1_desc">Von der Idee bis zum Launch: Als Mitgründer habe ich ein SaaS-Produkt komplett selbst aufgebaut — von der Architektur bis zur Oberfläche. Genau die Erfahrung, die auch in Ihr Projekt einfließt.</p>
             <div class="work-tags">
-              <span class="work-tag">Produkt</span>
-              <span class="work-tag">Full-Stack</span>
+              <span class="work-tag" data-i18n="home.work1_tag1">Produkt</span>
+              <span class="work-tag" data-i18n="home.work1_tag2">Full-Stack</span>
             </div>
           </div>
         </a>
@@ -145,19 +146,19 @@
             </svg>
           </div>
           <div class="work-body">
-            <span class="work-category">Web-App &middot; Full-Stack</span>
-            <h3>Filmsuche mit Live-Ranking</h3>
-            <p>Eine moderne Web-App mit eigenem Backend, das Suchanfragen auswertet und daraus ein Live-Ranking erstellt — dasselbe Prinzip lässt sich direkt auf Produktkataloge, Kundenportale oder interne Suchfunktionen übertragen.</p>
+            <span class="work-category" data-i18n="home.work2_cat">Web-App &middot; Full-Stack</span>
+            <h3 data-i18n="home.work2_title">Filmsuche mit Live-Ranking</h3>
+            <p data-i18n="home.work2_desc">Eine moderne Web-App mit eigenem Backend, das Suchanfragen auswertet und daraus ein Live-Ranking erstellt — dasselbe Prinzip lässt sich direkt auf Produktkataloge, Kundenportale oder interne Suchfunktionen übertragen.</p>
             <div class="work-tags">
-              <span class="work-tag">React</span>
-              <span class="work-tag">Appwrite</span>
+              <span class="work-tag" data-i18n="home.work2_tag1">React</span>
+              <span class="work-tag" data-i18n="home.work2_tag2">Appwrite</span>
             </div>
           </div>
         </a>
 
       </div>
 
-      <p class="work-more"><a class="btn btn-secondary" href="about.html#projects">Alle Projekte ansehen</a></p>
+      <p class="work-more"><a class="btn btn-secondary" href="about.html#projects" data-i18n="home.work_more">Alle Projekte ansehen</a></p>
     </div>
   </section>
 
@@ -166,12 +167,12 @@
     <div class="wrap">
       <div class="teaser">
         <div class="teaser-avatar">
-          <img src="assets/img/memoji.png" alt="Memoji von Janik" width="394" height="378">
+          <img src="assets/img/memoji.png" alt="Memoji von Janik" data-i18n-attr="alt:home.teaser_img_alt" width="394" height="378">
         </div>
         <div class="teaser-text">
-          <p><strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen mit Schwerpunkt Data Science am KIT, aktuell als Data Scientist tätig und Mitgründer meines eigenen Startups gradias.ai.</p>
-          <p>Ich bringe echtes technisches Verständnis in jedes Projekt ein — keine 08/15-Lösung von der Stange.</p>
-          <a class="teaser-link" href="about.html">Mehr über mich &rarr;</a>
+          <p data-i18n-html="home.teaser_p1"><strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen mit Schwerpunkt Data Science am KIT, aktuell als Data Scientist tätig und Mitgründer meines eigenen Startups gradias.ai.</p>
+          <p data-i18n="home.teaser_p2">Ich freue mich über jedes Projekt und bringe echtes Interesse und Sorgfalt mit — vom ersten Gespräch bis zum letzten Feinschliff.</p>
+          <a class="teaser-link" href="about.html" data-i18n="home.teaser_link">Mehr über mich &rarr;</a>
         </div>
       </div>
     </div>
@@ -181,19 +182,19 @@
   <section class="section section--alt contact" id="contact">
     <div class="wrap">
       <div class="contact-card">
-        <h2>Lassen Sie uns etwas gemeinsam aufbauen</h2>
-        <p>Haben Sie ein Projekt im Kopf? Erzählen Sie mir davon — ich melde mich in der Regel innerhalb von ein bis zwei Tagen zurück.</p>
+        <h2 data-i18n="home.contact_h2">Lassen Sie uns etwas gemeinsam aufbauen</h2>
+        <p data-i18n="home.contact_sub">Haben Sie ein Projekt im Kopf? Ich freue mich, davon zu hören — meist melde ich mich innerhalb von ein bis zwei Tagen zurück.</p>
         <div class="contact-cta">
           <a class="btn btn-primary" href="mailto:contact@janikwahrheit.dev">
             <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" width="18" height="18"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m4 7 8 6 8-6"/></svg>
-            E-Mail schreiben
+            <span data-i18n="home.contact_email_btn">E-Mail schreiben</span>
           </a>
           <a class="btn btn-secondary" href="https://linkedin.com/" target="_blank" rel="noopener">
             <svg class="icon" viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5ZM3 9h4v12H3V9Zm7 0h3.8v1.64h.05c.53-1 1.83-2.05 3.77-2.05 4.03 0 4.78 2.66 4.78 6.12V21h-4v-5.6c0-1.34-.02-3.06-1.87-3.06-1.87 0-2.16 1.46-2.16 2.96V21h-4V9Z"/></svg>
-            LinkedIn
+            <span data-i18n="home.contact_linkedin_btn">LinkedIn</span>
           </a>
         </div>
-        <p class="contact-meta">Ansässig in Karlsruhe &middot; arbeite remote mit Kunden überall</p>
+        <p class="contact-meta" data-i18n="home.contact_meta">Ansässig in Karlsruhe &middot; arbeite remote mit Kunden überall</p>
       </div>
     </div>
   </section>
@@ -202,10 +203,10 @@
 
 <footer class="site-footer">
   <nav class="footer-nav" aria-label="Footer-Navigation">
-    <a href="index.html">Start</a>
-    <a href="index.html#services">Leistungen</a>
-    <a href="index.html#work">Arbeiten</a>
-    <a href="about.html">Über mich</a>
+    <a href="index.html" data-i18n="common.nav_home">Start</a>
+    <a href="index.html#services" data-i18n="common.nav_services">Leistungen</a>
+    <a href="index.html#work" data-i18n="common.nav_work">Arbeiten</a>
+    <a href="about.html" data-i18n="common.nav_about">Über mich</a>
   </nav>
   <ul class="social-row social-row--footer" aria-label="Soziale Netzwerke">
     <li><a href="https://linkedin.com/" target="_blank" rel="noopener" aria-label="LinkedIn">
@@ -218,9 +219,10 @@
       <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.2" cy="6.8" r="1.1" fill="currentColor" stroke="none"/></svg>
     </a></li>
   </ul>
-  <p class="footer-name">janik wahrheit &middot; IT-Beratung</p>
+  <p class="footer-name" data-i18n="common.footer_name">janik wahrheit &middot; IT-Beratung</p>
 </footer>
 
+<script src="js/i18n.js"></script>
 <script src="js/main.js"></script>
 </body>
 </html>
