@@ -4,7 +4,11 @@
   /* ---------- header hairline once the page is scrolled ---------- */
   var header = document.querySelector(".site-header");
   if (header) {
-    var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 8); };
+    var onScroll = function () {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      header.style.setProperty("--scroll-progress", max > 0 ? (window.scrollY / max).toFixed(4) : "0");
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
@@ -69,13 +73,29 @@
   var revealTargets = document.querySelectorAll(
     ".about-content, .project-card, .service-card, .work-card, .tech-tile, .teaser, .contact-card, .section-head"
   );
-  revealTargets.forEach(function (el) { el.classList.add("reveal"); });
+  revealTargets.forEach(function (el) {
+    el.classList.add("reveal");
+    var siblings = Array.prototype.filter.call(el.parentNode.children, function (s) {
+      return s.classList.contains("reveal");
+    });
+    var index = siblings.indexOf(el);
+    if (index > 0) el.style.setProperty("--reveal-delay", Math.min(index * 0.09, 0.45) + "s");
+  });
+
+  // once revealed, drop the reveal transition so the element's own hover transitions apply
+  function finishReveal(evt) {
+    if (evt.target !== this || evt.propertyName !== "opacity") return;
+    this.classList.remove("reveal", "is-visible");
+    this.style.removeProperty("--reveal-delay");
+    this.removeEventListener("transitionend", finishReveal);
+  }
 
   if ("IntersectionObserver" in window) {
     var revealObserver = new IntersectionObserver(
       function (entries, obs) {
         entries.forEach(function (entry) {
           if (entry.isIntersecting) {
+            entry.target.addEventListener("transitionend", finishReveal);
             entry.target.classList.add("is-visible");
             obs.unobserve(entry.target);
           }
@@ -86,6 +106,18 @@
     revealTargets.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ---------- cursor spotlight on cards (mouse/trackpad only) ---------- */
+  if (window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".service-card, .project-card, .work-card:not(.work-card--placeholder)").forEach(function (card) {
+      card.classList.add("spotlight");
+      card.addEventListener("pointermove", function (evt) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (evt.clientX - rect.left) + "px");
+        card.style.setProperty("--my", (evt.clientY - rect.top) + "px");
+      });
+    });
   }
 
   /* ---------- CV timeline animation ---------- */
