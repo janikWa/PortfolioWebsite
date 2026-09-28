@@ -24,10 +24,10 @@
   --text-muted: #667085;
   --border-soft: #e4e7ec;
 
-  --accent: #2563eb;
-  --accent-dark: #1d4ed8;
-  --accent-soft: #eaf1ff;
-  --accent-ring: #c9d8fb; /* mid-strength tint: hover ring + hero highlight, visible against --bg */
+  --accent: #ce4c0d;
+  --accent-dark: #9a3412;
+  --accent-soft: #ffedd5;
+  --accent-ring: #fed7aa; /* mid-strength tint: hover ring + hero highlight, visible against --bg */
 
   /* flat by default: a hairline ring instead of a drop shadow; depth only on hover */
   --shadow-sm: 0 0 0 1px var(--border-soft);
@@ -36,7 +36,7 @@
 
   --media-bg: #eef1f5;
   --media-line: #94a0b4;
-  --media-node: #2563eb;
+  --media-node: #ce4c0d;
 
   --footer-bg: #151a24;
   --footer-text: #f5f6f8;
@@ -276,7 +276,7 @@ h1, h2, h3, p { margin: 0; }
   width: 560px;
   height: 560px;
   background: var(--accent-ring);
-  opacity: .45;
+  opacity: .55;
   filter: blur(100px);
   border-radius: 50%;
   transform: translate(-50%, -50%);
@@ -294,7 +294,7 @@ h1, h2, h3, p { margin: 0; }
 /* accent words: soft, low-opacity highlight bar behind accent-colored text */
 .hero h1 .accent-text {
   color: var(--accent);
-  background: linear-gradient(rgba(37, 99, 235, .14), rgba(37, 99, 235, .14)) no-repeat 0 82% / 100% 32%;
+  background: linear-gradient(rgba(206, 76, 13, .16), rgba(206, 76, 13, .16)) no-repeat 0 82% / 100% 32%;
   padding: 0 .06em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
