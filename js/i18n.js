@@ -65,7 +65,7 @@
       work_sub: { de: "Echte Web-Projekte, die zeigen, wie ich arbeite.", en: "Real web projects that show how I work." },
 
       work1_cat: { de: "Startup · SaaS-Produkt", en: "Startup · SaaS Product" },
-      work1_title: { de: "gradias.ai", en: "gradias.ai" },
+      work1_title: { de: "usegradias.ai", en: "usegradias.ai" },
       work1_desc: {
         de: "Von der Idee bis zum Launch: Als Mitgründer habe ich ein SaaS-Produkt komplett selbst aufgebaut — von der Architektur bis zur Oberfläche. Genau die Erfahrung, die auch in Ihr Projekt einfließt.",
         en: "From idea to launch: as co-founder, I built a SaaS product from the ground up — architecture, backend, and interface. That same hands-on experience goes into every client project."
@@ -85,8 +85,8 @@
       work_more: { de: "Alle Projekte ansehen", en: "See all projects" },
 
       teaser_p1: {
-        de: '<strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen mit Schwerpunkt Data Science am KIT, aktuell als Data Scientist tätig und Mitgründer meines eigenen Startups gradias.ai.',
-        en: '<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering &amp; Data Science at KIT, currently working as a data scientist and co-founding my own startup, gradias.ai.'
+        de: '<strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen mit Schwerpunkt Data Science am KIT, aktuell als Data Scientist tätig und Mitgründer meines eigenen Startups usegradias.ai.',
+        en: '<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering &amp; Data Science at KIT, currently working as a data scientist and co-founding my own startup, usegradias.ai.'
       },
       teaser_p2: {
         de: "Ich freue mich über jedes Projekt und bringe echtes Interesse und Sorgfalt mit — vom ersten Gespräch bis zum letzten Feinschliff.",
@@ -111,8 +111,8 @@
     about: {
       title: { de: "Über mich — Janik Wahrheit", en: "About — Janik Wahrheit" },
       meta_desc: {
-        de: "Janik Wahrheit — Masterstudent für Wirtschaftsingenieurwesen & Data Science am KIT, Data Scientist und Mitgründer von gradias.ai. Lebenslauf, Tech-Stack und Nebenprojekte.",
-        en: "Janik Wahrheit — Master's student in Industrial Engineering & Data Science at KIT, data scientist, and co-founder of gradias.ai. CV, tech stack, and side projects."
+        de: "Janik Wahrheit — Masterstudent für Wirtschaftsingenieurwesen & Data Science am KIT, Data Scientist und Mitgründer von usegradias.ai. Lebenslauf, Tech-Stack und Nebenprojekte.",
+        en: "Janik Wahrheit — Master's student in Industrial Engineering & Data Science at KIT, data scientist, and co-founder of usegradias.ai. CV, tech stack, and side projects."
       },
       page_h1: { de: "Über mich", en: "About Me" },
       page_sub: {
@@ -127,8 +127,8 @@
         en: "I'm Janik, a Master's student in Industrial Engineering at KIT (Karlsruhe Institute of Technology), with a focus on Data Science."
       },
       p2: {
-        de: 'Aktuell baue ich <a href="https://gradias.ai/" target="_blank" rel="noopener">gradias.ai</a> als Mitgründer auf — mit Erfahrung aus meiner Zeit bei Porsche und meiner Bachelorarbeit über heavy-tailed Regularisierung in neuronalen Netzen.',
-        en: 'Right now, I’m building <a href="https://gradias.ai/" target="_blank" rel="noopener">gradias.ai</a> as a co-founder — drawing on experience from my time at Porsche and my Bachelor’s thesis on heavy-tailed regularization in neural networks.'
+        de: 'Aktuell baue ich <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> als Mitgründer auf — mit Erfahrung aus meiner Zeit bei Porsche und meiner Bachelorarbeit über heavy-tailed Regularisierung in neuronalen Netzen.',
+        en: 'Right now, I’m building <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> as a co-founder — drawing on experience from my time at Porsche and my Bachelor’s thesis on heavy-tailed regularization in neural networks.'
       },
       p3: {
         de: "Mein akademisches und berufliches Interesse liegt in den Bereichen Machine Learning, Data Science und Statistik. Genauso begeistert mich Full-Stack-Entwicklung — genau das, was ich jetzt auch als freiberuflicher IT-Berater anbiete.",
@@ -195,8 +195,8 @@
       cv8_desc: { de: "Fachbereich Data Science — Data.Driven.Quality", en: "Data Science Department — Data.Driven.Quality" },
 
       cv9_date: { de: "seit 12/2025", en: "since 12/2025" },
-      cv9_title: { de: "Mitgründer von gradias.ai", en: "Co-Founder at gradias.ai" },
-      cv9_desc: { de: "Aufbau von gradias.ai", en: "Building gradias.ai" },
+      cv9_title: { de: "Mitgründer von usegradias.ai", en: "Co-Founder at usegradias.ai" },
+      cv9_desc: { de: "Aufbau von usegradias.ai", en: "Building usegradias.ai" },
 
       cv10_date: { de: "03/2026", en: "03/2026" },
       cv10_title: { de: "Bachelorarbeit — Note: 1,0", en: "Bachelor's Thesis — Grade: 1.0" },
@@ -251,7 +251,7 @@
         de: 'Mein Startup — mitgegründet im Dezember 2025. Auch auf der <a href="index.html#work" style="color:var(--accent); font-weight:600;">Startseite</a> zu sehen.',
         en: 'My startup — co-founded in December 2025. Also featured on the <a href="index.html#work" style="color:var(--accent); font-weight:600;">home page</a>.'
       },
-      proj6_link: { de: "gradias.ai besuchen →", en: "visit gradias.ai →" }
+      proj6_link: { de: "usegradias.ai besuchen →", en: "visit usegradias.ai →" }
     }
   };
 
