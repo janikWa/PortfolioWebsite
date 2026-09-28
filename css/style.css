@@ -136,6 +136,18 @@ h1, h2, h3, p { margin: 0; }
   transition: border-color .25s ease, background-color .25s ease;
 }
 .site-header.is-scrolled { border-bottom-color: var(--border-soft); background: rgba(245, 246, 248, 0.92); }
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+  pointer-events: none;
+}
 .header-inner {
   height: var(--header-h);
   display: flex;
@@ -286,6 +298,12 @@ h1, h2, h3, p { margin: 0; }
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 0;
+  animation: blob-drift 18s ease-in-out infinite alternate;
+}
+@keyframes blob-drift {
+  0%   { transform: translate(-58%, -52%) scale(1); }
+  50%  { transform: translate(-44%, -46%) scale(1.08); }
+  100% { transform: translate(-52%, -56%) scale(.96); }
 }
 .hero-inner { position: relative; z-index: 1; max-width: 860px; }
 .hero h1 {
@@ -583,7 +601,10 @@ h1, h2, h3, p { margin: 0; }
   align-items: center;
   justify-content: center;
 }
-.tech-tile-icon .icon { width: 20px; height: 20px; }
+.tech-tile-icon { transition: background-color .25s ease, color .25s ease; }
+.tech-tile-icon .icon { width: 20px; height: 20px; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.tech-tile:hover .tech-tile-icon { background: var(--accent); color: #fff; }
+.tech-tile:hover .tech-tile-icon .icon { transform: scale(1.1); }
 .tech-tile span { font-size: 0.85rem; font-weight: 600; text-align: center; }
 
 /* ---------- CV timeline ---------- */
@@ -824,6 +845,20 @@ h1, h2, h3, p { margin: 0; }
   letter-spacing: 0.03em;
 }
 
+/* ---------- cursor spotlight on cards ---------- */
+.spotlight { position: relative; overflow: hidden; }
+.spotlight::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(260px circle at var(--mx, 50%) var(--my, 50%), rgba(206, 76, 13, .08), transparent 70%);
+  opacity: 0;
+  transition: opacity .3s ease;
+  pointer-events: none;
+}
+.spotlight:hover::after { opacity: 1; }
+
 /* ---------- scroll reveal ---------- */
 .reveal {
   opacity: 0;
@@ -839,7 +874,9 @@ h1, h2, h3, p { margin: 0; }
   .hero-inner > * { animation: none; }
   .status-dot { animation: none; }
   .hero h1 .accent-text { animation: none; background-size: 100% 32%; }
-  .service-icon, .service-icon .icon { transition: none; }
+  .service-icon, .service-icon .icon,
+  .tech-tile-icon, .tech-tile-icon .icon { transition: none; }
+  .hero::before { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }

@@ -4,7 +4,11 @@
   /* ---------- header hairline once the page is scrolled ---------- */
   var header = document.querySelector(".site-header");
   if (header) {
-    var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 8); };
+    var onScroll = function () {
+      header.classList.toggle("is-scrolled", window.scrollY > 8);
+      var max = document.documentElement.scrollHeight - window.innerHeight;
+      header.style.setProperty("--scroll-progress", max > 0 ? (window.scrollY / max).toFixed(4) : "0");
+    };
     window.addEventListener("scroll", onScroll, { passive: true });
     onScroll();
   }
@@ -102,6 +106,18 @@
     revealTargets.forEach(function (el) { revealObserver.observe(el); });
   } else {
     revealTargets.forEach(function (el) { el.classList.add("is-visible"); });
+  }
+
+  /* ---------- cursor spotlight on cards (mouse/trackpad only) ---------- */
+  if (window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
+    document.querySelectorAll(".service-card, .project-card, .work-card:not(.work-card--placeholder)").forEach(function (card) {
+      card.classList.add("spotlight");
+      card.addEventListener("pointermove", function (evt) {
+        var rect = card.getBoundingClientRect();
+        card.style.setProperty("--mx", (evt.clientX - rect.left) + "px");
+        card.style.setProperty("--my", (evt.clientY - rect.top) + "px");
+      });
+    });
   }
 
   /* ---------- CV timeline animation ---------- */
