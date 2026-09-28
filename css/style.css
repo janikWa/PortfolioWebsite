@@ -266,8 +266,24 @@ h1, h2, h3, p { margin: 0; }
   position: relative;
   padding: 128px 0 120px;
   text-align: center;
+  overflow: hidden;
 }
-.hero-inner { max-width: 860px; }
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 560px;
+  height: 560px;
+  background: var(--accent-ring);
+  opacity: .45;
+  filter: blur(100px);
+  border-radius: 50%;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 0;
+}
+.hero-inner { position: relative; z-index: 1; max-width: 860px; }
 .hero h1 {
   font-size: clamp(2.4rem, 5vw, 3.8rem);
   font-weight: 800;
@@ -275,16 +291,14 @@ h1, h2, h3, p { margin: 0; }
   line-height: 1.12;
   color: var(--text);
 }
-/* accent words: light-blue highlighter sweeps in after the headline has settled */
+/* accent words: soft, low-opacity highlight bar behind accent-colored text */
 .hero h1 .accent-text {
   color: var(--accent);
-  background: linear-gradient(var(--accent-ring), var(--accent-ring)) no-repeat 0 85% / 0% 48%;
-  padding: 0 .08em;
+  background: linear-gradient(rgba(37, 99, 235, .14), rgba(37, 99, 235, .14)) no-repeat 0 82% / 100% 32%;
+  padding: 0 .06em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
-  animation: draw-highlight .9s .9s cubic-bezier(.2,.7,.2,1) forwards;
 }
-@keyframes draw-highlight { to { background-size: 100% 45%; } }
 .hero-sub {
   margin: 22px auto 0;
   max-width: 600px;
@@ -778,8 +792,7 @@ h1, h2, h3, p { margin: 0; }
   transform: translateY(0);
 }
 @media (prefers-reduced-motion: reduce) {
-  .hero-inner > *, .hero h1 .accent-text { animation: none; }
-  .hero h1 .accent-text { background-size: 100% 45%; }
+  .hero-inner > * { animation: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
