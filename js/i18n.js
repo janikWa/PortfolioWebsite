@@ -8,7 +8,7 @@
       skip_link: { de: "Zum Inhalt springen", en: "Skip to content" },
       nav_home: { de: "Start", en: "Home" },
       nav_services: { de: "Leistungen", en: "Services" },
-      nav_work: { de: "Arbeiten", en: "Work" },
+      nav_work: { de: "Projekte", en: "Work" },
       nav_about: { de: "Über mich", en: "About" },
       nav_contact_btn: { de: "Kontakt", en: "Contact" },
       nav_toggle_aria: { de: "Menü öffnen", en: "Open menu" },
@@ -35,7 +35,7 @@
         en: "I build websites, backend applications, and dashboards that genuinely fit your business — with personal attention, plain-language explanations, and real care for getting the details right."
       },
       hero_cta_primary: { de: "Kontakt aufnehmen", en: "Get in touch" },
-      hero_cta_secondary: { de: "Meine Arbeiten ansehen", en: "See my work" },
+      hero_cta_secondary: { de: "bisherige Projekte", en: "See my work" },
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
       services_h2: { de: "Drei Wege, wie ich helfen kann", en: "Three ways I can help" },
@@ -62,31 +62,17 @@
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
       work_h2: { de: "Ausgewählte Projekte", en: "Selected Projects" },
-      work_sub: { de: "Echte Web-Projekte, die zeigen, wie ich arbeite.", en: "Real web projects that show how I work." },
+      work_sub: { de: "Von der internen Auftragsverwaltung bis zur modernen Unternehmenswebsite – so sehen praktische IT-Lösungen für den Mittelstand aus.", en: "Real web projects that show how I work." },
 
-      work1_cat: { de: "Startup · SaaS-Produkt", en: "Startup · SaaS Product" },
-      work1_title: { de: "usegradias.ai", en: "usegradias.ai" },
-      work1_desc: {
-        de: "Von der Idee bis zum Launch: Als Mitgründer habe ich ein SaaS-Produkt komplett selbst aufgebaut — von der Architektur bis zur Oberfläche. Genau die Erfahrung, die auch in Ihr Projekt einfließt.",
-        en: "From idea to launch: as co-founder, I built a SaaS product from the ground up — architecture, backend, and interface. That same hands-on experience goes into every client project."
+      work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
+      work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
+      work_placeholder_desc: {
+        de: "Referenzen aus Kundenprojekten folgen hier in Kürze.",
+        en: "References from client projects will appear here soon."
       },
-      work1_tag1: { de: "Produkt", en: "Product" },
-      work1_tag2: { de: "Full-Stack", en: "Full-Stack" },
-
-      work2_cat: { de: "Web-App · Full-Stack", en: "Web App · Full-Stack" },
-      work2_title: { de: "Filmsuche mit Live-Ranking", en: "Movie Search with Live Ranking" },
-      work2_desc: {
-        de: "Eine moderne Web-App mit eigenem Backend, das Suchanfragen auswertet und daraus ein Live-Ranking erstellt — dasselbe Prinzip lässt sich direkt auf Produktkataloge, Kundenportale oder interne Suchfunktionen übertragen.",
-        en: "A modern web app with its own backend that tracks searches and turns them into a live ranking — the same approach works just as well for product catalogs, customer portals, or internal search tools."
-      },
-      work2_tag1: { de: "React", en: "React" },
-      work2_tag2: { de: "Appwrite", en: "Appwrite" },
-
-      work_more: { de: "Alle Projekte ansehen", en: "See all projects" },
-
       teaser_p1: {
-        de: '<strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen mit Schwerpunkt Data Science am KIT, aktuell als Data Scientist tätig und Mitgründer meines eigenen Startups usegradias.ai.',
-        en: '<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering &amp; Data Science at KIT, currently working as a data scientist and co-founding my own startup, usegradias.ai.'
+        de: '<strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen am KIT. Ich baue maßgeschneiderte Software für kleine Unternehmen und arbeite parallel an meinem Startup usegradias.ai.',
+        en: '<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering at KIT. I build custom software for small businesses and am currently working on my startup, usegradias.ai.'
       },
       teaser_p2: {
         de: "Ich freue mich über jedes Projekt und bringe echtes Interesse und Sorgfalt mit — vom ersten Gespräch bis zum letzten Feinschliff.",
@@ -111,48 +97,48 @@
     about: {
       title: { de: "Über mich — Janik Wahrheit", en: "About — Janik Wahrheit" },
       meta_desc: {
-        de: "Janik Wahrheit — Masterstudent für Wirtschaftsingenieurwesen & Data Science am KIT, Data Scientist und Mitgründer von usegradias.ai. Lebenslauf, Tech-Stack und Nebenprojekte.",
-        en: "Janik Wahrheit — Master's student in Industrial Engineering & Data Science at KIT, data scientist, and co-founder of usegradias.ai. CV, tech stack, and side projects."
+        de: "Janik Wahrheit — Masterstudent Wirtschaftsingenieurwesen am KIT. Ich baue maßgeschneiderte digitale Werkzeuge und Web-Projekte. Lebenslauf und Portfolio.",
+        en: "Janik Wahrheit — Master's student in Industrial Engineering at KIT building custom digital tools and web projects. CV and portfolio."
       },
       page_h1: { de: "Über mich", en: "About Me" },
       page_sub: {
-        de: "Student, Data Scientist, Gründer — und die Person, die Ihr Projekt tatsächlich umsetzt.",
-        en: "Student, data scientist, founder — and the person who'll actually be building your project."
+        de: "Masterstudent am KIT — und der Kopf, der Ihre Projekte von der Idee bis zum Code umsetzt.",
+        en: "Master's student at KIT — and the person who turns your ideas into working code."
       },
       photo_alt: { de: "Foto von Janik Wahrheit", en: "Photo of Janik Wahrheit" },
 
       p_wave: { de: "Hi 👋", en: "Hi 👋" },
       p1: {
-        de: "Ich bin Janik, Masterstudent des Wirtschaftsingenieurwesens am KIT (Karlsruher Institut für Technologie) mit Schwerpunkt Data Science.",
-        en: "I'm Janik, a Master's student in Industrial Engineering at KIT (Karlsruhe Institute of Technology), with a focus on Data Science."
+        de: "Ich bin Janik, Masterstudent des Wirtschaftsingenieurwesens am KIT (Karlsruher Institut für Technologie).",
+        en: "I'm Janik, a Master's student in Industrial Engineering at KIT (Karlsruhe Institute of Technology)."
       },
       p2: {
-        de: 'Aktuell baue ich <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> als Mitgründer auf — mit Erfahrung aus meiner Zeit bei Porsche und meiner Bachelorarbeit über heavy-tailed Regularisierung in neuronalen Netzen.',
-        en: 'Right now, I’m building <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> as a co-founder — drawing on experience from my time at Porsche and my Bachelor’s thesis on heavy-tailed regularization in neural networks.'
+        de: 'Neben meinem Studium unterstütze ich kleine Unternehmen und Selbstständige dabei, ihre Abläufe zu digitalisieren – indem ich die Software und Websites baue, die sie dafür brauchen. Mein technisches Fundament habe ich unter anderem in der Data-Science-Abteilung bei Porsche und beim Aufbau meines Startups <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> gesammelt.',
+        en: 'Alongside my studies, I help small businesses and freelancers digitize their workflows by building the exact software and websites they need. I gained my technical foundation in the Data Science department at Porsche and by building my startup <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a>.'
       },
       p3: {
-        de: "Mein akademisches und berufliches Interesse liegt in den Bereichen Machine Learning, Data Science und Statistik. Genauso begeistert mich Full-Stack-Entwicklung — genau das, was ich jetzt auch als freiberuflicher IT-Berater anbiete.",
-        en: "My academic and professional interests lie in machine learning, data science, and statistics. I'm just as passionate about full-stack development — which is exactly what I now offer as a freelance IT consultant."
+        de: "Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an. Mein Ziel ist es nicht, dicke Berater-Konzepte zu schreiben, sondern als technischer Partner direkt nutzbare Werkzeuge zu programmieren, die Ihnen im Arbeitsalltag Zeit sparen.",
+        en: "Through my engineering studies, I approach problems analytically. My goal isn't to write lengthy consulting reports, but to act as a technical partner who codes practical tools that save you time in your day-to-day work."
       },
       p4: {
-        de: "Neben Studium und Beruf bin ich leidenschaftlicher Ausdauersportler. Ich laufe wettkampfmäßig, von der 3000-Meter-Bahn bis zum Halbmarathon. Wenn ich nicht laufe, findet man mich auf dem Rennrad, im Fitnessstudio oder beim Ausprobieren neuer Rezepte in der Küche. Außerdem lese ich gerne und erweitere mein Wissen in Bereichen wie Psychologie, Finanzen, Biologie, persönlicher Entwicklung oder Biografien interessanter Persönlichkeiten.",
-        en: "Outside of work and studies, I'm a dedicated endurance athlete. I compete in distances ranging from the 3000m track to the half marathon. When I'm not running, you'll find me on my road bike, at the gym, or trying out new recipes in the kitchen. I also love reading and expanding my knowledge in areas like psychology, finance, biology, personal development, or biographies of people I find interesting."
+        de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – ob als Läufer auf der 3000-Meter-Bahn, beim Halbmarathon oder auf dem Rennrad. Außerdem koche ich gerne und lese viel über Psychologie, Wirtschaft und Biologie, um immer wieder neue Perspektiven kennenzulernen.",
+        en: "When I'm not at my desk, I'm usually highly active – whether running on the 3000m track, racing a half marathon, or riding my road bike. I also enjoy cooking and reading about psychology, economics, and biology to constantly discover new perspectives."
       },
       p5: {
-        de: "Vielen Dank für Ihren Besuch – melden Sie sich gerne, wenn Sie sich vernetzen möchten!",
-        en: "Thanks for stopping by – feel free to reach out if you'd like to connect!"
+        de: "Vielen Dank für den Besuch auf meiner Seite – schreiben Sie mir gerne eine Nachricht, wenn wir gemeinsam ein Projekt umsetzen möchten!",
+        en: "Thanks for stopping by – feel free to send me a message if you'd like to build a project together!"
       },
 
       techstack_eyebrow: { de: "Werkzeugkasten", en: "Toolbox" },
       techstack_h2: { de: "Kern-Technologien", en: "Core Technologies" },
       techstack_sub: {
-        de: "Die Sprachen, Frameworks und Tools, mit denen ich täglich arbeite.",
-        en: "The languages, frameworks, and tools I work with every day."
+        de: "Die Sprachen, Frameworks und Tools, die ich für meine Projekte nutze.",
+        en: "The languages, frameworks, and tools I use to build my projects."
       },
 
       cv_eyebrow: { de: "Werdegang", en: "Track record" },
       cv_h2: { de: "Lebenslauf", en: "CV" },
-      cv_sub: { de: "Studium, Praktika und alles dazwischen.", en: "Studies, internships, and the work in between." },
+      cv_sub: { de: "Studium, berufliche Stationen und Praktika.", en: "Studies, professional experience, and internships." },
 
       cv1_date: { de: "03/2021", en: "03/2021" },
       cv1_title: { de: "Abitur", en: "High School Diploma" },
@@ -209,11 +195,11 @@
       cv11_title: { de: "M.Sc. Wirtschaftsingenieurwesen", en: "M.Sc. Industrial Engineering" },
       cv11_desc: { de: "Karlsruher Institut für Technologie (KIT)", en: "Karlsruhe Institute of Technology (KIT)" },
 
-      projects_eyebrow: { de: "Nebenprojekte", en: "Side projects" },
-      projects_h2: { de: "Weitere Projekte", en: "Other Projects" },
+      projects_eyebrow: { de: "Projekte", en: "Side projects" },
+      projects_h2: { de: "Weitere Arbeiten", en: "Other Work" },
       projects_sub: {
-        de: "Studienprojekte und persönliche Projekte, die die Bandbreite meiner Arbeit zeigen.",
-        en: "University coursework and personal projects that show the breadth of what I build."
+        de: "Studienprojekte und persönliche Entwicklungen, die meine technische Bandbreite zeigen.",
+        en: "University coursework and personal projects that show the breadth of my technical skills."
       },
       techlabel: { de: "technologien", en: "technologies" },
 
@@ -227,7 +213,7 @@
         de: "Verwandelt eine URL mit Laufergebnissen automatisch in einen Bericht — erstellt mit Quarto, um Pace- und Leistungsdaten aus Laufwettbewerben sichtbar zu machen.",
         en: "Turns a race-results URL into an automated report — built with Quarto to surface pacing and performance insights from running races."
       },
-      proj2_tag: { de: "Lauf-Analytics & Reporting", en: "running analytics & reporting" },
+      proj2_tag: { de: "Datenvisualisierung & Reporting", en: "data visualization & reporting" },
 
       proj3_title: { de: "Straßenverkehrslärm", en: "Road Traffic Noise" },
       proj3_desc: {
@@ -248,8 +234,8 @@
       proj5_tag: { de: "Vorausschauende Qualitätsüberwachung", en: "predictive quality monitoring" },
 
       proj6_desc: {
-        de: 'Mein Startup — mitgegründet im Dezember 2025. Auch auf der <a href="index.html#work" style="color:var(--accent); font-weight:600;">Startseite</a> zu sehen.',
-        en: 'My startup — co-founded in December 2025. Also featured on the <a href="index.html#work" style="color:var(--accent); font-weight:600;">home page</a>.'
+        de: 'Mitgegründet im Dezember 2025. Auch auf der <a href="index.html#work" style="color:var(--accent); font-weight:600;">Startseite</a> zu sehen.',
+        en: 'Co-founded in December 2025. Also featured on the <a href="index.html#work" style="color:var(--accent); font-weight:600;">home page</a>.'
       },
       proj6_link: { de: "usegradias.ai besuchen →", en: "visit usegradias.ai →" }
     }
