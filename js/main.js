@@ -1,31 +1,6 @@
 (function () {
   "use strict";
 
-  var root = document.documentElement;
-  var THEME_KEY = "portfolio-theme";
-
-  /* ---------- theme toggle ---------- */
-  var themeToggle = document.getElementById("theme-toggle");
-  var storedTheme = null;
-  try { storedTheme = localStorage.getItem(THEME_KEY); } catch (e) { /* storage unavailable */ }
-  if (storedTheme === "light" || storedTheme === "dark") {
-    root.setAttribute("data-theme", storedTheme);
-  }
-
-  function currentTheme() {
-    var attr = root.getAttribute("data-theme");
-    if (attr) return attr;
-    return window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
-  }
-
-  if (themeToggle) {
-    themeToggle.addEventListener("click", function () {
-      var next = currentTheme() === "dark" ? "light" : "dark";
-      root.setAttribute("data-theme", next);
-      try { localStorage.setItem(THEME_KEY, next); } catch (e) { /* storage unavailable */ }
-    });
-  }
-
   /* ---------- mobile nav ---------- */
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("nav");
@@ -57,7 +32,10 @@
     });
   }
 
-  /* ---------- active nav link on scroll ---------- */
+  /* ---------- active nav link on scroll ----------
+     Only same-page fragment links (href="#id") participate in scroll-spy;
+     cross-page links (e.g. "about.html", "index.html#services") keep
+     whatever "active" state is hardcoded in the markup for that page. */
   var navLinks = nav ? Array.prototype.slice.call(nav.querySelectorAll("a[href^='#']")) : [];
   var sections = navLinks
     .map(function (link) { return document.querySelector(link.getAttribute("href")); })
@@ -81,7 +59,7 @@
 
   /* ---------- scroll reveal ---------- */
   var revealTargets = document.querySelectorAll(
-    ".about-content, .project-card, .section-title"
+    ".about-content, .project-card, .service-card, .work-card, .tech-tile, .teaser, .contact-card, .section-head"
   );
   revealTargets.forEach(function (el) { el.classList.add("reveal"); });
 
