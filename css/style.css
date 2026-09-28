@@ -111,7 +111,11 @@ h1, h2, h3, p { margin: 0; }
   background: var(--accent);
   color: #fff;
 }
-.btn-primary:hover { background: var(--accent-dark); transform: translateY(-1px); }
+.btn-primary:hover {
+  background: var(--accent-dark);
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px -8px rgba(206, 76, 13, .55);
+}
 .btn-secondary {
   background: var(--bg-card);
   color: var(--text);
@@ -294,11 +298,13 @@ h1, h2, h3, p { margin: 0; }
 /* accent words: soft, low-opacity highlight bar behind accent-colored text */
 .hero h1 .accent-text {
   color: var(--accent);
-  background: linear-gradient(rgba(206, 76, 13, .16), rgba(206, 76, 13, .16)) no-repeat 0 82% / 100% 32%;
+  background: linear-gradient(rgba(206, 76, 13, .16), rgba(206, 76, 13, .16)) no-repeat 0 82% / 0% 32%;
   padding: 0 .06em;
   -webkit-box-decoration-break: clone;
   box-decoration-break: clone;
+  animation: draw-highlight .8s .9s cubic-bezier(.2,.7,.2,1) forwards;
 }
+@keyframes draw-highlight { to { background-size: 100% 32%; } }
 .hero-sub {
   margin: 22px auto 0;
   max-width: 600px;
@@ -344,8 +350,11 @@ h1, h2, h3, p { margin: 0; }
   align-items: center;
   justify-content: center;
   margin-bottom: 20px;
+  transition: background-color .25s ease, color .25s ease;
 }
-.service-icon .icon { width: 26px; height: 26px; }
+.service-icon .icon { width: 26px; height: 26px; transition: transform .35s cubic-bezier(.2,.7,.2,1); }
+.service-card:hover .service-icon { background: var(--accent); color: #fff; }
+.service-card:hover .service-icon .icon { transform: scale(1.08) rotate(-4deg); }
 .service-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 10px; }
 .service-card p { color: var(--text-muted); font-size: 0.96rem; }
 
@@ -819,7 +828,8 @@ h1, h2, h3, p { margin: 0; }
 .reveal {
   opacity: 0;
   transform: translateY(16px);
-  transition: opacity .5s ease, transform .5s ease;
+  transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1);
+  transition-delay: var(--reveal-delay, 0s);
 }
 .reveal.is-visible {
   opacity: 1;
@@ -828,6 +838,8 @@ h1, h2, h3, p { margin: 0; }
 @media (prefers-reduced-motion: reduce) {
   .hero-inner > * { animation: none; }
   .status-dot { animation: none; }
+  .hero h1 .accent-text { animation: none; background-size: 100% 32%; }
+  .service-icon, .service-icon .icon { transition: none; }
   .reveal { opacity: 1; transform: none; transition: none; }
   html { scroll-behavior: auto; }
 }
