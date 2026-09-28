@@ -1,6 +1,14 @@
 (function () {
   "use strict";
 
+  /* ---------- header hairline once the page is scrolled ---------- */
+  var header = document.querySelector(".site-header");
+  if (header) {
+    var onScroll = function () { header.classList.toggle("is-scrolled", window.scrollY > 8); };
+    window.addEventListener("scroll", onScroll, { passive: true });
+    onScroll();
+  }
+
   /* ---------- mobile nav ---------- */
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("nav");
