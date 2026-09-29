@@ -51,7 +51,8 @@
       <div class="wrap hero-inner">
         <div class="hero-copy">
           <span class="eyebrow" data-i18n="home.hero_eyebrow">IT-Beratung für KMU &amp; Selbstständige</span>
-          <h1 data-i18n-html="home.hero_h1">Individuelle Software für Ihr Unternehmen — <span
+          <h1 data-i18n-html="home.hero_h1">Individuelle <span class="rotator"
+              data-words="Software|Websites|Dashboards|Web-Apps">Software</span> für Ihr Unternehmen — <span
               class="accent-text">persönlich entwickelt.</span></h1>
           <p class="hero-sub" data-i18n="home.hero_sub">Ich entwickle Websites, Backend-Anwendungen und Dashboards, die
             wirklich zu Ihrem Unternehmen passen – persönlich betreut, verständlich erklärt und mit echter Freude an
@@ -75,7 +76,8 @@
         </div>
 
         <div class="service-grid">
-          <article class="service-card">
+          <article class="service-card service-card--web">
+            <span class="service-num" aria-hidden="true">01</span>
             <div class="service-icon" aria-hidden="true">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <rect x="3" y="4" width="18" height="16" rx="2" />
@@ -87,9 +89,17 @@
             <h3 data-i18n="home.service1_title">Moderne Websites</h3>
             <p data-i18n="home.service1_desc">Schnelle, responsive Websites, die auf jedem Gerät überzeugen und aus
               Besuchern Kunden machen — von der Landingpage bis zur kompletten Unternehmenswebsite.</p>
+            <div class="service-visual viz-browser" aria-hidden="true">
+              <div class="viz-bar"><i></i><i></i><i></i><span></span></div>
+              <div class="viz-page">
+                <div class="viz-hero"><b></b><b></b><em></em></div>
+                <div class="viz-row"><u></u><u></u><u></u></div>
+              </div>
+            </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card service-card--data">
+            <span class="service-num" aria-hidden="true">02</span>
             <div class="service-icon" aria-hidden="true">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <rect x="3" y="3" width="8" height="8" rx="1.5" />
@@ -101,9 +111,20 @@
             <h3 data-i18n="home.service2_title">Individuelle Backend-Apps &amp; Dashboards</h3>
             <p data-i18n="home.service2_desc">Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die
               zu Ihren echten Abläufen passen — keine Excel-Tabellen mehr, die aus allen Nähten platzen.</p>
+            <div class="service-visual viz-chart" aria-hidden="true">
+              <div class="viz-chart-head"><span class="viz-live"><i></i>live</span><b></b></div>
+              <div class="viz-bars">
+                <span style="--h: 42%; --d: 0s"></span><span style="--h: 64%; --d: -.6s"></span>
+                <span style="--h: 50%; --d: -1.2s"></span><span style="--h: 78%; --d: -1.8s"></span>
+                <span style="--h: 58%; --d: -2.4s"></span><span style="--h: 88%; --d: -3s"></span>
+                <span style="--h: 70%; --d: -3.6s"></span>
+              </div>
+              <div class="viz-rows"><u></u><u></u><u></u></div>
+            </div>
           </article>
 
-          <article class="service-card">
+          <article class="service-card service-card--consult">
+            <span class="service-num" aria-hidden="true">03</span>
             <div class="service-icon" aria-hidden="true">
               <svg class="icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
                 <path
@@ -113,6 +134,11 @@
             <h3 data-i18n="home.service3_title">IT-Beratung</h3>
             <p data-i18n="home.service3_desc">Ehrliche Beratung zu Daten, Software und digitalen Tools — damit Sie von
               Anfang an die richtige Entscheidung treffen.</p>
+            <div class="service-visual viz-chat" aria-hidden="true">
+              <p class="bubble bubble--q" data-i18n="home.chat_q">Brauche ich wirklich eine eigene App?</p>
+              <p class="bubble bubble--a" data-i18n="home.chat_a">Ehrlich? Wahrscheinlich nicht. Eine gute Web-App reicht
+                völlig.</p>
+            </div>
           </article>
         </div>
       </div>
@@ -194,9 +220,12 @@
     <section class="section" id="about-teaser">
       <div class="wrap">
         <div class="teaser">
-          <div class="teaser-avatar">
-            <img src="assets/img/memoji.png" alt="Memoji von Janik" data-i18n-attr="alt:home.teaser_img_alt" width="394"
-              height="378">
+          <div class="teaser-avatar-wrap">
+            <div class="teaser-avatar">
+              <img src="assets/img/memoji.png" alt="Memoji von Janik" data-i18n-attr="alt:home.teaser_img_alt"
+                width="394" height="378">
+            </div>
+            <span class="wave-badge" aria-hidden="true">👋</span>
           </div>
           <div class="teaser-text">
             <p data-i18n-html="home.teaser_p1"><strong>Hallo, ich bin Janik</strong> — Masterstudent für
@@ -236,8 +265,26 @@
               <span data-i18n="home.contact_linkedin_btn">LinkedIn</span>
             </a>
           </div>
+          <button class="copy-mail" type="button" data-copy="contact@janikwahrheit.dev">
+            <span class="copy-mail-address">contact@janikwahrheit.dev</span>
+            <span class="copy-mail-action" aria-live="polite">
+              <svg class="icon icon-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="8" y="8" width="12" height="12" rx="2.5" />
+                <path d="M16 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v8a2 2 0 0 0 2 2h2" />
+              </svg>
+              <svg class="icon icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M5 12.5l4.5 4.5L19 7.5" />
+              </svg>
+              <span class="copy-label" data-i18n="home.contact_copy">Kopieren</span>
+              <span class="copied-label" data-i18n="home.contact_copied">Kopiert!</span>
+            </span>
+          </button>
           <p class="contact-meta" data-i18n="home.contact_meta">Ansässig in Karlsruhe &middot; arbeite remote mit Kunden
             überall</p>
+          <p class="local-time"><span class="local-time-dot" aria-hidden="true"></span><span
+              data-i18n="home.contact_time">Lokalzeit Karlsruhe</span> <time id="local-time">--:--</time></p>
         </div>
       </div>
     </section>

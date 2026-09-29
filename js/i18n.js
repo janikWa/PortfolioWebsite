@@ -27,8 +27,8 @@
       hero_aria: { de: "Einleitung", en: "Introduction" },
       hero_eyebrow: { de: "IT-Beratung für KMU & Selbstständige", en: "IT consulting for SMEs & freelancers" },
       hero_h1: {
-        de: 'Individuelle Software für Ihr Unternehmen — <span class="accent-text">persönlich entwickelt.</span>',
-        en: 'Custom software for your business — <span class="accent-text">built by a real person.</span>'
+        de: 'Individuelle <span class="rotator" data-words="Software|Websites|Dashboards|Web-Apps">Software</span> für Ihr Unternehmen — <span class="accent-text">persönlich entwickelt.</span>',
+        en: 'Custom <span class="rotator" data-words="software|websites|dashboards|web apps">software</span> for your business — <span class="accent-text">built by a real person.</span>'
       },
       hero_sub: {
         de: "Ich entwickle Websites, Backend-Anwendungen und Dashboards, die wirklich zu Ihrem Unternehmen passen – persönlich betreut, verständlich erklärt und mit echter Freude an guter Arbeit.",
@@ -36,6 +36,7 @@
       },
       hero_cta_primary: { de: "Kontakt aufnehmen", en: "Get in touch" },
       hero_cta_secondary: { de: "bisherige Projekte", en: "See my work" },
+
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
       services_h2: { de: "Drei Wege, wie ich helfen kann", en: "Three ways I can help" },
@@ -58,6 +59,11 @@
       service3_desc: {
         de: "Ehrliche Beratung zu Daten, Software und digitalen Tools — damit Sie von Anfang an die richtige Entscheidung treffen.",
         en: "Honest advice on data, software, and digital tools — so you make the right call from day one."
+      },
+      chat_q: { de: "Brauche ich wirklich eine eigene App?", en: "Do I really need my own app?" },
+      chat_a: {
+        de: "Ehrlich? Wahrscheinlich nicht. Eine gute Web-App reicht völlig.",
+        en: "Honestly? Probably not. A good web app will do the job."
       },
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
@@ -89,6 +95,9 @@
       },
       contact_email_btn: { de: "Unverbindlich anfragen", en: "Get in touch" },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
+      contact_copy: { de: "Kopieren", en: "Copy" },
+      contact_copied: { de: "Kopiert!", en: "Copied!" },
+      contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" },
       contact_meta: {
         de: "Standort: Karlsruhe · Remote-Zusammenarbeit weltweit",
         en: "Based in Karlsruhe, Germany · Working remotely with clients worldwide"

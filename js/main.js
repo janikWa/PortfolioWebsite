@@ -120,6 +120,120 @@
     });
   }
 
+  var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  /* ---------- rotating word in the hero headline ----------
+     Re-queried each tick because the language toggle replaces the h1's innerHTML. */
+  if (!prefersReduced) {
+    setInterval(function () {
+      var el = document.querySelector(".rotator");
+      if (!el) return;
+      var words = (el.getAttribute("data-words") || "").split("|");
+      if (words.length < 2) return;
+      var next = words[(words.indexOf(el.textContent.trim()) + 1) % words.length];
+      var from = el.getBoundingClientRect().width;
+      el.style.width = from + "px";
+      el.classList.add("is-out");
+
+      setTimeout(function () {
+        if (!el.isConnected) return;
+        el.textContent = next;
+        el.style.width = "auto";
+        var to = el.getBoundingClientRect().width;
+        el.style.width = from + "px";
+        el.classList.add("is-in");
+        el.classList.remove("is-out");
+        void el.offsetWidth;
+        el.style.width = to + "px";
+        el.classList.remove("is-in");
+        setTimeout(function () { if (el.isConnected) el.style.width = ""; }, 500);
+      }, 300);
+    }, 2800);
+  }
+
+  /* ---------- hero glow eases toward the cursor ---------- */
+  var hero = document.querySelector(".hero");
+  if (hero && finePointer && !prefersReduced) {
+    var tx = 0, ty = 0, cx = 0, cy = 0, glowFrame = null;
+    var stepGlow = function () {
+      cx += (tx - cx) * 0.06;
+      cy += (ty - cy) * 0.06;
+      hero.style.setProperty("--gx", cx.toFixed(1) + "px");
+      hero.style.setProperty("--gy", cy.toFixed(1) + "px");
+      glowFrame = (Math.abs(tx - cx) > 0.5 || Math.abs(ty - cy) > 0.5) ? window.requestAnimationFrame(stepGlow) : null;
+    };
+    var startGlow = function () { if (!glowFrame) glowFrame = window.requestAnimationFrame(stepGlow); };
+    hero.addEventListener("pointermove", function (evt) {
+      var rect = hero.getBoundingClientRect();
+      tx = (evt.clientX - rect.left - rect.width / 2) * 0.35;
+      ty = (evt.clientY - rect.top - rect.height / 2) * 0.35;
+      startGlow();
+    });
+    hero.addEventListener("pointerleave", function () { tx = 0; ty = 0; startGlow(); });
+  }
+
+  /* ---------- magnetic CTA buttons ---------- */
+  if (finePointer && !prefersReduced) {
+    document.querySelectorAll(".hero-cta .btn, .contact-cta .btn").forEach(function (btn) {
+      btn.addEventListener("pointermove", function (evt) {
+        var rect = btn.getBoundingClientRect();
+        var dx = evt.clientX - (rect.left + rect.width / 2);
+        var dy = evt.clientY - (rect.top + rect.height / 2);
+        btn.classList.add("is-magnet");
+        btn.style.translate = (dx * 0.22).toFixed(1) + "px " + (dy * 0.3).toFixed(1) + "px";
+      });
+      btn.addEventListener("pointerleave", function () {
+        btn.classList.remove("is-magnet");
+        btn.style.translate = "";
+      });
+    });
+  }
+
+  /* ---------- copy email to clipboard ---------- */
+  var copyBtn = document.querySelector(".copy-mail");
+  if (copyBtn) {
+    var resetTimer = null;
+    var showCopied = function () {
+      copyBtn.classList.add("is-copied");
+      clearTimeout(resetTimer);
+      resetTimer = setTimeout(function () { copyBtn.classList.remove("is-copied"); }, 2000);
+    };
+    var copyFallback = function (text) {
+      var ta = document.createElement("textarea");
+      ta.value = text;
+      ta.setAttribute("readonly", "");
+      ta.style.position = "fixed";
+      ta.style.opacity = "0";
+      document.body.appendChild(ta);
+      ta.select();
+      var ok = false;
+      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
+      document.body.removeChild(ta);
+      if (ok) showCopied(); else window.location.href = "mailto:" + text;
+    };
+    copyBtn.addEventListener("click", function () {
+      var text = copyBtn.getAttribute("data-copy");
+      if (navigator.clipboard && window.isSecureContext) {
+        navigator.clipboard.writeText(text).then(showCopied, function () { copyFallback(text); });
+      } else {
+        copyFallback(text);
+      }
+    });
+  }
+
+  /* ---------- live local time (Karlsruhe) ---------- */
+  var timeEl = document.getElementById("local-time");
+  if (timeEl && window.Intl) {
+    var renderTime = function () {
+      timeEl.textContent = new Intl.DateTimeFormat("de-DE", {
+        hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin"
+      }).format(new Date());
+    };
+    renderTime();
+    setInterval(renderTime, 20000);
+  }
+
   /* ---------- CV timeline animation ---------- */
   var timeline = document.querySelector(".timeline");
   var timelineItems = timeline ? Array.prototype.slice.call(timeline.querySelectorAll(".timeline-item")) : [];
