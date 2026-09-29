@@ -30,6 +30,7 @@
   --accent-dark: #1d4ed8;
   --accent-soft: rgba(37, 99, 235, .1);
   --accent-ring: #bfdbfe;
+  --logo-blue: #3768bc;
   --accent-grad: linear-gradient(135deg, #3b82f6 0%, #2563eb 100%);
 
   /* glass: a bright hairline edge + a soft, cool drop shadow */
@@ -211,20 +212,19 @@ body::before {
 }
 .brand {
   display: flex;
-  align-items: baseline;
-  gap: 8px;
+  align-items: center;
   text-decoration: none;
-  font-weight: 700;
-  font-size: 1.05rem;
-  letter-spacing: -0.01em;
   color: var(--text);
 }
-.brand-tag {
+.brand-word {
   font-family: var(--font);
-  font-weight: 500;
-  font-size: 0.82rem;
-  color: var(--text-muted);
+  font-weight: 700;
+  font-size: 1.15rem;
+  letter-spacing: -0.025em;
+  color: #222;
 }
+.brand-accent { color: var(--logo-blue); }
+.brand-mark { display: none; height: 38px; width: auto; }
 .nav {
   display: flex;
   gap: 32px;
@@ -1203,6 +1203,17 @@ body::before {
 }
 .footer-nav a:hover { color: var(--accent); }
 .social-row--footer a:hover { background: var(--accent-grad); color: #fff; }
+.made-by {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 14px;
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  opacity: .85;
+}
+.made-by-mark { height: 22px; width: auto; transition: transform .25s ease; }
+.made-by:hover .made-by-mark { transform: rotate(-6deg) scale(1.08); }
 .footer-name {
   margin-top: 20px;
   font-size: 0.85rem;
@@ -1311,5 +1322,6 @@ body::before {
   }
   .nav a { padding: 10px 0; }
   .nav-toggle { display: flex; }
-  .brand-tag { display: none; }
+  .brand-word { display: none; }
+  .brand-mark { display: block; }
 }

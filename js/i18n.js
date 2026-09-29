@@ -16,7 +16,7 @@
       footer_nav_aria: { de: "Footer-Navigation", en: "Footer navigation" },
       social_aria: { de: "Soziale Netzwerke", en: "Social links" },
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
-      brand_tag: { de: "Websites & Tools", en: "Websites & tools" }
+      made_by: { de: "Gebaut von", en: "Made by" }
     },
 
     home: {
