@@ -20,30 +20,45 @@
     },
 
     home: {
-      title: { de: "Janik Wahrheit — IT-Beratung für KMU", en: "Janik Wahrheit — IT Consulting for SMEs" },
+      title: {
+        de: "Janik Wahrheit — Websites & IT-Lösungen",
+        en: "Janik Wahrheit — Websites & IT Solutions"
+      },
       meta_desc: {
-        de: "Individuelle Websites, Backend-Apps und Dashboards für kleine und mittlere Unternehmen — von Janik Wahrheit, Data-Science-Student und freiberuflicher IT-Berater.",
-        en: "Custom websites, backend apps, and dashboards for small and medium-sized businesses — by Janik Wahrheit, Data Science student and freelance IT consultant."
+        de: "Ich baue Websites und individuelle IT-Lösungen für kleine Unternehmen und Selbstständige – persönlich, verständlich und direkt mit mir.",
+        en: "I build websites and custom IT solutions for small businesses and freelancers — personal, clear, and directly with me."
       },
       hero_aria: { de: "Einleitung", en: "Introduction" },
-      hero_eyebrow: { de: "IT-Beratung für KMU & Selbstständige", en: "IT consulting for SMEs & freelancers" },
+      hero_eyebrow: {
+        de: "Websites & IT-Lösungen für kleine Unternehmen",
+        en: "Websites & IT solutions for small businesses"
+      },
       hero_h1: {
-        de: 'Individuelle <span class="rotator" data-words="Software|Websites|Dashboards|Web-Apps">Software</span> für Ihr Unternehmen — <span class="accent-text">persönlich entwickelt.</span>',
-        en: 'Custom <span class="rotator" data-words="software|websites|dashboards|web apps">software</span> for your business — <span class="accent-text">built by a real person.</span>'
+        de: "Individuelle <span class=\"rotator\" data-words=\"Software|Websites|Dashboards|Web-Apps\">Software</span> für dein Unternehmen — <span class=\"accent-text\">persönlich entwickelt.</span>",
+        en: "Custom <span class=\"rotator\" data-words=\"software|websites|dashboards|web apps\">software</span> for your business — <span class=\"accent-text\">built by me, personally.</span>"
       },
       hero_sub: {
-        de: "Ich entwickle moderne Websites – und finde mit Ihnen die Stellen, an denen individuelle IT-Lösungen Ihren Arbeitsalltag spürbar entlasten. Persönlich betreut und verständlich erklärt.",
-        en: "I build modern websites — and work with you to find the spots where custom IT solutions noticeably lighten your day-to-day work. Personal support, clear explanations."
+        de: "Ich baue dir eine moderne Website – und schaue gemeinsam mit dir, wo individuelle IT-Lösungen deinen Arbeitsalltag spürbar leichter machen. Persönlich, ehrlich und ohne Fachchinesisch.",
+        en: "I'll build you a modern website — and together we'll look at where custom IT solutions can make your day-to-day noticeably easier. Personal, honest and jargon-free."
       },
-      hero_cta_primary: { de: "Kontakt aufnehmen", en: "Get in touch" },
-      hero_cta_secondary: { de: "bisherige Projekte", en: "See my work" },
+      hero_cta_primary: {
+        de: "Schreib mir",
+        en: "Get in touch"
+      },
+      hero_cta_secondary: {
+        de: "Meine Projekte",
+        en: "See my work"
+      },
 
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
-      services_h2: { de: "Drei Wege, wie ich helfen kann", en: "Three ways I can help" },
+      services_h2: {
+        de: "Drei Wege, wie ich dir helfen kann",
+        en: "Three ways I can help you"
+      },
       services_sub: {
-        de: "Praktische Lösungen, die zu Ihrem Unternehmen passen — unkompliziert, transparent und ohne Umwege.",
-        en: "Practical solutions that fit your business — straightforward, transparent, and no unnecessary detours."
+        de: "Praktische Lösungen, die zu dir und deinem Unternehmen passen – unkompliziert, transparent und ohne Umwege.",
+        en: "Practical solutions that fit you and your business — straightforward, transparent, no detours."
       },
 
       service1_title: { de: "Moderne Websites", en: "Modern Websites" },
@@ -53,13 +68,13 @@
       },
       service2_title: { de: "Individuelle Backend-Apps & Dashboards", en: "Custom Backend Apps & Dashboards" },
       service2_desc: {
-        de: "Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die zu Ihren echten Abläufen passen — keine Excel-Tabellen mehr, die aus allen Nähten platzen.",
-        en: "Tailored internal tools, live dashboards, and automation that fit how you actually work — so your spreadsheets can finally stop bursting at the seams."
+        de: "Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die zu deinen echten Abläufen passen – keine Excel-Tabellen mehr, die aus allen Nähten platzen.",
+        en: "Tailored internal tools, live dashboards and automation that fit how you actually work — so your spreadsheets can finally stop bursting at the seams."
       },
       service3_title: { de: "IT-Beratung", en: "IT Consulting" },
       service3_desc: {
-        de: "Ehrliche Beratung zu Daten, Software und digitalen Tools — damit Sie von Anfang an die richtige Entscheidung treffen.",
-        en: "Honest advice on data, software, and digital tools — so you make the right call from day one."
+        de: "Ehrliche Beratung zu Daten, Software und digitalen Tools – damit du von Anfang an die richtige Entscheidung triffst.",
+        en: "Honest advice on data, software and digital tools — so you make the right call from day one."
       },
       chat_q: { de: "Brauche ich wirklich eine eigene App?", en: "Do I really need my own app?" },
       chat_a: {
@@ -70,62 +85,71 @@
       flow_eyebrow: { de: "Mehr als eine Website", en: "More than a website" },
       flow_h2: { de: "Von der Website zur passenden IT‑Lösung", en: "From website to the right IT solution" },
       flow_sub: {
-        de: "Die meisten Projekte beginnen mit einer Website. Im Gespräch zeigt sich oft, wo im Alltag unnötig Zeit verloren geht – und genau dort setzen individuelle IT-Lösungen an.",
-        en: "Most projects start with a website. Talking it through often reveals where time is being lost day to day — and that's exactly where custom IT solutions come in."
+        de: "Die meisten Projekte starten mit einer Website. Wenn wir uns unterhalten, sehen wir oft, wo im Alltag unnötig Zeit verloren geht – und genau da setze ich mit individuellen IT-Lösungen an.",
+        en: "Most projects start with a website. When we talk, we often spot where time is being lost day to day — and that's exactly where I step in with custom IT solutions."
       },
       flow1_label: { de: "Der Start", en: "The start" },
-      flow1_title: { de: "Ihre Website", en: "Your website" },
+      flow1_title: {
+        de: "Deine Website",
+        en: "Your website"
+      },
       flow1_desc: {
-        de: "Ein moderner, schneller Auftritt, der Ihr Angebot klar zeigt und Anfragen bringt.",
-        en: "A modern, fast online presence that shows what you offer and brings in enquiries."
+        de: "Ein moderner, schneller Auftritt, der dein Angebot klar zeigt und dir Anfragen bringt.",
+        en: "A modern, fast online presence that shows what you offer and brings you enquiries."
       },
       flow2_label: { de: "Im Gespräch", en: "In conversation" },
       flow2_title: { de: "Potenzial erkennen", en: "Spot the potential" },
       flow2_desc: {
-        de: "Wir schauen gemeinsam auf Ihre Abläufe: Wo wird doppelt gepflegt, per Hand übertragen oder lange gesucht?",
-        en: "We look at your workflows together: where is data entered twice, copied by hand or hard to find?"
+        de: "Wir schauen uns gemeinsam deine Abläufe an: Wo pflegst du Daten doppelt, überträgst sie per Hand oder suchst ewig?",
+        en: "We look at your workflows together: where are you entering data twice, copying it by hand or searching forever?"
       },
       flow3_label: { de: "Der nächste Schritt", en: "The next step" },
       flow3_title: { de: "Individuelle IT-Lösung", en: "Custom IT solution" },
       flow3_desc: {
-        de: "Tools, Dashboards und Automatisierungen, die genau zu Ihrem Betrieb passen.",
+        de: "Tools, Dashboards und Automatisierungen, die genau zu deinem Betrieb passen.",
         en: "Tools, dashboards and automation that fit exactly how your business works."
       },
       flow3_chip1: { de: "Anfragen automatisch erfassen", en: "Capture enquiries automatically" },
       flow3_chip2: { de: "Excel → Dashboard", en: "Spreadsheet → dashboard" },
       flow3_chip3: { de: "Online-Terminbuchung", en: "Online booking" },
       flow_note: {
-        de: "Kein Muss: Wenn eine Website alles ist, was Sie brauchen, bleibt es genau dabei.",
-        en: "No obligation: if a website is all you need, that's exactly what you get."
+        de: "Kein Muss: Wenn eine Website alles ist, was du brauchst, bleibt es genau dabei.",
+        en: "No pressure: if a website is all you need, that's exactly what you get."
       },
 
       process_eyebrow: { de: "So läuft's ab", en: "How it works" },
       process_h2: { de: "Vom ersten Kontakt bis zum Go‑live", en: "From first contact to go‑live" },
-      process_sub: { de: "Vier klare Schritte – Sie wissen jederzeit, wo Ihr Projekt steht.", en: "Four clear steps — you always know where your project stands." },
+      process_sub: {
+        de: "Vier klare Schritte – du weißt jederzeit, wo dein Projekt steht.",
+        en: "Four clear steps — you always know where your project stands."
+      },
       step1_title: { de: "Erstkontakt", en: "First contact" },
       step1_desc: {
-        de: "Sie erzählen mir kurz, worum es geht. In einem unverbindlichen Gespräch klären wir Ziele, Wünsche und Rahmen.",
-        en: "You tell me briefly what it's about. In a no-obligation call we clarify goals, wishes and scope."
+        de: "Du erzählst mir kurz, worum es geht. In einem unverbindlichen Gespräch klären wir deine Ziele, Wünsche und den Rahmen.",
+        en: "You tell me briefly what it's about. In a no-obligation chat we figure out your goals, wishes and scope."
       },
       step2_title: { de: "Konzept", en: "Concept" },
       step2_desc: {
-        de: "Sie erhalten einen klaren Plan mit Aufbau, Funktionen, Zeitrahmen und Kosten – bevor es losgeht.",
-        en: "You get a clear plan covering structure, features, timeline and cost — before any work starts."
+        de: "Du bekommst von mir einen klaren Plan mit Aufbau, Funktionen, Zeitrahmen und Kosten – bevor es losgeht.",
+        en: "I send you a clear plan covering structure, features, timeline and cost — before anything starts."
       },
       step3_title: { de: "Entwicklung", en: "Development" },
       step3_desc: {
-        de: "Ich setze Design und Technik um. Sie sehen regelmäßig Zwischenstände und geben Feedback.",
-        en: "I build the design and the tech. You see regular progress and give feedback along the way."
+        de: "Ich setze Design und Technik um. Du siehst regelmäßig Zwischenstände und gibst mir Feedback.",
+        en: "I build the design and the tech. You see regular progress and give me feedback along the way."
       },
       step4_title: { de: "Launch & Go", en: "Launch & go" },
       step4_desc: {
-        de: "Test, Feinschliff, live. Danach bin ich weiter für Anpassungen und neue Ideen da.",
+        de: "Test, Feinschliff, live. Danach bin ich weiter für Anpassungen und neue Ideen für dich da.",
         en: "Testing, polish, live. After that I'm still around for changes and new ideas."
       },
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
       work_h2: { de: "Ausgewählte Projekte", en: "Selected Projects" },
-      work_sub: { de: "Von der internen Auftragsverwaltung bis zur modernen Unternehmenswebsite – so sehen praktische IT-Lösungen für den Mittelstand aus.", en: "Real web projects that show how I work." },
+      work_sub: {
+        de: "Hier zeige ich dir bald die ersten Projekte, die ich für Kunden umgesetzt habe.",
+        en: "Soon you'll find the first projects I've built for clients right here."
+      },
 
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
       work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
@@ -134,30 +158,39 @@
         en: "References from client projects will appear here soon."
       },
       teaser_p1: {
-        de: '<strong>Hallo, ich bin Janik</strong> — Masterstudent für Wirtschaftsingenieurwesen am KIT. Ich baue maßgeschneiderte Software für kleine Unternehmen und arbeite parallel an meinem Startup usegradias.ai.',
-        en: '<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering at KIT. I build custom software for small businesses and am currently working on my startup, usegradias.ai.'
+        de: "<strong>Hi, ich bin Janik</strong> – Masterstudent im Wirtschaftsingenieurwesen am KIT. Ich baue Websites und Software für kleine Unternehmen und arbeite nebenbei an meinem Startup usegradias.ai.",
+        en: "<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering at KIT. I build websites and software for small businesses and work on my startup usegradias.ai on the side."
       },
       teaser_p2: {
-        de: "Ich freue mich über jedes Projekt und bringe echtes Interesse und Sorgfalt mit — vom ersten Gespräch bis zum letzten Feinschliff.",
-        en: "I genuinely enjoy every project I take on, and I bring real care and attention to it — from our first conversation to the final details."
+        de: "Ich freue mich über jedes Projekt und bin von der ersten Nachricht bis zum letzten Feinschliff dein direkter Ansprechpartner.",
+        en: "I enjoy every project I take on, and I'm your direct contact from the first message to the final polish."
       },
       teaser_link: { de: "Mehr über mich →", en: "More about me →" },
       teaser_img_alt: { de: "Memoji von Janik", en: "Memoji of Janik" },
 
-      contact_status: { de: "Verfügbar für neue Projekte", en: "Ready for new projects" },
-      contact_h2: { de: "Lassen Sie uns über Ihr Vorhaben sprechen", en: "Let's talk about your project" },
-      contact_sub: {
-        de: "Ob maßgeschneidertes Backend-Tool oder performante Website: Schildern Sie mir kurz Ihre aktuelle Herausforderung. Ich melde mich innerhalb von 48 Stunden mit einer ersten Einschätzung.",
-        en: "Whether it's a custom backend tool or a high-performance website: tell me about your current challenge. I'll get back to you within 48 hours with an initial assessment."
+      contact_status: {
+        de: "Ich habe Zeit für neue Projekte",
+        en: "I have time for new projects"
       },
-      contact_email_btn: { de: "Unverbindlich anfragen", en: "Get in touch" },
+      contact_h2: {
+        de: "Lass uns über dein Projekt sprechen",
+        en: "Let's talk about your project"
+      },
+      contact_sub: {
+        de: "Ob Website oder individuelles Tool: Erzähl mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden persönlich bei dir – mit einer ersten, ehrlichen Einschätzung.",
+        en: "Website or custom tool: tell me briefly what you have in mind. I'll get back to you personally within 48 hours with an honest first take."
+      },
+      contact_email_btn: {
+        de: "Schreib mir",
+        en: "Write to me"
+      },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
       contact_copy: { de: "Kopieren", en: "Copy" },
       contact_copied: { de: "Kopiert!", en: "Copied!" },
       contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" },
       contact_meta: {
-        de: "Standort: Karlsruhe · Remote-Zusammenarbeit weltweit",
-        en: "Based in Karlsruhe, Germany · Working remotely with clients worldwide"
+        de: "Ich sitze in Karlsruhe und arbeite auch gern remote mit dir zusammen.",
+        en: "I'm based in Karlsruhe and just as happy to work with you remotely."
       }
     },
 
@@ -169,8 +202,8 @@
       },
       page_h1: { de: "Über mich", en: "About Me" },
       page_sub: {
-        de: "Masterstudent am KIT — und der Kopf, der Ihre Projekte von der Idee bis zum Code umsetzt.",
-        en: "Master's student at KIT — and the person who turns your ideas into working code."
+        de: "Masterstudent am KIT – und derjenige, der dein Projekt von der Idee bis zum fertigen Code umsetzt.",
+        en: "Master's student at KIT — and the person who takes your project from idea to finished code."
       },
       photo_alt: { de: "Foto von Janik Wahrheit", en: "Photo of Janik Wahrheit" },
 
@@ -184,16 +217,16 @@
         en: 'Alongside my studies, I help small businesses and freelancers digitize their workflows by building the exact software and websites they need. I gained my technical foundation in the Data Science department at Porsche and by building my startup <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a>.'
       },
       p3: {
-        de: "Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an. Mein Ziel ist es nicht, dicke Berater-Konzepte zu schreiben, sondern als technischer Partner direkt nutzbare Werkzeuge zu programmieren, die Ihnen im Arbeitsalltag Zeit sparen.",
-        en: "Through my engineering studies, I approach problems analytically. My goal isn't to write lengthy consulting reports, but to act as a technical partner who codes practical tools that save you time in your day-to-day work."
+        de: "Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an. Ich schreibe keine dicken Berater-Konzepte, sondern programmiere Werkzeuge, die du direkt nutzen kannst und die dir im Alltag Zeit sparen.",
+        en: "My engineering studies taught me to approach problems analytically. I don't write thick consulting reports — I build tools you can use right away and that save you time every day."
       },
       p4: {
         de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – ob als Läufer auf der 3000-Meter-Bahn, beim Halbmarathon oder auf dem Rennrad. Außerdem koche ich gerne und lese viel über Psychologie, Wirtschaft und Biologie, um immer wieder neue Perspektiven kennenzulernen.",
         en: "When I'm not at my desk, I'm usually highly active – whether running on the 3000m track, racing a half marathon, or riding my road bike. I also enjoy cooking and reading about psychology, economics, and biology to constantly discover new perspectives."
       },
       p5: {
-        de: "Vielen Dank für den Besuch auf meiner Seite – schreiben Sie mir gerne eine Nachricht, wenn wir gemeinsam ein Projekt umsetzen möchten!",
-        en: "Thanks for stopping by – feel free to send me a message if you'd like to build a project together!"
+        de: "Danke, dass du vorbeischaust – schreib mir einfach, wenn wir zusammen etwas bauen sollen!",
+        en: "Thanks for stopping by — just drop me a message if we should build something together!"
       },
 
       techstack_eyebrow: { de: "Werkzeugkasten", en: "Toolbox" },
@@ -301,8 +334,8 @@
       proj5_tag: { de: "Vorausschauende Qualitätsüberwachung", en: "predictive quality monitoring" },
 
       proj6_desc: {
-        de: 'Mitgegründet im Dezember 2025. Auch auf der <a href="index.html#work" style="color:var(--accent); font-weight:600;">Startseite</a> zu sehen.',
-        en: 'Co-founded in December 2025. Also featured on the <a href="index.html#work" style="color:var(--accent); font-weight:600;">home page</a>.'
+        de: "Mein Startup – mitgegründet im Dezember 2025.",
+        en: "My startup — co-founded in December 2025."
       },
       proj6_link: { de: "usegradias.ai besuchen →", en: "visit usegradias.ai →" }
     }
