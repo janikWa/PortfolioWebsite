@@ -71,7 +71,7 @@
 
   /* ---------- scroll reveal ---------- */
   var revealTargets = document.querySelectorAll(
-    ".about-content, .project-card, .service-card, .work-card, .tech-tile, .teaser, .contact-card, .section-head"
+    ".about-content, .project-card, .service-card, .work-card, .tech-tile, .teaser, .contact-card, .section-head, .flow-card, .step"
   );
   revealTargets.forEach(function (el) {
     el.classList.add("reveal");
@@ -110,7 +110,7 @@
 
   /* ---------- cursor spotlight on cards (mouse/trackpad only) ---------- */
   if (window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches) {
-    document.querySelectorAll(".service-card, .project-card, .work-card:not(.work-card--placeholder)").forEach(function (card) {
+    document.querySelectorAll(".service-card, .flow-card, .project-card, .work-card:not(.work-card--placeholder)").forEach(function (card) {
       card.classList.add("spotlight");
       card.addEventListener("pointermove", function (evt) {
         var rect = card.getBoundingClientRect();
