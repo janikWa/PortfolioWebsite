@@ -953,19 +953,16 @@ body::after {
 .project-media {
   border-radius: 14px;
   overflow: hidden;
+  background:
+    radial-gradient(rgba(148, 160, 180, .28) 1px, transparent 1.2px) 0 0 / 14px 14px,
+    linear-gradient(135deg, #f1f3f7 0%, #fbeee6 100%);
+  box-shadow: inset 0 0 0 1px var(--border-soft);
   aspect-ratio: 300 / 170;
   background: var(--media-bg);
   box-shadow: inset 0 0 0 1px var(--border-soft);
 }
-.project-svg { width: 100%; height: 100%; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
+.project-svg { width: 100%; height: 100%; display: block; transition: transform .6s cubic-bezier(.2,.7,.2,1); }
 .project-card:hover .project-svg { transform: scale(1.04); }
-
-/* cover micro-animations: key line redraws on hover, signal pings loop */
-.cv-draw { stroke-dasharray: 420; stroke-dashoffset: 0; }
-.project-card:hover .cv-draw { animation: cv-draw 1.2s cubic-bezier(.4, 0, .2, 1) both; }
-@keyframes cv-draw { from { stroke-dashoffset: 420; } to { stroke-dashoffset: 0; } }
-.cv-ping { transform-box: fill-box; transform-origin: center; animation: cv-ping 2.6s ease-out infinite; }
-@keyframes cv-ping { 0% { transform: scale(.5); opacity: .9; } 100% { transform: scale(1.9); opacity: 0; } }
 
 .tech-label {
   display: block;
