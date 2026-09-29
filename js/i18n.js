@@ -8,6 +8,7 @@
       skip_link: { de: "Zum Inhalt springen", en: "Skip to content" },
       nav_home: { de: "Start", en: "Home" },
       nav_services: { de: "Leistungen", en: "Services" },
+      nav_process: { de: "Ablauf", en: "Process" },
       nav_work: { de: "Projekte", en: "Work" },
       nav_about: { de: "Über mich", en: "About" },
       nav_contact_btn: { de: "Kontakt", en: "Contact" },
@@ -31,8 +32,8 @@
         en: 'Custom <span class="rotator" data-words="software|websites|dashboards|web apps">software</span> for your business — <span class="accent-text">built by a real person.</span>'
       },
       hero_sub: {
-        de: "Ich entwickle Websites, Backend-Anwendungen und Dashboards, die wirklich zu Ihrem Unternehmen passen – persönlich betreut, verständlich erklärt und mit echter Freude an guter Arbeit.",
-        en: "I build websites, backend applications, and dashboards that genuinely fit your business — with personal attention, plain-language explanations, and real care for getting the details right."
+        de: "Ich entwickle moderne Websites – und finde mit Ihnen die Stellen, an denen individuelle IT-Lösungen Ihren Arbeitsalltag spürbar entlasten. Persönlich betreut und verständlich erklärt.",
+        en: "I build modern websites — and work with you to find the spots where custom IT solutions noticeably lighten your day-to-day work. Personal support, clear explanations."
       },
       hero_cta_primary: { de: "Kontakt aufnehmen", en: "Get in touch" },
       hero_cta_secondary: { de: "bisherige Projekte", en: "See my work" },
@@ -64,6 +65,62 @@
       chat_a: {
         de: "Ehrlich? Wahrscheinlich nicht. Eine gute Web-App reicht völlig.",
         en: "Honestly? Probably not. A good web app will do the job."
+      },
+
+      flow_eyebrow: { de: "Mehr als eine Website", en: "More than a website" },
+      flow_h2: { de: "Von der Website zur passenden IT‑Lösung", en: "From website to the right IT solution" },
+      flow_sub: {
+        de: "Die meisten Projekte beginnen mit einer Website. Im Gespräch zeigt sich oft, wo im Alltag unnötig Zeit verloren geht – und genau dort setzen individuelle IT-Lösungen an.",
+        en: "Most projects start with a website. Talking it through often reveals where time is being lost day to day — and that's exactly where custom IT solutions come in."
+      },
+      flow1_label: { de: "Der Start", en: "The start" },
+      flow1_title: { de: "Ihre Website", en: "Your website" },
+      flow1_desc: {
+        de: "Ein moderner, schneller Auftritt, der Ihr Angebot klar zeigt und Anfragen bringt.",
+        en: "A modern, fast online presence that shows what you offer and brings in enquiries."
+      },
+      flow2_label: { de: "Im Gespräch", en: "In conversation" },
+      flow2_title: { de: "Potenzial erkennen", en: "Spot the potential" },
+      flow2_desc: {
+        de: "Wir schauen gemeinsam auf Ihre Abläufe: Wo wird doppelt gepflegt, per Hand übertragen oder lange gesucht?",
+        en: "We look at your workflows together: where is data entered twice, copied by hand or hard to find?"
+      },
+      flow3_label: { de: "Der nächste Schritt", en: "The next step" },
+      flow3_title: { de: "Individuelle IT-Lösung", en: "Custom IT solution" },
+      flow3_desc: {
+        de: "Tools, Dashboards und Automatisierungen, die genau zu Ihrem Betrieb passen.",
+        en: "Tools, dashboards and automation that fit exactly how your business works."
+      },
+      flow3_chip1: { de: "Anfragen automatisch erfassen", en: "Capture enquiries automatically" },
+      flow3_chip2: { de: "Excel → Dashboard", en: "Spreadsheet → dashboard" },
+      flow3_chip3: { de: "Online-Terminbuchung", en: "Online booking" },
+      flow_note: {
+        de: "Kein Muss: Wenn eine Website alles ist, was Sie brauchen, bleibt es genau dabei.",
+        en: "No obligation: if a website is all you need, that's exactly what you get."
+      },
+
+      process_eyebrow: { de: "So läuft's ab", en: "How it works" },
+      process_h2: { de: "Vom ersten Kontakt bis zum Go‑live", en: "From first contact to go‑live" },
+      process_sub: { de: "Vier klare Schritte – Sie wissen jederzeit, wo Ihr Projekt steht.", en: "Four clear steps — you always know where your project stands." },
+      step1_title: { de: "Erstkontakt", en: "First contact" },
+      step1_desc: {
+        de: "Sie erzählen mir kurz, worum es geht. In einem unverbindlichen Gespräch klären wir Ziele, Wünsche und Rahmen.",
+        en: "You tell me briefly what it's about. In a no-obligation call we clarify goals, wishes and scope."
+      },
+      step2_title: { de: "Konzept", en: "Concept" },
+      step2_desc: {
+        de: "Sie erhalten einen klaren Plan mit Aufbau, Funktionen, Zeitrahmen und Kosten – bevor es losgeht.",
+        en: "You get a clear plan covering structure, features, timeline and cost — before any work starts."
+      },
+      step3_title: { de: "Entwicklung", en: "Development" },
+      step3_desc: {
+        de: "Ich setze Design und Technik um. Sie sehen regelmäßig Zwischenstände und geben Feedback.",
+        en: "I build the design and the tech. You see regular progress and give feedback along the way."
+      },
+      step4_title: { de: "Launch & Go", en: "Launch & go" },
+      step4_desc: {
+        de: "Test, Feinschliff, live. Danach bin ich weiter für Anpassungen und neue Ideen da.",
+        en: "Testing, polish, live. After that I'm still around for changes and new ideas."
       },
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
