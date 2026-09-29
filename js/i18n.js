@@ -9,14 +9,14 @@
       nav_home: { de: "Start", en: "Home" },
       nav_services: { de: "Leistungen", en: "Services" },
       nav_process: { de: "Ablauf", en: "Process" },
-      nav_work: { de: "Projekte", en: "Work" },
+      nav_work: { de: "Referenzen", en: "Work" },
       nav_about: { de: "Über mich", en: "About" },
       nav_contact_btn: { de: "Kontakt", en: "Contact" },
       nav_toggle_aria: { de: "Menü öffnen", en: "Open menu" },
       footer_nav_aria: { de: "Footer-Navigation", en: "Footer navigation" },
       social_aria: { de: "Soziale Netzwerke", en: "Social links" },
-      footer_name: { de: "janik wahrheit · IT-Beratung", en: "janik wahrheit · IT Consulting" },
-      brand_tag: { de: "IT-Beratung", en: "IT Consulting" }
+      footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
+      brand_tag: { de: "Websites & Tools", en: "Websites & tools" }
     },
 
     home: {
@@ -29,10 +29,7 @@
         en: "I build websites and custom IT solutions for small businesses and freelancers — personal, clear, and directly with me."
       },
       hero_aria: { de: "Einleitung", en: "Introduction" },
-      hero_eyebrow: {
-        de: "Websites & IT-Lösungen für kleine Unternehmen",
-        en: "Websites & IT solutions for small businesses"
-      },
+      hero_eyebrow: { de: "Für Selbstständige & kleine Betriebe", en: "For freelancers & small local businesses" },
       hero_h1: {
         de: "Individuelle <span class=\"rotator\" data-words=\"Software|Websites|Dashboards|Web-Apps\">Software</span> für dein Unternehmen — <span class=\"accent-text\">persönlich entwickelt.</span>",
         en: "Custom <span class=\"rotator\" data-words=\"software|websites|dashboards|web apps\">software</span> for your business — <span class=\"accent-text\">built by me, personally.</span>"
@@ -45,10 +42,7 @@
         de: "Schreib mir",
         en: "Get in touch"
       },
-      hero_cta_secondary: {
-        de: "Meine Projekte",
-        en: "See my work"
-      },
+      hero_cta_secondary: { de: "So arbeite ich", en: "How I work" },
 
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
@@ -57,24 +51,24 @@
         en: "Three ways I can help you"
       },
       services_sub: {
-        de: "Praktische Lösungen, die zu dir und deinem Unternehmen passen – unkompliziert, transparent und ohne Umwege.",
-        en: "Practical solutions that fit you and your business — straightforward, transparent, no detours."
+        de: "Pragmatisch statt überladen: Ich baue genau das, was du im Alltag wirklich brauchst – nicht mehr und nicht weniger.",
+        en: "Pragmatic, not bloated: I build exactly what you actually need day to day — no more, no less."
       },
 
-      service1_title: { de: "Moderne Websites", en: "Modern Websites" },
+      service1_title: { de: "Websites", en: "Websites" },
       service1_desc: {
-        de: "Schnelle, responsive Websites, die auf jedem Gerät überzeugen und aus Besuchern Kunden machen — von der Landingpage bis zur kompletten Unternehmenswebsite.",
-        en: "Fast, responsive websites that make a great impression on any device and turn visitors into customers — from a simple landing page to a full business site."
+        de: "Schnelle, saubere Websites, die auf dem Handy genauso gut funktionieren wie am Laptop und klar zeigen, was du anbietest – von der einfachen Landingpage bis zur kompletten Seite für deinen Betrieb.",
+        en: "Fast, clean websites that work as well on a phone as on a laptop and make clear what you offer — from a simple landing page to a full site for your business."
       },
-      service2_title: { de: "Individuelle Backend-Apps & Dashboards", en: "Custom Backend Apps & Dashboards" },
+      service2_title: { de: "Interne Tools & Dashboards", en: "Internal tools & dashboards" },
       service2_desc: {
-        de: "Maßgeschneiderte interne Tools, Live-Dashboards und Automatisierungen, die zu deinen echten Abläufen passen – keine Excel-Tabellen mehr, die aus allen Nähten platzen.",
-        en: "Tailored internal tools, live dashboards and automation that fit how you actually work — so your spreadsheets can finally stop bursting at the seams."
+        de: "Kleine Programme, Dashboards und Automatisierungen, die zu deinen echten Abläufen passen – statt Excel-Listen, bei denen irgendwann keiner mehr durchblickt.",
+        en: "Small tools, dashboards and automation that fit how you actually work — instead of spreadsheets nobody can make sense of anymore."
       },
-      service3_title: { de: "IT-Beratung", en: "IT Consulting" },
+      service3_title: { de: "Ehrliche Einschätzung", en: "Honest advice" },
       service3_desc: {
-        de: "Ehrliche Beratung zu Daten, Software und digitalen Tools – damit du von Anfang an die richtige Entscheidung triffst.",
-        en: "Honest advice on data, software and digital tools — so you make the right call from day one."
+        de: "Du bist unsicher, welches Tool oder welche Lösung zu dir passt? Ich schaue es mir mit dir an und sage dir ehrlich, was sich lohnt – und was nicht.",
+        en: "Not sure which tool or solution fits you? I'll look at it with you and tell you honestly what's worth it — and what isn't."
       },
       chat_q: { de: "Brauche ich wirklich eine eigene App?", en: "Do I really need my own app?" },
       chat_a: {
@@ -145,25 +139,22 @@
       },
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
-      work_h2: { de: "Ausgewählte Projekte", en: "Selected Projects" },
+      work_h2: { de: "Kundenprojekte", en: "Client projects" },
       work_sub: {
-        de: "Hier zeige ich dir bald die ersten Projekte, die ich für Kunden umgesetzt habe.",
-        en: "Soon you'll find the first projects I've built for clients right here."
+        de: "Sobald die ersten Kundenprojekte online sind, findest du sie hier.",
+        en: "As soon as the first client projects are live, you'll find them here."
       },
 
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
       work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
-      work_placeholder_desc: {
-        de: "Referenzen aus Kundenprojekten folgen hier in Kürze.",
-        en: "References from client projects will appear here soon."
-      },
+      work_placeholder_desc: { de: "Hier erscheint bald ein Kundenprojekt.", en: "A client project will appear here soon." },
       teaser_p1: {
-        de: "<strong>Hi, ich bin Janik</strong> – Masterstudent im Wirtschaftsingenieurwesen am KIT. Ich baue Websites und Software für kleine Unternehmen und arbeite nebenbei an meinem Startup usegradias.ai.",
-        en: "<strong>Hi, I’m Janik</strong> — a Master’s student in Industrial Engineering at KIT. I build websites and software for small businesses and work on my startup usegradias.ai on the side."
+        de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites und kleine Tools für Selbstständige und kleine Betriebe.",
+        en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites and small tools for freelancers and small businesses."
       },
       teaser_p2: {
-        de: "Ich freue mich über jedes Projekt und bin von der ersten Nachricht bis zum letzten Feinschliff dein direkter Ansprechpartner.",
-        en: "I enjoy every project I take on, and I'm your direct contact from the first message to the final polish."
+        de: "Kein Agentur-Apparat, keine Buzzwords: Du sprichst direkt mit mir, und ich sage dir ehrlich, was für dich sinnvoll ist.",
+        en: "No agency machine, no buzzwords: you talk directly to me, and I'll tell you honestly what makes sense for you."
       },
       teaser_link: { de: "Mehr über mich →", en: "More about me →" },
       teaser_img_alt: { de: "Memoji von Janik", en: "Memoji of Janik" },
