@@ -14,7 +14,7 @@
   --wrap: 1120px;
   --radius: 16px;
   --radius-sm: 10px;
-  --header-h: 64px;
+  --header-h: 72px;
 
   /* palette */
   --bg: #f6f8fb;
@@ -174,43 +174,39 @@ body::before {
 .btn-sm { padding: 9px 18px; font-size: 0.85rem; }
 
 /* ---------- header ---------- */
-/* floating glass pill; the full-width strip itself stays click-through */
+/* invisible at the top; a full-width frosted bar once the page scrolls */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 100;
-  padding: 12px 16px 0;
+  border-bottom: 1px solid transparent;
+  transition: background-color .3s ease, border-color .3s ease, box-shadow .3s ease;
+}
+.site-header.is-scrolled {
+  background: rgba(255, 255, 255, .55);
+  -webkit-backdrop-filter: var(--glass-blur);
+  backdrop-filter: var(--glass-blur);
+  border-bottom-color: rgba(255, 255, 255, .75);
+  box-shadow: 0 10px 30px -24px rgba(15, 35, 80, .35);
+}
+.site-header::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -1px;
+  height: 2px;
+  background: var(--accent-grad);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
   pointer-events: none;
 }
 .header-inner {
-  position: relative;
   height: var(--header-h);
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 0 10px 0 24px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, .5);
-  -webkit-backdrop-filter: var(--glass-blur);
-  backdrop-filter: var(--glass-blur);
-  box-shadow: var(--shadow-sm);
-  pointer-events: auto;
-  transition: background-color .3s ease, box-shadow .3s ease;
-}
-.site-header.is-scrolled .header-inner { background: rgba(255, 255, 255, .72); box-shadow: var(--shadow-md); }
-.header-inner::after {
-  content: "";
-  position: absolute;
-  left: 28px;
-  right: 28px;
-  bottom: 0;
-  height: 2px;
-  border-radius: 2px;
-  background: var(--accent-grad);
-  transform: scaleX(var(--scroll-progress, 0));
-  transform-origin: left;
-  pointer-events: none;
 }
 .brand {
   display: flex;
@@ -1154,8 +1150,8 @@ body::before {
   .nav {
     position: absolute;
     top: calc(100% + 8px);
-    left: 0;
-    right: 0;
+    left: 12px;
+    right: 12px;
     flex-direction: column;
     border-radius: 22px;
     background: rgba(255, 255, 255, .88);
