@@ -97,8 +97,7 @@
       },
       contact_email_btn: { de: "E-Mail schreiben", en: "Send an email" },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
-      contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" },
-      contact_meta: { de: "Ich sitze in Karlsruhe.", en: "Based in Karlsruhe, Germany." }
+      contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" }
     },
 
     about: {
