@@ -31,8 +31,8 @@
         en: "Hi, I’m Janik.<br>I build <span class=\"rotator\" data-words=\"websites|web apps|tools|software\">websites</span> and <span class=\"accent-text\">data projects.</span>"
       },
       hero_sub: {
-        de: "Ich studiere am KIT mit Schwerpunkt Data Science, habe bei Porsche im Data-Science-Team gearbeitet, baue nebenbei eigene Projekte und habe usegradias.ai mitgegründet.",
-        en: "I’m studying at KIT with a focus on data science, worked on the data science team at Porsche, build projects of my own on the side, and co-founded usegradias.ai."
+        de: "Ich studiere am KIT und beschäftige mich am liebsten mit Daten und Software. Hier findest du ein paar Projekte, an denen ich gearbeitet habe.",
+        en: "I’m studying at KIT and enjoy working with data and software. Here you’ll find a few projects I’ve worked on."
       },
       hero_cta_primary: { de: "Projekte ansehen", en: "See my projects" },
       hero_cta_secondary: { de: "Kontakt", en: "Contact" },

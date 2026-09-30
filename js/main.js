@@ -240,9 +240,8 @@
       ticking = false;
       var rect = timeline.getBoundingClientRect();
       var vh = window.innerHeight || document.documentElement.clientHeight;
-      var total = rect.height + vh * 0.5;
-      var scrolled = vh * 0.9 - rect.top;
-      var progress = Math.min(1, Math.max(0, scrolled / total));
+      var atPageEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 2;
+      var progress = atPageEnd ? 1 : Math.min(1, Math.max(0, (vh * 0.65 - rect.top) / rect.height));
       timeline.style.setProperty("--timeline-progress", progress.toFixed(4));
     };
 
