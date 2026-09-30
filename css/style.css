@@ -769,6 +769,7 @@ body::before {
   transition: transform .18s ease, box-shadow .18s ease;
 }
 .project-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.project-grid > .project-card:last-child:nth-child(odd) { grid-column: 1 / -1; justify-self: center; width: calc(50% - 12px); }
 .project-card h3 { font-size: 1.05rem; font-weight: 600; }
 .project-desc {
   color: var(--text-muted);
@@ -927,6 +928,7 @@ body::before {
 
 @media (max-width: 860px) {
   .project-grid { grid-template-columns: 1fr; }
+  .project-grid > .project-card:last-child:nth-child(odd) { width: auto; justify-self: stretch; }
 }
 
 @media (max-width: 720px) {

@@ -31,8 +31,8 @@
         en: "Hi, I’m Janik.<br>I build <span class=\"rotator\" data-words=\"websites|web apps|tools|software\">websites</span> and <span class=\"accent-text\">data projects.</span>"
       },
       hero_sub: {
-        de: "Ich studiere am KIT mit Schwerpunkt Data Science, habe bei Porsche im Data-Science-Team gearbeitet und baue nebenbei eigene Projekte – von Uni-Algorithmen bis zum Startup usegradias.ai.",
-        en: "I’m studying at KIT with a focus on data science, worked on the data science team at Porsche, and build projects of my own on the side — from university algorithms to my startup usegradias.ai."
+        de: "Ich studiere am KIT mit Schwerpunkt Data Science, habe bei Porsche im Data-Science-Team gearbeitet, baue nebenbei eigene Projekte und habe usegradias.ai mitgegründet.",
+        en: "I’m studying at KIT with a focus on data science, worked on the data science team at Porsche, build projects of my own on the side, and co-founded usegradias.ai."
       },
       hero_cta_primary: { de: "Projekte ansehen", en: "See my projects" },
       hero_cta_secondary: { de: "Kontakt", en: "Contact" },
@@ -75,8 +75,13 @@
       },
       proj5_tag: { de: "Vorausschauende Qualitätsüberwachung", en: "predictive quality monitoring" },
 
-      proj6_desc: { de: "Mein Startup – mitgegründet im Dezember 2025.", en: "My startup — co-founded in December 2025." },
+      proj6_desc: { de: "Unser Startup – gemeinsam gegründet im Dezember 2025.", en: "Our startup — co-founded in December 2025." },
       proj6_link: { de: "usegradias.ai besuchen →", en: "visit usegradias.ai →" },
+      proj7_desc: {
+        de: "Website für einen Heizungsfachbetrieb aus Jockgrim: Leistungen, Wartungsverträge, Spartipps und ein Kontaktformular.",
+        en: "Website for a heating specialist based in Jockgrim, Germany: services, maintenance contracts, energy-saving tips and a contact form."
+      },
+      proj7_link: { de: "kornmann-heizungstechnik.de besuchen →", en: "visit kornmann-heizungstechnik.de →" },
 
       teaser_p1: {
         de: "<strong>Hi, ich bin Janik</strong> – Masterstudent im Wirtschaftsingenieurwesen am KIT mit Schwerpunkt Data Science. Ich baue gern Dinge, die funktionieren: von Datenanalysen bis zu kompletten Web-Apps.",
