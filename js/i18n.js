@@ -96,8 +96,7 @@
         en: "Whether it’s a question, feedback or just a hello — I’m happy about every message and usually reply within a day or two."
       },
       contact_email_btn: { de: "E-Mail schreiben", en: "Send an email" },
-      contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
-      contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" }
+      contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" }
     },
 
     about: {

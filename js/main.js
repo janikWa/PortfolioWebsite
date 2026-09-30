@@ -190,18 +190,6 @@
     });
   }
 
-  /* ---------- live local time (Karlsruhe) ---------- */
-  var timeEl = document.getElementById("local-time");
-  if (timeEl && window.Intl) {
-    var renderTime = function () {
-      timeEl.textContent = new Intl.DateTimeFormat("de-DE", {
-        hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin"
-      }).format(new Date());
-    };
-    renderTime();
-    setInterval(renderTime, 20000);
-  }
-
   /* ---------- CV timeline animation ---------- */
   var timeline = document.querySelector(".timeline");
   var timelineItems = timeline ? Array.prototype.slice.call(timeline.querySelectorAll(".timeline-item")) : [];

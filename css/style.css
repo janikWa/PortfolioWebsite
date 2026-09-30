@@ -1,5 +1,5 @@
 /* ==========================================================================
-   janik wahrheit — IT consulting
+   janik wahrheit — portfolio
    Light & airy: soft blue mesh background, frosted-glass surfaces,
    blue gradient accents. Inter for body/UI, JetBrains Mono only
    for small label-style accents.
@@ -548,18 +548,6 @@ body::before {
 }
 .contact .btn-secondary:hover { border-color: var(--accent-ring); color: #fff; }
 .contact .btn-primary { background: #fff; color: var(--accent-dark); box-shadow: 0 12px 28px -14px rgba(0, 0, 0, .5); }
-.contact-card .local-time {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
-  margin-top: 8px;
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
-  color: var(--on-dark-muted);
-}
-.local-time-dot { width: 6px; height: 6px; border-radius: 50%; background: #93c5fd; }
-.local-time time { color: var(--on-dark); font-weight: 500; }
 
 /* ==========================================================================
    ABOUT
