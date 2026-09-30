@@ -190,38 +190,6 @@
     });
   }
 
-  /* ---------- copy email to clipboard ---------- */
-  var copyBtn = document.querySelector(".copy-mail");
-  if (copyBtn) {
-    var resetTimer = null;
-    var showCopied = function () {
-      copyBtn.classList.add("is-copied");
-      clearTimeout(resetTimer);
-      resetTimer = setTimeout(function () { copyBtn.classList.remove("is-copied"); }, 2000);
-    };
-    var copyFallback = function (text) {
-      var ta = document.createElement("textarea");
-      ta.value = text;
-      ta.setAttribute("readonly", "");
-      ta.style.position = "fixed";
-      ta.style.opacity = "0";
-      document.body.appendChild(ta);
-      ta.select();
-      var ok = false;
-      try { ok = document.execCommand("copy"); } catch (e) { ok = false; }
-      document.body.removeChild(ta);
-      if (ok) showCopied(); else window.location.href = "mailto:" + text;
-    };
-    copyBtn.addEventListener("click", function () {
-      var text = copyBtn.getAttribute("data-copy");
-      if (navigator.clipboard && window.isSecureContext) {
-        navigator.clipboard.writeText(text).then(showCopied, function () { copyFallback(text); });
-      } else {
-        copyFallback(text);
-      }
-    });
-  }
-
   /* ---------- live local time (Karlsruhe) ---------- */
   var timeEl = document.getElementById("local-time");
   if (timeEl && window.Intl) {

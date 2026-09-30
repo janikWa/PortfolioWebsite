@@ -16,7 +16,7 @@
       footer_nav_aria: { de: "Footer-Navigation", en: "Footer navigation" },
       social_aria: { de: "Soziale Netzwerke", en: "Social links" },
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
-      made_by: { de: "Gebaut von", en: "Made by" }
+      made_by: { de: "Made by", en: "Made by" }
     },
 
     home: {
@@ -176,8 +176,6 @@
         en: "Write to me"
       },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
-      contact_copy: { de: "Kopieren", en: "Copy" },
-      contact_copied: { de: "Kopiert!", en: "Copied!" },
       contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" },
       contact_meta: {
         de: "Ich sitze in Karlsruhe und arbeite auch gern remote mit dir zusammen.",
