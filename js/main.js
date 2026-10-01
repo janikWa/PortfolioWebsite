@@ -190,18 +190,6 @@
     });
   }
 
-  /* ---------- live local time (Karlsruhe) ---------- */
-  var timeEl = document.getElementById("local-time");
-  if (timeEl && window.Intl) {
-    var renderTime = function () {
-      timeEl.textContent = new Intl.DateTimeFormat("de-DE", {
-        hour: "2-digit", minute: "2-digit", timeZone: "Europe/Berlin"
-      }).format(new Date());
-    };
-    renderTime();
-    setInterval(renderTime, 20000);
-  }
-
   /* ---------- CV timeline animation ---------- */
   var timeline = document.querySelector(".timeline");
   var timelineItems = timeline ? Array.prototype.slice.call(timeline.querySelectorAll(".timeline-item")) : [];
@@ -252,9 +240,8 @@
       ticking = false;
       var rect = timeline.getBoundingClientRect();
       var vh = window.innerHeight || document.documentElement.clientHeight;
-      var total = rect.height + vh * 0.5;
-      var scrolled = vh * 0.9 - rect.top;
-      var progress = Math.min(1, Math.max(0, scrolled / total));
+      var atPageEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 2;
+      var progress = atPageEnd ? 1 : Math.min(1, Math.max(0, (vh * 0.65 - rect.top) / rect.height));
       timeline.style.setProperty("--timeline-progress", progress.toFixed(4));
     };
 

@@ -140,14 +140,18 @@
 
       work_eyebrow: { de: "Referenzen", en: "Selected work" },
       work_h2: { de: "Kundenprojekte", en: "Client projects" },
-      work_sub: {
-        de: "Sobald die ersten Kundenprojekte online sind, findest du sie hier.",
-        en: "As soon as the first client projects are live, you'll find them here."
-      },
+      work_sub: { de: "Websites, die ich für Kunden gebaut habe – weitere folgen.", en: "Websites I’ve built for clients — more to come." },
 
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
       work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
       work_placeholder_desc: { de: "Hier erscheint bald ein Kundenprojekt.", en: "A client project will appear here soon." },
+      ref_cat: { de: "Kundenprojekt · Website", en: "Client project · Website" },
+      ref1_desc: {
+        de: "Website für einen Heizungsfachbetrieb aus Jockgrim: Leistungen, Wartungsverträge, Spartipps und ein Kontaktformular.",
+        en: "Website for a heating specialist based in Jockgrim, Germany: services, maintenance contracts, energy-saving tips and a contact form."
+      },
+      ref2_desc: { de: "Website für ein Feinkostgeschäft mit mediterranen Spezialitäten.", en: "Website for a delicatessen with Mediterranean specialities." },
+      ref2_status: { de: "Noch nicht online", en: "Not live yet" },
       teaser_p1: {
         de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites und kleine Tools für Selbstständige und kleine Betriebe.",
         en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites and small tools for freelancers and small businesses."
@@ -176,11 +180,7 @@
         en: "Write to me"
       },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
-      contact_time: { de: "Lokalzeit Karlsruhe", en: "Local time in Karlsruhe" },
-      contact_meta: {
-        de: "Ich sitze in Karlsruhe und arbeite auch gern remote mit dir zusammen.",
-        en: "I'm based in Karlsruhe and just as happy to work with you remotely."
-      }
+      contact_meta: { de: "Gern auch remote – egal, wo du sitzt.", en: "Remote works too — wherever you are." }
     },
 
     about: {
@@ -202,8 +202,8 @@
         en: "I'm Janik, a Master's student in Industrial Engineering at KIT (Karlsruhe Institute of Technology)."
       },
       p2: {
-        de: 'Neben meinem Studium unterstütze ich kleine Unternehmen und Selbstständige dabei, ihre Abläufe zu digitalisieren – indem ich die Software und Websites baue, die sie dafür brauchen. Mein technisches Fundament habe ich unter anderem in der Data-Science-Abteilung bei Porsche und beim Aufbau meines Startups <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> gesammelt.',
-        en: 'Alongside my studies, I help small businesses and freelancers digitize their workflows by building the exact software and websites they need. I gained my technical foundation in the Data Science department at Porsche and by building my startup <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a>.'
+        de: 'Neben meinem Studium unterstütze ich kleine Unternehmen und Selbstständige dabei, ihre Abläufe zu digitalisieren – indem ich die Software und Websites baue, die sie dafür brauchen. Mein technisches Fundament habe ich unter anderem in der Data-Science-Abteilung bei Porsche und beim Aufbau unseres Startups <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> gesammelt.',
+        en: 'Alongside my studies, I help small businesses and freelancers digitize their workflows by building the exact software and websites they need. I gained my technical foundation in the Data Science department at Porsche and by building our startup <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a>.'
       },
       p3: {
         de: "Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an. Ich schreibe keine dicken Berater-Konzepte, sondern programmiere Werkzeuge, die du direkt nutzen kannst und die dir im Alltag Zeit sparen.",
@@ -323,8 +323,8 @@
       proj5_tag: { de: "Vorausschauende Qualitätsüberwachung", en: "predictive quality monitoring" },
 
       proj6_desc: {
-        de: "Mein Startup – mitgegründet im Dezember 2025.",
-        en: "My startup — co-founded in December 2025."
+        de: "Unser Startup – gemeinsam gegründet im Dezember 2025.",
+        en: "Our startup — co-founded in December 2025."
       },
       proj6_link: { de: "usegradias.ai besuchen →", en: "visit usegradias.ai →" }
     }
