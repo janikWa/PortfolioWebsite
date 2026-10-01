@@ -239,7 +239,7 @@ body::before {
   color: #222;
 }
 .brand-accent { color: var(--logo-blue); }
-.brand-mark { display: none; height: 38px; width: auto; }
+.brand-mark { display: none; height: 40px; width: auto; }
 .nav {
   display: flex;
   gap: 32px;
@@ -874,7 +874,7 @@ body::before {
   color: var(--text-muted);
   opacity: .85;
 }
-.made-by-mark { height: 22px; width: auto; transition: transform .25s ease; }
+.made-by-mark { height: 23px; width: auto; transition: transform .25s ease; }
 .made-by:hover .made-by-mark { transform: rotate(-6deg) scale(1.08); }
 .footer-name {
   margin-top: 20px;
