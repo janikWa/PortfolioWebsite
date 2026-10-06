@@ -21,7 +21,7 @@
 
     home: {
       title: {
-        de: "Janik Wahrheit — Websites & IT-Lösungen",
+        de: "Janik Wahrheit — Websites & IT-Lösungen ",
         en: "Janik Wahrheit — Websites & IT Solutions"
       },
       meta_desc: {
