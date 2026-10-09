@@ -39,9 +39,10 @@
     targets.forEach(function (el) { io.observe(el); });
   }
 
-  var revealTargets = Array.prototype.slice.call(document.querySelectorAll(
+  // the CV page (/aboutme) stays static: no reveal animation
+  var revealTargets = document.body.classList.contains("cv-page") ? [] : Array.prototype.slice.call(document.querySelectorAll(
     ".h2, .row, .stage, .note, .step, .poster, .teaser-name, .teaser-photo, .teaser-text, " +
-    ".contact-copy, .big-links li, .intro-photo, .intro-text, .stack, .cv-row"
+    ".contact-copy, .big-links li"
   ));
   revealTargets.forEach(function (el) {
     el.classList.add("reveal");
@@ -68,7 +69,7 @@
     svg.classList.add("is-drawn");
   }, { threshold: 0.2 });
 
-  /* ---------- fluted glass follows the cursor ----------
+  /* ---------- fluted glass follows the cursor (hero + footer wordmark) ----------
      On touch / coarse pointers it drifts on its own (CSS .is-auto). */
   document.querySelectorAll('[data-glass="follow"]').forEach(function (glass) {
     var area = glass.closest("[data-glass-area]");
@@ -102,24 +103,37 @@
     window.addEventListener("resize", function () { target = rest(); kick(); });
   });
 
+  /* ---------- scramble: letters cycle through glyphs before they lock, left to right ---------- */
+  var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+  function scramble(el, target, done) {
+    var from = el.textContent, frame = 0, total = 16;
+    el.classList.add("is-scrambling");
+    (function step() {
+      if (!el.isConnected) return;
+      var locked = Math.floor((frame / total) * target.length);
+      var len = Math.round(from.length + (target.length - from.length) * Math.min(1, frame / total));
+      var out = "";
+      for (var i = 0; i < len; i++) {
+        out += i < locked ? target[i] : (target[i] === " " ? " " : GLYPHS[(Math.random() * GLYPHS.length) | 0]);
+      }
+      el.textContent = out;
+      if (frame++ < total) { setTimeout(step, 45); return; }
+      el.textContent = target;
+      el.classList.remove("is-scrambling");
+      if (done) done();
+    })();
+  }
+
   /* ---------- rotating word in the hero headline ----------
      Re-queried each tick because the language toggle replaces the h1's innerHTML. */
   if (!prefersReduced) {
     setInterval(function () {
       var el = document.querySelector(".rotator");
-      if (!el || document.hidden) return;
+      if (!el || document.hidden || el.classList.contains("is-scrambling")) return;
       var words = (el.getAttribute("data-words") || "").split("|");
       if (words.length < 2) return;
-      var next = words[(words.indexOf(el.textContent.trim()) + 1) % words.length];
-      el.classList.add("is-out");
-      setTimeout(function () {
-        if (!el.isConnected) return;
-        el.textContent = next;
-        el.classList.remove("is-out");
-        el.classList.add("is-in");
-        void el.offsetWidth;
-        el.classList.remove("is-in");
-      }, 500);
+      var current = words.indexOf(el.textContent.trim());
+      scramble(el, words[(current + 1) % words.length]);
     }, 3000);
   }
 })();

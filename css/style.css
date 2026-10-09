@@ -1,7 +1,7 @@
 /* ==========================================================================
    Janik Wahrheit — poster system
    Grey paper, black ink, one cobalt. Inter Tight only.
-   Signatures: fluted glass (blur that follows the cursor), thick poster rules
+   Signatures: fluted glass, scrambled type, thick poster rules
    with metadata rows, and the speckled liquid line.
    ========================================================================== */
 
@@ -97,6 +97,7 @@ button { font: inherit; color: inherit; }
 .dot--idle { background: transparent; border: 1.5px solid currentColor; animation: none; }
 @keyframes ping { 0% { box-shadow: 0 0 0 0 rgba(31, 71, 224, .45); } 70%, 100% { box-shadow: 0 0 0 9px rgba(31, 71, 224, 0); } }
 
+
 /* fluted backdrop — soft vertical reeds like ribbed glass */
 .flutes {
   background-image: repeating-linear-gradient(90deg,
@@ -167,15 +168,14 @@ button { font: inherit; color: inherit; }
   font-size: clamp(1.5rem, 3.4vw, 3.8rem); letter-spacing: -.05em; line-height: 1;
   color: var(--mute); margin-top: .45em;
 }
-.rotator { display: inline-block; transition: opacity .5s var(--ease), filter .5s var(--ease), transform .5s var(--ease); }
-.rotator.is-out { opacity: 0; filter: blur(18px); transform: scaleX(1.08); }
-.rotator.is-in { opacity: 0; filter: blur(18px); transform: scaleX(1.08); transition: none; }
+.rotator { display: inline-block; }
+.rotator.is-scrambling { color: var(--blue); }
 
 .foot-row { padding-top: 18px; border-top: var(--thick) solid var(--ink); align-items: start; row-gap: 16px; }
 .hero-sub { grid-column: 1 / span 2; font: 500 1.0625rem/1.4 var(--font); letter-spacing: -.015em; max-width: 46ch; }
 .hero .foot-row .btn { justify-self: stretch; }
 
-.hero--page .display { font-size: clamp(4rem, 17vw, 19rem); }
+
 
 /* ---------- fluted glass ---------- */
 [data-glass-area] { position: relative; }
@@ -201,6 +201,7 @@ button { font: inherit; color: inherit; }
 .glass i:nth-child(4n+2) { --b: 11px; }
 .glass i:nth-child(4n+3) { --b: 8px; }
 .glass i:nth-child(4n) { --b: 14px; }
+
 .glass.is-auto { animation: drift 16s ease-in-out infinite alternate; transform: none; }
 @keyframes drift { from { left: 2%; } to { left: 62%; } }
 
@@ -287,22 +288,6 @@ a.poster:hover .mock { transform: scale(1.035); }
 .glass--static i:nth-child(odd) { --b: 9px; }
 .glass--static i:nth-child(even) { --b: 4px; }
 
-.posters--small .poster-title { font-size: clamp(1.6rem, 2.2vw, 2.4rem); min-height: 0; }
-.posters--small .poster-head { grid-template-columns: auto 1fr; }
-.art svg { width: 100%; fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
-.art .soft { stroke: rgba(13, 13, 13, .3); }
-.art .hl { stroke: var(--blue); stroke-width: 2.2; }
-.art .fill { fill: var(--blue); stroke: var(--blue); }
-.art .node { fill: var(--card); }
-.art .dots circle { fill: var(--mute); stroke: none; }
-.art .num { font: 600 15px var(--font); fill: var(--ink); stroke: none; }
-.art .num.on-fill { fill: #fff; }
-.poster--blue { background: var(--blue); color: #fff; --ink: #fff; --ink-2: rgba(255, 255, 255, .86); --hair: rgba(255, 255, 255, .3); }
-.poster--blue .poster-media { background: rgba(255, 255, 255, .08); }
-.poster--blue .art svg { stroke: #fff; }
-.poster--blue .art .soft { stroke: rgba(255, 255, 255, .35); }
-.poster--blue .art .dot-on { fill: #fff; }
-.poster--blue .link { text-decoration: underline; text-underline-offset: 3px; }
 
 /* about teaser */
 .teaser { align-items: end; row-gap: 32px; }
@@ -346,15 +331,20 @@ a.poster:hover .mock { transform: scale(1.035); }
 .made-by .mark { width: 22px; }
 
 /* ==========================================================================
-   About page
+   CV page (/aboutme) — personal, static (no reveal animation)
    ========================================================================== */
+.cv-nav { grid-column: 2 / span 2; display: flex; gap: 20px; flex-wrap: wrap; }
+.cv-nav a { color: var(--mute); transition: color .2s; }
+.cv-nav a:hover { color: var(--ink); }
+.cv-name .l-r { text-align: right; }
+.cv-page .display { font-size: clamp(4rem, 17vw, 19rem); }
+
 .intro { row-gap: 40px; align-items: start; }
 .intro-photo { grid-column: 1 / span 2; position: sticky; top: calc(var(--mast-h) + 24px); max-width: 560px; }
 .intro-text { grid-column: 3 / span 2; display: flex; flex-direction: column; gap: 18px; color: var(--ink-2); max-width: 60ch; }
 .intro-text .lead { color: var(--ink); }
 .intro-text a { color: var(--ink); text-decoration: underline; text-decoration-thickness: 1.5px; text-underline-offset: 3px; }
 .intro-text a:hover { color: var(--blue); }
-.sign { font: 600 1.15rem/1.35 var(--font); color: var(--ink); letter-spacing: -.02em; }
 .inline-links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 14px; border-top: var(--thick) solid var(--ink); }
 .inline-links a { font: 600 .8125rem/1.2 var(--font); text-decoration: none; }
 
@@ -373,6 +363,36 @@ a.poster:hover .mock { transform: scale(1.035); }
 .cv-row.is-now .cv-date::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
 .cv-row h3 { grid-column: 2; font: 600 clamp(1.15rem, 1rem + .6vw, 1.5rem)/1.12 var(--font); letter-spacing: -.035em; }
 .cv-row p { grid-column: 3 / span 2; color: var(--ink-2); font-size: .95rem; max-width: 56ch; }
+
+.posters--small .poster-title { font-size: clamp(1.6rem, 2.2vw, 2.4rem); min-height: 0; }
+.posters--small .poster-head { grid-template-columns: auto 1fr; }
+.art svg { width: 100%; fill: none; stroke: var(--ink); stroke-width: 1.4; stroke-linecap: round; stroke-linejoin: round; }
+.art .soft { stroke: rgba(13, 13, 13, .3); }
+.art .hl { stroke: var(--blue); stroke-width: 2.2; }
+.art .fill { fill: var(--blue); stroke: var(--blue); }
+.art .node { fill: var(--card); }
+.art .dots circle { fill: var(--mute); stroke: none; }
+.art .num { font: 600 15px var(--font); fill: var(--ink); stroke: none; }
+.art .num.on-fill { fill: #fff; }
+.poster--blue { background: var(--blue); color: #fff; --ink: #fff; --ink-2: rgba(255, 255, 255, .86); --hair: rgba(255, 255, 255, .3); }
+.poster--blue .poster-media { background: rgba(255, 255, 255, .08); }
+.poster--blue .art svg { stroke: #fff; }
+.poster--blue .art .soft { stroke: rgba(255, 255, 255, .35); }
+.poster--blue .art .dot-on { fill: #fff; }
+.poster--blue .link { text-decoration: underline; text-underline-offset: 3px; }
+
+.cv-page .contact-copy { margin: 0; }
+.cv-page .foot { padding-top: 0; }
+
+@media (max-width: 1100px) {
+  .cv-nav { display: none; }
+}
+@media (max-width: 860px) {
+  .intro-photo { grid-column: 1 / -1; position: static; max-width: 420px; }
+  .intro-text { grid-column: 1 / -1; }
+  .cv-row { grid-template-columns: 1fr; }
+  .cv-row h3, .cv-row p { grid-column: 1; }
+}
 
 /* ==========================================================================
    Motion — elements come into focus
@@ -443,10 +463,6 @@ a.poster:hover .mock { transform: scale(1.035); }
   .stage .h3 { margin-top: 8px; }
   .stage-arr { transform: rotate(90deg); }
 
-  .intro-photo { grid-column: 1 / -1; position: static; max-width: 420px; }
-  .intro-text { grid-column: 1 / -1; }
-  .cv-row { grid-template-columns: 1fr; }
-  .cv-row h3, .cv-row p { grid-column: 1; }
 
   .foot-row.g4 { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 24px; }
   .foot-end { align-items: flex-start; text-align: left; }

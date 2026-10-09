@@ -207,6 +207,24 @@
         en: "Master's student at KIT — and the person who takes your project from idea to finished code."
       },
       photo_alt: { de: "Foto von Janik Wahrheit", en: "Photo of Janik Wahrheit" },
+      cv_page_title: { de: "Lebenslauf — Janik Wahrheit", en: "CV — Janik Wahrheit" },
+      profile_label: { de: "Profil", en: "Profile" },
+      cv_meta_desc: {
+        de: "Janik Wahrheit — Masterstudent Wirtschaftsingenieurwesen am KIT. Lebenslauf, Projekte und Kenntnisse.",
+        en: "Janik Wahrheit — Master's student in Industrial Engineering at KIT. CV, projects and skills."
+      },
+      cv_sub_line: {
+        de: "Masterstudent Wirtschaftsingenieurwesen am KIT. Data Science bei Porsche, Mitgründer von usegradias.ai.",
+        en: "Master's student in Industrial Engineering at KIT. Data Science at Porsche, co-founder of usegradias.ai."
+      },
+      cv_p2: {
+        de: 'Mein technisches Fundament habe ich in der Data-Science-Abteilung bei Porsche gesammelt – erst als Praktikant, dann als Werkstudent im Bereich Data.Driven.Quality. Seit Dezember 2025 baue ich als Mitgründer <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> auf.',
+        en: 'I built my technical foundation in the Data Science department at Porsche – first as an intern, then as a working student in Data.Driven.Quality. Since December 2025 I have been building <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> as a co-founder.'
+      },
+      cv_p3: {
+        de: "Meine Bachelorarbeit über heavy-tailed Regularisierung in neuronalen Netzen habe ich mit 1,0 abgeschlossen. Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an – und setze Lösungen am liebsten direkt in Code um.",
+        en: "I completed my bachelor's thesis on heavy-tailed regularization in neural networks with a grade of 1.0. My engineering studies taught me to approach problems analytically – and I prefer to turn solutions straight into code."
+      },
 
       p_wave: { de: "Hi 👋", en: "Hi 👋" },
       p1: {
