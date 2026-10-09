@@ -58,8 +58,8 @@
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
       services_h2: {
-        de: "Drei Wege, wie ich dir helfen kann",
-        en: "Three ways I can help you"
+        de: "Wie ich dir Arbeit abnehme",
+        en: "How I take work off your plate"
       },
       services_sub: {
         de: "Pragmatisch statt überladen: Ich baue genau das, was du im Alltag wirklich brauchst – nicht mehr und nicht weniger.",
@@ -71,10 +71,15 @@
         de: "Schnelle, saubere Websites, die auf dem Handy genauso gut funktionieren wie am Laptop und klar zeigen, was du anbietest – von der einfachen Landingpage bis zur kompletten Seite für deinen Betrieb.",
         en: "Fast, clean websites that work as well on a phone as on a laptop and make clear what you offer — from a simple landing page to a full site for your business."
       },
-      service2_title: { de: "Interne Tools & Dashboards", en: "Internal tools & dashboards" },
+      service0_title: { de: "Automationen", en: "Automation" },
+      service0_desc: {
+        de: "Wiederkehrende Aufgaben laufen von allein: Anfragen werden automatisch erfasst, Daten zwischen deinen Programmen übertragen, Termine gebucht und Berichte erstellt – ohne dass jemand Daten doppelt pflegt oder per Hand kopiert.",
+        en: "Recurring tasks run on their own: enquiries are captured automatically, data moves between your programs, appointments get booked and reports get created – without anyone entering data twice or copying it by hand."
+      },
+      service2_title: { de: "Tools & Dashboards", en: "Tools & dashboards" },
       service2_desc: {
-        de: "Kleine Programme, Dashboards und Automatisierungen, die zu deinen echten Abläufen passen – statt Excel-Listen, bei denen irgendwann keiner mehr durchblickt.",
-        en: "Small tools, dashboards and automation that fit how you actually work — instead of spreadsheets nobody can make sense of anymore."
+        de: "Software, die genau zu deinem Betrieb passt: interne Tools, die deine Abläufe abbilden, und Dashboards, die Daten aus verschiedenen Quellen zusammenführen und dir auf einen Blick zeigen, wo du stehst – statt Excel-Listen, bei denen irgendwann keiner mehr durchblickt.",
+        en: "Software built around your business: internal tools that map how you work, and dashboards that bring data from different sources together and show you at a glance where you stand – instead of spreadsheets nobody can make sense of anymore."
       },
       service3_title: { de: "Ehrliche Einschätzung", en: "Honest advice" },
       service3_desc: {
@@ -164,8 +169,8 @@
       ref2_desc: { de: "Website für ein Feinkostgeschäft mit mediterranen Spezialitäten.", en: "Website for a delicatessen with Mediterranean specialities." },
       ref2_status: { de: "Noch nicht online", en: "Not live yet" },
       teaser_p1: {
-        de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites und kleine Tools für Selbstständige und kleine Betriebe.",
-        en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites and small tools for freelancers and small businesses."
+        de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites, Automationen und individuelle Tools für Selbstständige und kleine Betriebe.",
+        en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites, automation and custom tools for freelancers and small businesses."
       },
       teaser_p2: {
         de: "Kein Agentur-Apparat, keine Buzzwords: Du sprichst direkt mit mir, und ich sage dir ehrlich, was für dich sinnvoll ist.",

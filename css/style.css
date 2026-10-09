@@ -225,6 +225,8 @@ button { font: inherit; color: inherit; }
 .zpanel--grey { background: var(--card); }
 .zpanel--ink { background: #0D0D0D; color: #ECECE9; }
 .zpanel--blue { background: var(--blue); color: #fff; }
+.zpanel--light { background: #F4F4F2; }
+.zpanel--blue .dot { background: #fff; }
 .zpanel-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: var(--thick) solid currentColor; }
 .zpanel-title { grid-column: 1 / span 2; grid-row: 2; align-self: center; font: 600 clamp(3rem, 8.2vw, 9.6rem)/.86 var(--font); letter-spacing: -.066em; text-wrap: balance; }
 .zpanel-visual { grid-column: 3 / span 2; grid-row: 2 / span 2; align-self: center; justify-self: center; width: 100%; max-width: 620px; }
@@ -243,10 +245,20 @@ button { font: inherit; color: inherit; }
 .zv-dash .accent { fill: #6F8BFF; }
 .zv-dash .line { fill: none; stroke: #6F8BFF; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
 @keyframes bars { 0% { transform: scaleY(.72); } 100% { transform: scaleY(1); } }
+.zv-flow .track { fill: none; stroke: currentColor; stroke-width: 2; opacity: .3; stroke-dasharray: 4 7; }
+.zv-flow .pulse { fill: none; stroke: #fff; stroke-width: 4; stroke-linecap: round; stroke-dasharray: 10 200; animation: flow 3.2s linear infinite; }
+.zv-flow .node rect { fill: var(--blue); stroke: #fff; stroke-width: 2; }
+.zv-flow .node path, .zv-flow .node circle { fill: none; stroke: #fff; stroke-width: 2.4; stroke-linecap: round; stroke-linejoin: round; }
+.zv-flow .node .fillw { fill: #fff; stroke: none; }
+.zv-flow .node--done rect { fill: #fff; }
+.zv-flow .node--done path { stroke: var(--blue); stroke-width: 3.4; }
+@keyframes flow { from { stroke-dashoffset: 10; } to { stroke-dashoffset: -100; } }
 .zchat { display: grid; gap: 14px; }
 .zchat p { font: 500 clamp(1.15rem, 1rem + 1vw, 1.9rem)/1.25 var(--font); letter-spacing: -.03em; padding: .7em 1em; border-radius: 22px; max-width: 22ch; }
 .zchat-q { background: #fff; color: var(--ink); justify-self: start; border-bottom-left-radius: 6px; }
 .zchat-a { background: #0D0D0D; color: #fff; justify-self: end; border-bottom-right-radius: 6px; }
+.zpanel--light .zchat-q { background: var(--bg-2); }
+.zpanel--light .zchat-a { background: var(--blue); }
 
 /* approach — ink panel with the liquid line */
 .sec--ink {
