@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="robots" content="noindex">
+  <title>Identität — Janik Wahrheit</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css">
+  <style>
+    .bk-mast .wrap { display: flex; justify-content: space-between; align-items: center; height: var(--mast-h); }
+    .bk-mast img { width: 38px; }
+    .tiles { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--gap); }
+    .tile { aspect-ratio: 4 / 3; display: grid; place-items: center; position: relative; }
+    .tile img { width: 32%; }
+    .tile .t-xs { position: absolute; left: 12px; bottom: 10px; }
+    .tile--grey { background: #E4E4E1; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+    .tile--ink { background: #0D0D0D; color: #E4E4E1; }
+    .tile--blue { background: #1F47E0; color: #fff; }
+    .tile--white { background: #fff; box-shadow: inset 0 0 0 1px rgba(0,0,0,.12); }
+    .sw-chip { aspect-ratio: 16 / 10; }
+    .sw-meta { padding: 12px 0 0; margin-top: 12px; border-top: var(--thick) solid var(--ink); display: flex; flex-direction: column; gap: 3px; }
+    .sw-meta strong { font: 600 1.6rem/1 var(--font); letter-spacing: -.05em; }
+    .note-sm { margin-top: 28px; color: var(--ink-2); max-width: 72ch; font-size: .95rem; }
+    .type-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); padding: 26px 0; border-bottom: 1px solid var(--hair); align-items: baseline; }
+    .type-row .spec { grid-column: 2 / -1; }
+    .card-frame { width: 100%; height: 580px; border: 0; background: #CFCFCB; }
+    .motifs { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); }
+    .motif { display: flex; flex-direction: column; gap: 12px; }
+    .motif-box { aspect-ratio: 4 / 3; position: relative; overflow: hidden; background: var(--card); display: grid; place-items: center; }
+    .motif-box .demo { font: 600 clamp(2rem, 4vw, 3.6rem)/.86 var(--font); letter-spacing: -.06em; padding: 0 8%; }
+    .motif-box .glass { width: 55%; transform: translateX(30%); }
+    .motif-box--rules { padding: 18px; display: flex; flex-direction: column; justify-content: space-between; place-items: initial; }
+    .motif-box--rules .r { border-top: var(--thick) solid var(--ink); padding-top: 8px; display: grid; grid-template-columns: repeat(3, 1fr); gap: 8px; }
+    .motif-box--liquid { background: #0D0D0D; }
+    .motif-box--liquid img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+    @media (max-width: 860px) {
+      .tiles { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .motifs { grid-template-columns: 1fr; }
+      .type-row .spec { grid-column: 1 / -1; margin-top: 8px; }
+      .card-frame { height: 860px; }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="mast bk-mast">
+    <div class="wrap">
+      <img src="../assets/brand/jw-mark.svg" alt="Janik Wahrheit">
+      <a class="btn btn-line btn-sm" href="../index.html">Zur Website</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero flutes">
+      <div class="wrap">
+        <div class="meta-row g4">
+          <p class="t-xs">Janik Wahrheit</p>
+          <p class="t-xs">Identität / Brand</p>
+          <p class="t-xs">Website · Visitenkarte · Social</p>
+          <p class="t-xs">v2 · Poster-System</p>
+        </div>
+        <div class="hero-title" data-glass-area>
+          <h1 class="display"><span class="l">Grau, Schwarz</span><span class="l" style="text-align:right">&amp; ein Kobalt.</span></h1>
+          <div class="glass" data-glass="follow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+        </div>
+        <div class="foot-row g4">
+          <p class="hero-sub">Ein Poster-System: eine Schrift, drei Farben, dicke Linien mit Metadaten, und drei Effekte – Riffelglas, Fokus-Unschärfe und die gesprenkelte Linie.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec-head g4"><span class="t-xs">01</span><span class="t-br">Zeichen</span><p class="t-sm sec-sub">Der Pfeil „&gt;“ über dem J steht für Eingabe → Ergebnis. Schutzraum mindestens Pfeilhöhe; Mindestbreite 8 mm im Druck, 20 px am Bildschirm.</p></header>
+        <h2 class="h2">Das JW-Monogramm</h2>
+        <div class="tiles">
+          <div class="tile tile--grey"><img src="../assets/brand/jw-mark.svg" alt=""><span class="t-xs">jw-mark.svg</span></div>
+          <div class="tile tile--ink"><img src="../assets/brand/jw-mark-on-ink.svg" alt=""><span class="t-xs">jw-mark-on-ink.svg</span></div>
+          <div class="tile tile--blue"><img src="../assets/brand/jw-mark-on-signal.svg" alt=""><span class="t-xs">jw-mark-on-signal.svg</span></div>
+          <div class="tile tile--white"><img src="../assets/brand/jw-mark-mono.svg" alt=""><span class="t-xs">jw-mark-mono.svg</span></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec sec--tint">
+      <div class="wrap">
+        <header class="sec-head g4"><span class="t-xs">02</span><span class="t-br">Farbe</span><p class="t-sm sec-sub">Grau ist das Papier, Schwarz trägt alles, Kobalt kommt sparsam: Status, Pfeil, die Linie, ein Akzent pro Fläche.</p></header>
+        <h2 class="h2">Drei Farben</h2>
+        <div class="tiles">
+          <div><div class="sw-chip" style="background:#E4E4E1;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)"></div><div class="sw-meta"><strong>Papiergrau</strong><span class="t-xs">#E4E4E1 · RGB 228 228 225</span><span class="t-xs">Fläche</span></div></div>
+          <div><div class="sw-chip" style="background:#D9D9D5;box-shadow:inset 0 0 0 1px rgba(0,0,0,.12)"></div><div class="sw-meta"><strong>Grau 2 (Tönung)</strong><span class="t-xs">#D9D9D5 · RGB 217 217 213</span><span class="t-xs">Wechselflächen</span></div></div>
+          <div><div class="sw-chip" style="background:#0D0D0D"></div><div class="sw-meta"><strong>Schwarz</strong><span class="t-xs">#0D0D0D · RGB 13 13 13</span><span class="t-xs">Schrift, Linien, dunkle Panels</span></div></div>
+          <div><div class="sw-chip" style="background:#1F47E0"></div><div class="sw-meta"><strong>Kobalt</strong><span class="t-xs">#1F47E0 · RGB 31 71 224</span><span class="t-xs">Akzent, Linie, Pfeil</span></div></div>
+        </div>
+        <p class="note-sm">Druck: Kobalt liegt am Rand des CMYK-Farbraums und wird im Vierfarbdruck etwas stumpfer. Für Visitenkarten Ton per Proof mit der Druckerei abstimmen oder eine Pantone-Sonderfarbe wählen.</p>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec-head g4"><span class="t-xs">03</span><span class="t-br">Schrift</span><p class="t-sm sec-sub">Inter Tight, frei über Google Fonts (SIL Open Font License). Headlines 600, Spationierung −5 bis −7 %.</p></header>
+        <h2 class="h2">Eine Schrift</h2>
+        <div class="type-row"><span class="t-xs">Display · 600 · −7 %</span><p class="spec display" style="font-size:clamp(3rem,8vw,8rem)">Websites</p></div>
+        <div class="type-row"><span class="t-xs">Headline · 600 · −5,5 %</span><p class="spec h2" style="margin:0">Persönlich entwickelt.</p></div>
+        <div class="type-row"><span class="t-xs">Text · 400 / 500</span><p class="spec lead">Ich baue dir eine moderne Website – persönlich, ehrlich und ohne Fachchinesisch.</p></div>
+        <div class="type-row"><span class="t-xs">Labels · 600 · 13 px</span><p class="spec t-xs">Für Selbstständige &amp; kleine Betriebe — <span class="t-br">Referenzen</span></p></div>
+      </div>
+    </section>
+
+    <section class="sec sec--tint">
+      <div class="wrap">
+        <header class="sec-head g4"><span class="t-xs">04</span><span class="t-br">Motive</span><p class="t-sm sec-sub">Riffelglas legt sich über Typografie, dicke Linien rahmen jede Fläche wie ein Poster, die gesprenkelte Linie steht für einen Ablauf, der von allein läuft.</p></header>
+        <h2 class="h2">Drei Effekte</h2>
+        <div class="motifs">
+          <div class="motif">
+            <div class="motif-box flutes" data-glass-area><p class="demo">Persönlich entwickelt.</p><div class="glass glass--static" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i></div></div>
+            <span class="t-xs">Riffelglas</span>
+          </div>
+          <div class="motif">
+            <div class="motif-box motif-box--rules"><div class="r"><span class="t-xs">Janik<br>Wahrheit</span><span class="t-xs">No. 01</span><span class="t-xs">Websites &amp;<br>Automationen</span></div><p class="demo" style="padding:0">Poster</p><div class="r"><span class="t-xs">Meta</span><span class="t-xs">Meta</span><span class="t-xs">Meta</span></div></div>
+            <span class="t-xs">Linien &amp; Metadaten</span>
+          </div>
+          <div class="motif">
+            <div class="motif-box motif-box--liquid"><img src="../assets/brand/liquid-line.svg" alt=""></div>
+            <span class="t-xs">liquid-line.svg</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="sec">
+      <div class="wrap">
+        <header class="sec-head g4"><span class="t-xs">05</span><span class="t-br">Anwendung</span><p class="t-sm sec-sub">85 × 55 mm, 3 mm Beschnitt. <a href="business-card.html" style="text-decoration:underline">Druckvorlage öffnen</a></p></header>
+        <h2 class="h2">Visitenkarte</h2>
+        <iframe class="card-frame" src="business-card.html" title="Visitenkarte Vorschau" loading="lazy"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <script src="../js/main.js"></script>
+</body>
+
+</html>

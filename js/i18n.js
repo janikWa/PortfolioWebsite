@@ -16,7 +16,9 @@
       footer_nav_aria: { de: "Footer-Navigation", en: "Footer navigation" },
       social_aria: { de: "Soziale Netzwerke", en: "Social links" },
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
-      made_by: { de: "Made by", en: "Made by" }
+      made_by: { de: "Made by", en: "Made by" },
+      tagline: { de: "Websites & Automationen", en: "Websites & automation" },
+      back_to_top: { de: "Nach oben", en: "Back to top" }
     },
 
     home: {
@@ -31,8 +33,8 @@
       hero_aria: { de: "Einleitung", en: "Introduction" },
       hero_eyebrow: { de: "Für Selbstständige & kleine Betriebe", en: "For freelancers & small local businesses" },
       hero_h1: {
-        de: "Individuelle <span class=\"rotator\" data-words=\"Software|Websites|Dashboards|Web-Apps\">Software</span> für dein Unternehmen — <span class=\"accent-text\">persönlich entwickelt.</span>",
-        en: "Custom <span class=\"rotator\" data-words=\"software|websites|dashboards|web apps\">software</span> for your business — <span class=\"accent-text\">built by me, personally.</span>"
+        de: "<span class=\"l l1\">Individuelle</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"Websites|Automationen|Dashboards|Web-Apps\">Websites</span></span> <span class=\"l l3\">für dein</span> <span class=\"l l4\">Unternehmen\u00a0—</span> <span class=\"l l5 accent-text\">persönlich entwickelt.</span>",
+        en: "<span class=\"l l1\">Custom</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"websites|automations|dashboards|web apps\">websites</span></span> <span class=\"l l3\">for your</span> <span class=\"l l4\">business\u00a0—</span> <span class=\"l l5 accent-text\">built by me, personally.</span>"
       },
       hero_sub: {
         de: "Ich baue dir eine moderne Website – und schaue gemeinsam mit dir, wo individuelle IT-Lösungen deinen Arbeitsalltag spürbar leichter machen. Persönlich, ehrlich und ohne Fachchinesisch.",
@@ -43,6 +45,15 @@
         en: "Get in touch"
       },
       hero_cta_secondary: { de: "So arbeite ich", en: "How I work" },
+
+      demo_title: { de: "Beispiel-Ablauf", en: "Example flow" },
+      demo_live: { de: "läuft", en: "running" },
+      demo1: { de: "Anfrage über deine Website", en: "Enquiry via your website" },
+      demo2: { de: "Automatisch erfasst", en: "Captured automatically" },
+      demo3: { de: "Termin online gebucht", en: "Appointment booked online" },
+      demo4: { de: "Im Dashboard sichtbar", en: "Visible in your dashboard" },
+      tick_auto: { de: "Automationen", en: "Automation" },
+      meta_reply: { de: "Antwort innerhalb von 48 Stunden", en: "Reply within 48 hours" },
 
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
@@ -161,6 +172,7 @@
         en: "No agency machine, no buzzwords: you talk directly to me, and I'll tell you honestly what makes sense for you."
       },
       teaser_link: { de: "Mehr über mich →", en: "More about me →" },
+      teaser_link_label: { de: "Mehr über mich", en: "More about me" },
       teaser_img_alt: { de: "Memoji von Janik", en: "Memoji of Janik" },
 
       contact_status: {
