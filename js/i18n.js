@@ -16,7 +16,9 @@
       footer_nav_aria: { de: "Footer-Navigation", en: "Footer navigation" },
       social_aria: { de: "Soziale Netzwerke", en: "Social links" },
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
-      made_by: { de: "Made by", en: "Made by" }
+      made_by: { de: "Made by", en: "Made by" },
+      tagline: { de: "Websites & Automationen", en: "Websites & automation" },
+      back_to_top: { de: "Nach oben", en: "Back to top" }
     },
 
     home: {
@@ -31,8 +33,8 @@
       hero_aria: { de: "Einleitung", en: "Introduction" },
       hero_eyebrow: { de: "Für Selbstständige & kleine Betriebe", en: "For freelancers & small local businesses" },
       hero_h1: {
-        de: "Individuelle <span class=\"rotator\" data-words=\"Software|Websites|Dashboards|Web-Apps\">Software</span> für dein Unternehmen — <span class=\"accent-text\">persönlich entwickelt.</span>",
-        en: "Custom <span class=\"rotator\" data-words=\"software|websites|dashboards|web apps\">software</span> for your business — <span class=\"accent-text\">built by me, personally.</span>"
+        de: "<span class=\"l l1\">Individuelle</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"Websites|Automationen|Dashboards|Web-Apps\">Websites</span></span> <span class=\"l l3\">für dein</span> <span class=\"l l4\">Unternehmen\u00a0—</span> <span class=\"l l5 accent-text\">persönlich entwickelt.</span>",
+        en: "<span class=\"l l1\">Custom</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"websites|automations|dashboards|web apps\">websites</span></span> <span class=\"l l3\">for your</span> <span class=\"l l4\">business\u00a0—</span> <span class=\"l l5 accent-text\">built by me, personally.</span>"
       },
       hero_sub: {
         de: "Ich baue dir eine moderne Website – und schaue gemeinsam mit dir, wo individuelle IT-Lösungen deinen Arbeitsalltag spürbar leichter machen. Persönlich, ehrlich und ohne Fachchinesisch.",
@@ -44,11 +46,20 @@
       },
       hero_cta_secondary: { de: "So arbeite ich", en: "How I work" },
 
+      demo_title: { de: "Beispiel-Ablauf", en: "Example flow" },
+      demo_live: { de: "läuft", en: "running" },
+      demo1: { de: "Anfrage über deine Website", en: "Enquiry via your website" },
+      demo2: { de: "Automatisch erfasst", en: "Captured automatically" },
+      demo3: { de: "Termin online gebucht", en: "Appointment booked online" },
+      demo4: { de: "Im Dashboard sichtbar", en: "Visible in your dashboard" },
+      tick_auto: { de: "Automationen", en: "Automation" },
+      meta_reply: { de: "Antwort innerhalb von 48 Stunden", en: "Reply within 48 hours" },
+
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
       services_h2: {
-        de: "Drei Wege, wie ich dir helfen kann",
-        en: "Three ways I can help you"
+        de: "Wie ich dir Arbeit abnehme",
+        en: "How I take work off your plate"
       },
       services_sub: {
         de: "Pragmatisch statt überladen: Ich baue genau das, was du im Alltag wirklich brauchst – nicht mehr und nicht weniger.",
@@ -60,10 +71,15 @@
         de: "Schnelle, saubere Websites, die auf dem Handy genauso gut funktionieren wie am Laptop und klar zeigen, was du anbietest – von der einfachen Landingpage bis zur kompletten Seite für deinen Betrieb.",
         en: "Fast, clean websites that work as well on a phone as on a laptop and make clear what you offer — from a simple landing page to a full site for your business."
       },
-      service2_title: { de: "Interne Tools & Dashboards", en: "Internal tools & dashboards" },
+      service0_title: { de: "Automationen", en: "Automation" },
+      service0_desc: {
+        de: "Wiederkehrende Aufgaben laufen von allein: Anfragen werden automatisch erfasst, Daten zwischen deinen Programmen übertragen, Termine gebucht und Berichte erstellt – ohne dass jemand Daten doppelt pflegt oder per Hand kopiert.",
+        en: "Recurring tasks run on their own: enquiries are captured automatically, data moves between your programs, appointments get booked and reports get created – without anyone entering data twice or copying it by hand."
+      },
+      service2_title: { de: "Tools & Dashboards", en: "Tools & dashboards" },
       service2_desc: {
-        de: "Kleine Programme, Dashboards und Automatisierungen, die zu deinen echten Abläufen passen – statt Excel-Listen, bei denen irgendwann keiner mehr durchblickt.",
-        en: "Small tools, dashboards and automation that fit how you actually work — instead of spreadsheets nobody can make sense of anymore."
+        de: "Software, die genau zu deinem Betrieb passt: interne Tools, die deine Abläufe abbilden, und Dashboards, die Daten aus verschiedenen Quellen zusammenführen und dir auf einen Blick zeigen, wo du stehst – statt Excel-Listen, bei denen irgendwann keiner mehr durchblickt.",
+        en: "Software built around your business: internal tools that map how you work, and dashboards that bring data from different sources together and show you at a glance where you stand – instead of spreadsheets nobody can make sense of anymore."
       },
       service3_title: { de: "Ehrliche Einschätzung", en: "Honest advice" },
       service3_desc: {
@@ -106,6 +122,11 @@
       flow3_chip1: { de: "Anfragen automatisch erfassen", en: "Capture enquiries automatically" },
       flow3_chip2: { de: "Excel → Dashboard", en: "Spreadsheet → dashboard" },
       flow3_chip3: { de: "Online-Terminbuchung", en: "Online booking" },
+      flow3_chip4: { de: "Angebote & Rechnungen per Klick", en: "Quotes & invoices in one click" },
+      flow3_chip5: { de: "Kundendaten an einem Ort", en: "All customer data in one place" },
+      flow3_chip6: { de: "Digitale Formulare statt Papier", en: "Digital forms instead of paper" },
+      flow3_chip7: { de: "Automatische Erinnerungen", en: "Automatic reminders" },
+      flow3_chip8: { de: "Lagerbestand im Blick", en: "Stock levels at a glance" },
       flow_note: {
         de: "Kein Muss: Wenn eine Website alles ist, was du brauchst, bleibt es genau dabei.",
         en: "No pressure: if a website is all you need, that's exactly what you get."
@@ -142,6 +163,8 @@
       work_h2: { de: "Kundenprojekte", en: "Client projects" },
       work_sub: { de: "Websites, die ich für Kunden gebaut habe – weitere folgen.", en: "Websites I’ve built for clients — more to come." },
 
+      work_open: { de: "Im neuen Tab öffnen", en: "Open in new tab" },
+      work_explore: { de: "Website erkunden", en: "Explore the website" },
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
       work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
       work_placeholder_desc: { de: "Hier erscheint bald ein Kundenprojekt.", en: "A client project will appear here soon." },
@@ -153,14 +176,15 @@
       ref2_desc: { de: "Website für ein Feinkostgeschäft mit mediterranen Spezialitäten.", en: "Website for a delicatessen with Mediterranean specialities." },
       ref2_status: { de: "Noch nicht online", en: "Not live yet" },
       teaser_p1: {
-        de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites und kleine Tools für Selbstständige und kleine Betriebe.",
-        en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites and small tools for freelancers and small businesses."
+        de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites, Automationen und individuelle Tools für Selbstständige und kleine Betriebe.",
+        en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites, automation and custom tools for freelancers and small businesses."
       },
       teaser_p2: {
         de: "Kein Agentur-Apparat, keine Buzzwords: Du sprichst direkt mit mir, und ich sage dir ehrlich, was für dich sinnvoll ist.",
         en: "No agency machine, no buzzwords: you talk directly to me, and I'll tell you honestly what makes sense for you."
       },
       teaser_link: { de: "Mehr über mich →", en: "More about me →" },
+      teaser_link_label: { de: "Mehr über mich", en: "More about me" },
       teaser_img_alt: { de: "Memoji von Janik", en: "Memoji of Janik" },
 
       contact_status: {
@@ -195,6 +219,24 @@
         en: "Master's student at KIT — and the person who takes your project from idea to finished code."
       },
       photo_alt: { de: "Foto von Janik Wahrheit", en: "Photo of Janik Wahrheit" },
+      cv_page_title: { de: "Lebenslauf — Janik Wahrheit", en: "CV — Janik Wahrheit" },
+      profile_label: { de: "Profil", en: "Profile" },
+      cv_meta_desc: {
+        de: "Janik Wahrheit — Masterstudent Wirtschaftsingenieurwesen am KIT. Lebenslauf, Projekte und Kenntnisse.",
+        en: "Janik Wahrheit — Master's student in Industrial Engineering at KIT. CV, projects and skills."
+      },
+      cv_sub_line: {
+        de: "Masterstudent Wirtschaftsingenieurwesen am KIT · Data Science · Mitgründer von usegradias.ai.",
+        en: "Master's student in Industrial Engineering at KIT · Data Science · Co-founder of usegradias.ai."
+      },
+      cv_p2: {
+        de: 'Mein technisches Fundament habe ich in der Data-Science-Abteilung bei Porsche gesammelt – erst als Praktikant, dann als Werkstudent im Bereich Data.Driven.Quality. Seit Dezember 2025 baue ich als Mitgründer <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> auf.',
+        en: 'I built my technical foundation in the Data Science department at Porsche – first as an intern, then as a working student in Data.Driven.Quality. Since December 2025 I have been building <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> as a co-founder.'
+      },
+      cv_p3: {
+        de: "Meine Bachelorarbeit über heavy-tailed Regularisierung in neuronalen Netzen habe ich mit 1,0 abgeschlossen. Durch mein ingenieurwissenschaftliches Studium gehe ich Probleme analytisch an – und setze Lösungen am liebsten direkt in Code um.",
+        en: "I completed my bachelor's thesis on heavy-tailed regularization in neural networks with a grade of 1.0. My engineering studies taught me to approach problems analytically – and I prefer to turn solutions straight into code."
+      },
 
       p_wave: { de: "Hi 👋", en: "Hi 👋" },
       p1: {
@@ -210,8 +252,8 @@
         en: "My engineering studies taught me to approach problems analytically. I don't write thick consulting reports — I build tools you can use right away and that save you time every day."
       },
       p4: {
-        de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – ob als Läufer auf der 3000-Meter-Bahn, beim Halbmarathon oder auf dem Rennrad. Außerdem koche ich gerne und lese viel über Psychologie, Wirtschaft und Biologie, um immer wieder neue Perspektiven kennenzulernen.",
-        en: "When I'm not at my desk, I'm usually highly active – whether running on the 3000m track, racing a half marathon, or riding my road bike. I also enjoy cooking and reading about psychology, economics, and biology to constantly discover new perspectives."
+        de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – im Gym, beim Laufen von 10 km bis zum Halbmarathon und am liebsten auf dem Rennrad. Außerdem koche ich gerne und lese viel – vor allem über Finanzen, Persönlichkeitsentwicklung und Psychologie.",
+        en: "When I'm not at my desk, I'm usually out training – at the gym, running anything from 10K to a half marathon, and most of all on my road bike. I also enjoy cooking and love reading – especially about finance, self-development and psychology."
       },
       p5: {
         de: "Danke, dass du vorbeischaust – schreib mir einfach, wenn wir zusammen etwas bauen sollen!",
@@ -220,6 +262,27 @@
 
       techstack_eyebrow: { de: "Werkzeugkasten", en: "Toolbox" },
       techstack_h2: { de: "Kern-Technologien", en: "Core Technologies" },
+      tech_cat_lang: { de: "Sprachen", en: "Languages" },
+      tech_cat_field: { de: "Bereiche", en: "Fields" },
+      tech_cat_fw: { de: "Frameworks", en: "Frameworks" },
+      tech_cat_tools: { de: "Tools & Plattformen", en: "Tools & platforms" },
+      tech_use: { de: "Damit arbeite ich", en: "What I work with" },
+      tech_hint: { de: "Für Details über eine Technologie fahren oder tippen.", en: "Hover or tap a technology for details." },
+      tg_data: { de: "Daten", en: "Data" },
+      tg_viz: { de: "Visualisierung", en: "Visualization" },
+      tg_ml: { de: "Machine Learning", en: "Machine learning" },
+      tg_llm: { de: "LLMs & KI", en: "LLMs & AI" },
+      tg_web: { de: "Web & APIs", en: "Web & APIs" },
+      tg_env: { de: "Umgebung & Tests", en: "Environment & testing" },
+      tg_ops: { de: "MLOps", en: "MLOps" },
+      tech_java_note: {
+        de: "Tutor für „Programmieren I: Java“ am KIT; Visualisierung von Dijkstras Algorithmus.",
+        en: "Tutor for “Programming I: Java” at KIT; visualization of Dijkstra's algorithm."
+      },
+      tech_ml_note: {
+        de: "Bachelorarbeit zu heavy-tailed Regularisierung in neuronalen Netzen (Note 1,0).",
+        en: "Bachelor's thesis on heavy-tailed regularization in neural networks (grade 1.0)."
+      },
       techstack_sub: {
         de: "Die Sprachen, Frameworks und Tools, die ich für meine Projekte nutze.",
         en: "The languages, frameworks, and tools I use to build my projects."

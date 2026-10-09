@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex">
+  <title>Visitenkarte — Janik Wahrheit</title>
+  <link rel="icon" type="image/svg+xml" href="../assets/img/favicon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700&display=swap" rel="stylesheet">
+  <style>
+    /* Print spec: 85 × 55 mm trim (EU), 3 mm bleed on every side → 91 × 61 mm pages.
+       Text stays ≥ 5 mm inside the trim → ≥ 8 mm from the page edge.
+       The glass effect is built from clipped, blurred copies (not backdrop-filter) so it survives PDF export. */
+    :root {
+      --bg: #E4E4E1;
+      --ink: #0D0D0D;
+      --mute: #6A6A65;
+      --blue: #1F47E0;
+      --font: "Inter Tight", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      --bleed: 3mm;
+      --safe: 8mm;
+      --rule: .45mm;
+    }
+    @page { size: 91mm 61mm; margin: 0; }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html, body { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+
+    .card { width: 91mm; height: 61mm; position: relative; overflow: hidden; break-after: page; font-family: var(--font); }
+    .card:last-child { break-after: auto; }
+    .inner { position: absolute; inset: var(--safe); display: flex; flex-direction: column; }
+
+    .t { font: 700 6.4pt/1.12 var(--font); letter-spacing: -.01em; }
+    .t-m { font: 600 6pt/1.2 var(--font); letter-spacing: -.005em; }
+
+    /* ---------- front ---------- */
+    .front {
+      background-color: var(--bg); color: var(--ink);
+      background-image: repeating-linear-gradient(90deg, rgba(255,255,255,0) 0mm, rgba(255,255,255,.4) 1.2mm, rgba(255,255,255,.06) 2.8mm, rgba(0,0,0,.04) 4.6mm, rgba(255,255,255,0) 5.2mm);
+    }
+    .top { display: flex; justify-content: space-between; align-items: flex-start; padding-bottom: 2mm; border-bottom: var(--rule) solid var(--ink); }
+    .id { display: flex; gap: 2mm; align-items: center; }
+    .id img { width: 7.2mm; }
+    .top > .t:last-child { text-align: right; }
+
+    .big { position: relative; flex: 1; display: flex; flex-direction: column; justify-content: center; }
+    .line { font: 600 21pt/.86 var(--font); letter-spacing: -.065em; white-space: nowrap; }
+    .line--r { text-align: right; }
+    .glass { position: absolute; left: 0; right: 0; top: 0; bottom: 0; pointer-events: none; }
+    .reed {
+      position: absolute; top: 0; bottom: 0; width: 3.4mm; overflow: hidden;
+      background-color: var(--bg);
+      background-image: linear-gradient(90deg, rgba(255,255,255,.55), rgba(255,255,255,.1) 25%, rgba(255,255,255,0) 55%, rgba(0,0,0,.07) 90%, rgba(255,255,255,.3));
+    }
+    .reed .copy { position: absolute; top: 0; bottom: 0; width: 75mm; display: flex; flex-direction: column; justify-content: center; }
+    .reed .copy .line { filter: blur(var(--b, 1.6pt)); }
+
+    .bottom { display: flex; justify-content: space-between; align-items: flex-end; padding-top: 2mm; border-top: var(--rule) solid var(--ink); }
+
+    /* ---------- back ---------- */
+    .back { background: var(--ink); color: #E4E4E1; }
+    .back svg.liquid { position: absolute; inset: 0; width: 100%; height: 100%; }
+    .back .inner { justify-content: space-between; }
+    .back .top { border-color: #E4E4E1; }
+    .back .bottom { border-color: #E4E4E1; }
+    .back .id img { width: 8mm; }
+
+    /* ---------- screen preview ---------- */
+    @media screen {
+      body { background: #CFCFCB; color: #0D0D0D; min-height: 100vh; font-family: var(--font); }
+      .sheet { display: flex; flex-wrap: wrap; gap: 40px; justify-content: center; padding: 48px 16px 24px; zoom: 2.2; }
+      .card { box-shadow: 0 14px 30px -18px rgba(0, 0, 0, .5); }
+      .card::after { content: ""; position: absolute; inset: var(--bleed); outline: .2mm dashed rgba(255, 0, 90, .6); pointer-events: none; }
+      .hide-guides .card::after { display: none; }
+      .bar { display: flex; flex-wrap: wrap; gap: 12px 20px; justify-content: center; align-items: center; padding: 24px 16px 48px; font: 600 13px var(--font); }
+      .bar button { font: 600 13px var(--font); padding: 11px 18px; border-radius: 999px; border: 2px solid #0D0D0D; background: #0D0D0D; color: #E4E4E1; cursor: pointer; }
+      .bar button.alt { background: transparent; color: #0D0D0D; }
+      @media (max-width: 1500px) { .sheet { zoom: 1.6; } }
+      @media (max-width: 1180px) { .sheet { zoom: 1.2; } }
+      @media (max-width: 480px) { .sheet { zoom: .95; } }
+    }
+    @media print { .bar { display: none; } .sheet { display: block; } }
+  </style>
+</head>
+
+<body>
+  <div class="sheet">
+
+    <!-- FRONT -->
+    <section class="card front" aria-label="Vorderseite">
+      <div class="inner">
+        <div class="top">
+          <div class="id"><img src="../assets/brand/jw-mark.svg" alt="JW"><p class="t">Janik<br>Wahrheit</p></div>
+          <p class="t">Websites &amp;<br>Automationen</p>
+        </div>
+        <div class="big">
+          <p class="line">Websites</p>
+          <p class="line line--r">&amp; Automationen</p>
+          <div class="glass" aria-hidden="true">
+            <!-- reeds: left offsets in mm; each holds a blurred copy shifted back by the same amount -->
+            <div class="reed" style="left:18mm;--b:1.2pt"><div class="copy" style="left:-18mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+            <div class="reed" style="left:21.4mm;--b:2.2pt"><div class="copy" style="left:-21.4mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+            <div class="reed" style="left:24.8mm;--b:1.6pt"><div class="copy" style="left:-24.8mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+            <div class="reed" style="left:28.2mm;--b:2.8pt"><div class="copy" style="left:-28.2mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+            <div class="reed" style="left:31.6mm;--b:1.4pt"><div class="copy" style="left:-31.6mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+            <div class="reed" style="left:35mm;--b:2.4pt"><div class="copy" style="left:-35mm"><p class="line">Websites</p><p class="line line--r">&amp; Automationen</p></div></div>
+          </div>
+        </div>
+        <div class="bottom">
+          <p class="t-m">janik.wahrheit@icloud.com</p>
+          <p class="t-m">Persönlich entwickelt.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- BACK -->
+    <section class="card back" aria-label="Rückseite">
+      <svg class="liquid" viewBox="0 0 910 610" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <defs>
+          <filter id="liquid" x="-20%" y="-20%" width="140%" height="140%">
+            <feGaussianBlur stdDeviation="9" result="soft"/>
+            <feTurbulence type="fractalNoise" baseFrequency="1.6" numOctaves="2" seed="7" result="grain"/>
+            <feDisplacementMap in="soft" in2="grain" scale="44" xChannelSelector="R" yChannelSelector="G"/>
+          </filter>
+        </defs>
+        <path fill="none" stroke="#1F47E0" stroke-width="64" stroke-linecap="round" filter="url(#liquid)"
+          d="M-60 420C120 470 230 380 250 270S330 90 470 130 560 390 690 400 860 250 980 170"/>
+      </svg>
+      <div class="inner">
+        <div class="top">
+          <div class="id"><img src="../assets/brand/jw-mark-on-ink.svg" alt=""></div>
+          <p class="t" style="text-align:right">Janik Wahrheit</p>
+        </div>
+        <div class="bottom">
+          <p class="t-m">Websites &amp; Automationen</p>
+          <p class="t-m">github.com/janikWa</p>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <div class="bar">
+    <span>85 × 55 mm · 3 mm Beschnitt · gestrichelt = Schnittkante</span>
+    <button type="button" onclick="document.body.classList.toggle('hide-guides')" class="alt">Hilfslinien ein/aus</button>
+    <button type="button" onclick="window.print()">Als PDF drucken</button>
+  </div>
+</body>
+
+</html>
