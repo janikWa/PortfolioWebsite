@@ -129,9 +129,137 @@
           <p class="t-sm sec-sub" data-i18n="about.techstack_sub">Die Sprachen, Frameworks und Tools, die ich für meine Projekte nutze.</p>
         </header>
         <h2 class="h2" data-i18n="about.techstack_h2">Kern-Technologien</h2>
-        <ul class="stack">
-          <li>Python</li><li>React</li><li>Java</li><li>Streamlit</li><li>Data Science</li><li>Machine Learning</li><li>Vite</li><li>Appwrite</li>
-        </ul>
+        <div class="techs">
+          <div class="tech-row tech-row--lang g4">
+            <p class="t-br tech-cat" data-i18n="about.tech_cat_lang">Sprachen</p>
+            <ul class="tech-list">
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-python">Python</button>
+                <div class="tech-pop tech-pop--wide" id="tech-python">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <p class="tech-group" data-i18n="about.tg_data">Daten</p><ul class="tech-libs"><li>PySpark</li><li>pandas</li><li>Polars</li><li>NumPy</li><li>SciPy</li><li>statsmodels</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_viz">Visualisierung</p><ul class="tech-libs"><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>Streamlit</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_ml">Machine Learning</p><ul class="tech-libs"><li>scikit-learn</li><li>PyTorch</li><li>TensorFlow</li><li>XGBoost</li><li>LightGBM</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_web">Web & APIs</p><ul class="tech-libs"><li>FastAPI</li><li>Flask</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_env">Umgebung & Tests</p><ul class="tech-libs"><li>Jupyter</li><li>pytest</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-sql">SQL</button>
+                <div class="tech-pop" id="tech-sql">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>PostgreSQL</li><li>MySQL</li><li>Supabase</li><li>Databricks</li><li>Snowflake</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-ts">TypeScript</button>
+                <div class="tech-pop" id="tech-ts">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>Next.js</li><li>React</li><li>Node.js</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-js">JavaScript</button>
+                <div class="tech-pop" id="tech-js">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>React</li><li>Node.js</li><li>Vite</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-java">Java</button>
+                <div class="tech-pop" id="tech-java">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <p class="tech-note" data-i18n="about.tech_java_note">Tutor für „Programmieren I: Java“ am KIT; Visualisierung von Dijkstras Algorithmus.</p>
+                </div>
+              </li>
+              <li class="tech tech--plain"><span class="tech-btn">HTML</span></li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-css">CSS</button>
+                <div class="tech-pop" id="tech-css">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>Tailwind CSS</li></ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-row tech-row--field g4">
+            <p class="t-br tech-cat" data-i18n="about.tech_cat_field">Bereiche</p>
+            <ul class="tech-list">
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-ds">Data Science</button>
+                <div class="tech-pop tech-pop--wide" id="tech-ds">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <p class="tech-group" data-i18n="about.tg_data">Daten</p><ul class="tech-libs"><li>pandas</li><li>Polars</li><li>NumPy</li><li>SciPy</li><li>statsmodels</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_viz">Visualisierung</p><ul class="tech-libs"><li>Matplotlib</li><li>Seaborn</li><li>Plotly</li><li>Streamlit</li><li>Quarto</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_env">Umgebung & Tests</p><ul class="tech-libs"><li>Jupyter</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-ml">Machine Learning</button>
+                <div class="tech-pop tech-pop--wide" id="tech-ml">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <p class="tech-group" data-i18n="about.tg_ml">Machine Learning</p><ul class="tech-libs"><li>scikit-learn</li><li>PyTorch</li><li>TensorFlow</li><li>XGBoost</li><li>LightGBM</li><li>Hugging Face Transformers</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_llm">LLMs & KI</p><ul class="tech-libs"><li>OpenAI API</li><li>Anthropic API</li><li>LangChain</li></ul>
+                  <p class="tech-group" data-i18n="about.tg_ops">MLOps</p><ul class="tech-libs"><li>MLflow</li></ul>
+                  <p class="tech-note" data-i18n="about.tech_ml_note">Bachelorarbeit zu heavy-tailed Regularisierung in neuronalen Netzen (Note 1,0).</p>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-de">Data Engineering</button>
+                <div class="tech-pop" id="tech-de">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>Databricks</li><li>Snowflake</li><li>PySpark</li><li>SQL</li><li>PostgreSQL</li></ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-row tech-row--fw g4">
+            <p class="t-br tech-cat" data-i18n="about.tech_cat_fw">Frameworks</p>
+            <ul class="tech-list">
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-react">React</button>
+                <div class="tech-pop" id="tech-react">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>TypeScript</li><li>Vite</li><li>Appwrite</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-next">Next.js</button>
+                <div class="tech-pop" id="tech-next">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>TypeScript</li><li>Tailwind CSS</li><li>Vercel</li><li>React</li></ul>
+                </div>
+              </li>
+              <li class="tech tech--plain"><span class="tech-btn">Tailwind CSS</span></li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-node">Node.js</button>
+                <div class="tech-pop" id="tech-node">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>JavaScript</li><li>TypeScript</li><li>REST APIs</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-fastapi">FastAPI</button>
+                <div class="tech-pop" id="tech-fastapi">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>Python</li><li>REST APIs</li><li>pytest</li></ul>
+                </div>
+              </li>
+              <li class="tech">
+                <button class="tech-btn" type="button" aria-expanded="false" aria-controls="tech-flask">Flask</button>
+                <div class="tech-pop" id="tech-flask">
+                  <span class="t-br" data-i18n="about.tech_use">Damit arbeite ich</span>
+                  <ul class="tech-libs"><li>Python</li><li>REST APIs</li></ul>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="tech-row tech-row--tools g4">
+            <p class="t-br tech-cat" data-i18n="about.tech_cat_tools">Tools &amp; Plattformen</p>
+            <ul class="tool-list"><li>Git</li><li>GitHub Actions</li><li>Docker</li><li>Vercel</li><li>Databricks</li><li>Snowflake</li><li>Supabase</li><li>PostgreSQL</li><li>MySQL</li><li>MongoDB</li><li>Jupyter</li><li>Figma</li><li>Appwrite</li><li>Streamlit</li><li>Quarto</li><li>Vite</li></ul>
+          </div>
+        </div>
+        <p class="t-xs tech-hint" data-i18n="about.tech_hint">Für Details über eine Technologie fahren oder tippen.</p>
       </div>
     </section>
 

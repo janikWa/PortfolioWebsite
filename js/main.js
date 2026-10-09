@@ -210,6 +210,38 @@
     });
   }
 
+  /* ---------- core technologies: detail card on hover (pointer) or tap (touch / keyboard) ---------- */
+  var techs = Array.prototype.slice.call(document.querySelectorAll(".tech")).filter(function (t) { return t.querySelector(".tech-pop"); });
+  if (techs.length) {
+    var place = function (tech) {
+      var r = tech.getBoundingClientRect();
+      var pop = tech.querySelector(".tech-pop");
+      var w = pop ? Math.min(420, pop.scrollWidth || 320) : 320;
+      tech.classList.toggle("pop-left", r.left + w > document.documentElement.clientWidth - 16);
+    };
+    var closeAll = function (except) {
+      techs.forEach(function (t) {
+        if (t === except) return;
+        t.classList.remove("is-open");
+        t.querySelector(".tech-btn").setAttribute("aria-expanded", "false");
+      });
+    };
+    techs.forEach(function (tech) {
+      var btn = tech.querySelector(".tech-btn");
+      tech.addEventListener("pointerenter", function () { place(tech); });
+      btn.addEventListener("focus", function () { place(tech); });
+      btn.addEventListener("click", function () {
+        var open = !tech.classList.contains("is-open");
+        closeAll(tech);
+        place(tech);
+        tech.classList.toggle("is-open", open);
+        btn.setAttribute("aria-expanded", String(open));
+      });
+    });
+    document.addEventListener("click", function (evt) { if (!evt.target.closest(".tech")) closeAll(null); });
+    document.addEventListener("keydown", function (evt) { if (evt.key === "Escape") closeAll(null); });
+  }
+
   /* ---------- scramble: letters cycle through glyphs before they lock, left to right ---------- */
   var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
   function scramble(el, target, done) {

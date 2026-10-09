@@ -449,13 +449,59 @@ a.poster:hover .mock { transform: scale(1.035); }
 .inline-links { display: flex; flex-wrap: wrap; gap: 8px 24px; padding-top: 14px; border-top: var(--thick) solid var(--ink); }
 .inline-links a { font: 600 .8125rem/1.2 var(--font); text-decoration: none; }
 
-.stack { display: flex; flex-wrap: wrap; column-gap: .28em; font: 600 clamp(2.4rem, 6.4vw, 7rem)/.95 var(--font); letter-spacing: -.058em; }
-.stack li { transition: filter .45s var(--ease), opacity .45s var(--ease), color .3s; }
-.stack li:not(:last-child)::after { content: ","; }
-.stack li:last-child::after { content: "."; color: var(--blue); }
-@media (hover: hover) and (pointer: fine) {
-  .stack:hover li:not(:hover) { filter: blur(4px); opacity: .4; }
+/* core technologies — grouped by kind, details on hover / tap */
+.techs { border-top: var(--thick) solid var(--ink); }
+.tech-row { padding: 18px 0 22px; border-bottom: 1px solid var(--hair); align-items: baseline; row-gap: 12px; }
+.tech-cat { grid-column: 1; padding-top: .6em; }
+.tech-list, .tool-list { grid-column: 2 / -1; display: flex; flex-wrap: wrap; align-items: baseline; }
+.tech-list { column-gap: .3em; font: 600 clamp(2.2rem, 5.4vw, 5.8rem)/1 var(--font); letter-spacing: -.058em; }
+.tech { position: relative; display: flex; align-items: baseline; }
+.tech:not(:last-child)::after { content: ","; }
+.tech-btn {
+  font: inherit; letter-spacing: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer;
+  transition: filter .4s var(--ease), opacity .4s var(--ease), color .25s;
 }
+/* the kind of technology is readable from the type treatment */
+.tech-row--lang .tech-list { color: var(--ink); }
+.tech--plain .tech-btn { cursor: default; }
+.tech-row--field .tech-list { color: var(--blue); }
+.tech-row--fw .tech-btn { color: transparent; -webkit-text-stroke: 1.6px var(--ink); }
+.tech-row--fw .tech::after { color: var(--ink); }
+.tech-row--fw .tech-btn:hover, .tech-row--fw .tech.is-open .tech-btn { color: var(--ink); }
+.tool-list { gap: 8px; padding-top: 4px; }
+.tool-list li { font: 600 .9rem/1 var(--font); padding: 10px 14px; border-radius: 999px; border: var(--thick) solid var(--ink); }
+
+/* focus: everything except the hovered / opened technology blurs back */
+@media (hover: hover) and (pointer: fine) {
+  .techs:has(.tech:hover) .tech:not(:hover) .tech-btn { filter: blur(4px); opacity: .35; }
+}
+.techs:has(.tech.is-open) .tech:not(.is-open) .tech-btn { filter: blur(4px); opacity: .35; }
+
+/* detail card */
+.tech-pop {
+  position: absolute; left: 0; top: calc(100% + 10px); z-index: 20;
+  width: max-content; max-width: min(420px, 82vw);
+  padding: 16px 18px 18px; border-radius: 6px;
+  background: #0D0D0D; color: #ECECE9;
+  font: 500 1rem/1.4 var(--font); letter-spacing: -.01em;
+  box-shadow: 0 24px 40px -24px rgba(0, 0, 0, .6);
+  opacity: 0; visibility: hidden; transform: translateY(8px);
+  transition: opacity .25s var(--ease), transform .35s var(--ease), visibility 0s .25s;
+}
+.tech.pop-left .tech-pop { left: auto; right: 0; }
+.tech-pop .t-br { color: rgba(236, 236, 233, .6); }
+.tech-libs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.tech-pop--wide { max-width: min(520px, 86vw); }
+.tech-group { margin-top: 12px; font: 600 .7rem/1.2 var(--font); letter-spacing: .04em; text-transform: uppercase; color: rgba(236, 236, 233, .55); }
+.tech-group + .tech-libs { margin-top: 6px; }
+.tech-libs li { font: 600 .85rem/1 var(--font); padding: 8px 11px; border-radius: 999px; border: 1.5px solid rgba(236, 236, 233, .35); }
+.tech-row--field .tech-libs li { border-color: #6F8BFF; }
+.tech-note { margin-top: 12px; padding-top: 10px; border-top: 1px solid rgba(236, 236, 233, .2); font-size: .9rem; color: rgba(236, 236, 233, .8); }
+@media (hover: hover) and (pointer: fine) {
+  .tech:hover .tech-pop { opacity: 1; visibility: visible; transform: none; transition: opacity .25s var(--ease), transform .35s var(--ease), visibility 0s; }
+}
+.tech.is-open .tech-pop, .tech-btn:focus-visible + .tech-pop { opacity: 1; visibility: visible; transform: none; transition: opacity .25s var(--ease), transform .35s var(--ease), visibility 0s; }
+.tech-hint { margin-top: 14px; color: var(--mute); }
 
 /* CV timeline — a cobalt line fills with scroll, steps lock in as it reaches them */
 .cv { position: relative; border-top: var(--thick) solid var(--ink); padding-left: 40px; --p: 1; }
@@ -507,6 +553,8 @@ a.poster:hover .mock { transform: scale(1.035); }
   .intro-photo { grid-column: 1 / -1; position: static; max-width: 420px; }
   .intro-text { grid-column: 1 / -1; }
   .cv-row { grid-template-columns: 1fr; }
+  .tech-cat, .tech-list, .tool-list { grid-column: 1 / -1; }
+  .tech-cat { padding-top: 0; }
   .cv-row h3, .cv-row p { grid-column: 1; }
 }
 

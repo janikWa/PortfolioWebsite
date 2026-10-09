@@ -255,6 +255,27 @@
 
       techstack_eyebrow: { de: "Werkzeugkasten", en: "Toolbox" },
       techstack_h2: { de: "Kern-Technologien", en: "Core Technologies" },
+      tech_cat_lang: { de: "Sprachen", en: "Languages" },
+      tech_cat_field: { de: "Bereiche", en: "Fields" },
+      tech_cat_fw: { de: "Frameworks", en: "Frameworks" },
+      tech_cat_tools: { de: "Tools & Plattformen", en: "Tools & platforms" },
+      tech_use: { de: "Damit arbeite ich", en: "What I work with" },
+      tech_hint: { de: "Für Details über eine Technologie fahren oder tippen.", en: "Hover or tap a technology for details." },
+      tg_data: { de: "Daten", en: "Data" },
+      tg_viz: { de: "Visualisierung", en: "Visualization" },
+      tg_ml: { de: "Machine Learning", en: "Machine learning" },
+      tg_llm: { de: "LLMs & KI", en: "LLMs & AI" },
+      tg_web: { de: "Web & APIs", en: "Web & APIs" },
+      tg_env: { de: "Umgebung & Tests", en: "Environment & testing" },
+      tg_ops: { de: "MLOps", en: "MLOps" },
+      tech_java_note: {
+        de: "Tutor für „Programmieren I: Java“ am KIT; Visualisierung von Dijkstras Algorithmus.",
+        en: "Tutor for “Programming I: Java” at KIT; visualization of Dijkstra's algorithm."
+      },
+      tech_ml_note: {
+        de: "Bachelorarbeit zu heavy-tailed Regularisierung in neuronalen Netzen (Note 1,0).",
+        en: "Bachelor's thesis on heavy-tailed regularization in neural networks (grade 1.0)."
+      },
       techstack_sub: {
         de: "Die Sprachen, Frameworks und Tools, die ich für meine Projekte nutze.",
         en: "The languages, frameworks, and tools I use to build my projects."
