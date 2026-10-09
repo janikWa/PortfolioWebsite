@@ -8,6 +8,17 @@
   /* ---------- current year in the footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 
+  /* ---------- iPhone / iPad: draw ↗ as a text arrow, not the emoji ----------
+     iOS renders a bare ↗ as an emoji; U+FE0E asks for the text glyph. Only there,
+     so desktop keeps its arrow exactly as it is. */
+  var iOS = /iP(hone|od|ad)/.test(navigator.userAgent) || (navigator.platform === "MacIntel" && navigator.maxTouchPoints > 1);
+  if (iOS) {
+    var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+    for (var tn = walker.nextNode(); tn; tn = walker.nextNode()) {
+      if (tn.nodeValue.indexOf("↗") > -1) tn.nodeValue = tn.nodeValue.replace(/↗(?!︎)/g, "↗︎");
+    }
+  }
+
   /* ---------- mobile nav (full-screen overlay) ---------- */
   var navToggle = document.getElementById("nav-toggle");
   var nav = document.getElementById("nav");
