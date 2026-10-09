@@ -245,8 +245,8 @@
         en: "My engineering studies taught me to approach problems analytically. I don't write thick consulting reports — I build tools you can use right away and that save you time every day."
       },
       p4: {
-        de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – ob als Läufer auf der 3000-Meter-Bahn, beim Halbmarathon oder auf dem Rennrad. Außerdem koche ich gerne und lese viel über Psychologie, Wirtschaft und Biologie, um immer wieder neue Perspektiven kennenzulernen.",
-        en: "When I'm not at my desk, I'm usually highly active – whether running on the 3000m track, racing a half marathon, or riding my road bike. I also enjoy cooking and reading about psychology, economics, and biology to constantly discover new perspectives."
+        de: "Wenn ich nicht am Schreibtisch sitze, bin ich meistens sportlich unterwegs – im Gym, beim Laufen von 10 km bis zum Halbmarathon und am liebsten auf dem Rennrad. Außerdem koche ich gerne und lese viel – vor allem über Finanzen, Persönlichkeitsentwicklung und Psychologie.",
+        en: "When I'm not at my desk, I'm usually out training – at the gym, running anything from 10K to a half marathon, and most of all on my road bike. I also enjoy cooking and love reading – especially about finance, self-development and psychology."
       },
       p5: {
         de: "Danke, dass du vorbeischaust – schreib mir einfach, wenn wir zusammen etwas bauen sollen!",
@@ -261,6 +261,7 @@
       tech_cat_tools: { de: "Tools & Plattformen", en: "Tools & platforms" },
       tech_use: { de: "Damit arbeite ich", en: "What I work with" },
       tech_hint: { de: "Für Details über eine Technologie fahren oder tippen.", en: "Hover or tap a technology for details." },
+      strava: { de: "Wer’s nicht glaubt: meine Kilometer auf Strava", en: "Don’t believe me? My kilometres are on Strava" },
       tg_data: { de: "Daten", en: "Data" },
       tg_viz: { de: "Visualisierung", en: "Visualization" },
       tg_ml: { de: "Machine Learning", en: "Machine learning" },
