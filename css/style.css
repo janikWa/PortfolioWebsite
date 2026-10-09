@@ -480,7 +480,7 @@ button { font: inherit; color: inherit; }
 .tech-list, .tool-list { grid-column: 2 / -1; display: flex; flex-wrap: wrap; align-items: baseline; }
 .tech-list { column-gap: .3em; font: 600 clamp(2.2rem, 5.4vw, 5.8rem)/1 var(--font); letter-spacing: -.058em; }
 .tech { position: relative; display: flex; align-items: baseline; }
-.tech:not(:last-child)::after { content: ","; }
+.tech:not(:last-child)::after { content: ","; transition: filter .4s var(--ease), opacity .4s var(--ease); }
 .tech-btn {
   font: inherit; letter-spacing: inherit; color: inherit; background: none; border: 0; padding: 0; cursor: pointer;
   transition: filter .4s var(--ease), opacity .4s var(--ease), color .25s;
@@ -497,9 +497,11 @@ button { font: inherit; color: inherit; }
 
 /* focus: everything except the hovered / opened technology blurs back */
 @media (hover: hover) and (pointer: fine) {
-  .techs:has(.tech:hover) .tech:not(:hover) .tech-btn { filter: blur(4px); opacity: .35; }
+  .techs:has(.tech:hover) .tech:not(:hover) .tech-btn,
+  .techs:has(.tech:hover) .tech:not(:hover)::after { filter: blur(4px); opacity: .35; }
 }
-.techs:has(.tech.is-open) .tech:not(.is-open) .tech-btn { filter: blur(4px); opacity: .35; }
+.techs:has(.tech.is-open) .tech:not(.is-open) .tech-btn,
+.techs:has(.tech.is-open) .tech:not(.is-open)::after { filter: blur(4px); opacity: .35; }
 
 /* detail card */
 .tech-pop {
@@ -669,7 +671,8 @@ button { font: inherit; color: inherit; }
   .nav.is-open a:nth-child(2) { transition-delay: .04s; } .nav.is-open a:nth-child(3) { transition-delay: .08s; }
   .nav.is-open a:nth-child(4) { transition-delay: .12s; } .nav.is-open a:nth-child(5) { transition-delay: .16s; }
   .nav.is-open a:nth-child(6) { transition-delay: .2s; }
-  .nav a.active span { border-bottom-width: 3px; }
+  /* big tight-set menu: an underline instead of a border, so it does not run into the next line */
+  .nav a.active span { border-bottom: 0; text-decoration: underline 3px; text-underline-offset: .08em; }
   .nav .nav-contact { display: block; color: var(--blue); }
   html.nav-locked { overflow: hidden; }
 
