@@ -41,7 +41,7 @@
 
   // the CV page (/aboutme) stays static: no reveal animation
   var revealTargets = document.body.classList.contains("cv-page") ? [] : Array.prototype.slice.call(document.querySelectorAll(
-    ".h2, .row, .stage, .note, .step, .poster, .teaser-name, .teaser-photo, .teaser-text, " +
+    ".poster, .teaser-name, .teaser-photo, .teaser-text, " +
     ".contact-copy, .big-links li"
   ));
   revealTargets.forEach(function (el) {
@@ -64,10 +64,122 @@
     el.classList.add("is-visible");
   }, { threshold: 0.1, rootMargin: "0px 0px -6% 0px" });
 
-  /* ---------- liquid line draws itself ---------- */
-  observe(Array.prototype.slice.call(document.querySelectorAll(".liquid")), function (svg) {
-    svg.classList.add("is-drawn");
-  }, { threshold: 0.2 });
+  /* ---------- scroll scenes (scrubbed to scroll position, Apple-style) ----------
+     Everything below reads scroll progress every frame and writes CSS variables,
+     so the motion follows the scroll in both directions. */
+  var clamp = function (v, a, b) { return Math.min(b, Math.max(a, v)); };
+  var scenes = [];
+
+  if (!prefersReduced && !document.body.classList.contains("cv-page")) {
+
+    // 1) headlines: words light up one by one
+    var splitWords = function (h) {
+      if (h.querySelector(".w")) return;
+      var words = h.textContent.trim().split(/\s+/);
+      var esc = function (s) { return s.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); };
+      h.innerHTML = words.map(function (w) { return '<span class="w">' + esc(w) + "</span>"; }).join(" ");
+      h._words = Array.prototype.slice.call(h.querySelectorAll(".w"));
+    };
+    document.querySelectorAll(".h2").forEach(function (h) {
+      splitWords(h);
+      // the language toggle rewrites the text: split again
+      new MutationObserver(function () { if (!h.querySelector(".w")) { splitWords(h); requestScenes(); } }).observe(h, { childList: true });
+      scenes.push(function (vh) {
+        var r = h.getBoundingClientRect();
+        var p = clamp((vh * 0.92 - r.top) / (vh * 0.5), 0, 1);
+        var n = h._words.length;
+        h._words.forEach(function (w, k) { w.style.setProperty("--o", (0.14 + 0.86 * clamp(p * (n + 2) - k, 0, 1)).toFixed(3)); });
+      });
+    });
+
+    // 2) approach: the liquid line draws with the scroll, stages rise out of blur
+    var approach = document.getElementById("approach");
+    if (approach) {
+      var path = approach.querySelector(".liquid-path");
+      var risers = Array.prototype.slice.call(approach.querySelectorAll(".stage, .note"));
+      risers.forEach(function (el) { el.classList.add("scrub"); });
+      scenes.push(function (vh) {
+        var r = approach.getBoundingClientRect();
+        var p = clamp((vh - r.top) / (r.height + vh * 0.4), 0, 1);
+        if (path) path.style.setProperty("--draw", (1 - clamp(p * 1.25, 0, 1)).toFixed(4));
+        risers.forEach(function (el) {
+          var top = el.getBoundingClientRect().top;
+          el.style.setProperty("--v", clamp((vh * 0.92 - top) / (vh * 0.32), 0, 1).toFixed(3));
+        });
+      });
+    }
+
+    var mastH = function () { return parseFloat(getComputedStyle(root).getPropertyValue("--mast-h")) || 76; };
+
+    // 3) services: the stage pins, each panel zooms in from small to full; the one below recedes
+    var zoomTrack = document.querySelector("[data-zoom]");
+    if (zoomTrack) {
+      zoomTrack.closest("section").classList.add("is-zoom");
+      var panels = Array.prototype.slice.call(zoomTrack.querySelectorAll(".zpanel"));
+      var zn = panels.length;
+      scenes.push(function (vh) {
+        var r = zoomTrack.getBoundingClientRect();
+        var stageH = vh - mastH();
+        var p = clamp(-r.top / Math.max(1, r.height - stageH), 0, 1);
+        var pos = p * (zn - 1 + 0.4);
+        var zs = panels.map(function (panel, i) {
+          // first panel zooms while the section scrolls into view; the others zoom in turn while pinned
+          return i === 0 ? clamp((vh - r.top) / (vh * 0.95), 0, 1) : clamp((pos - (i - 0.75)) / 0.6, 0, 1);
+        });
+        panels.forEach(function (panel, i) {
+          var z = zs[i], d = i < zn - 1 ? zs[i + 1] : 0;
+          var ez = 1 - Math.pow(1 - z, 3);   // ease-out so the zoom settles softly
+          panel.style.setProperty("--z", ez.toFixed(4));
+          panel.style.setProperty("--d", d.toFixed(4));
+          panel.style.setProperty("--a", (i === 0 ? 1 : clamp(z * 3, 0, 1)).toFixed(3));
+          panel.style.setProperty("--c", clamp((z - 0.55) / 0.45, 0, 1).toFixed(3));
+          panel.style.zIndex = String(i + 1);
+        });
+      });
+    }
+
+    // 4) process: the stage pins and the row of steps slides sideways along the line
+    var hwrap = document.querySelector("[data-htrack]");
+    if (hwrap) {
+      hwrap.closest("section").classList.add("is-htrack");
+      var htrack = hwrap.querySelector(".htrack");
+      var hstage = hwrap.querySelector(".htrack-stage");
+      var hsteps = Array.prototype.slice.call(htrack.querySelectorAll(".step"));
+      var dist = 0;
+      var measure = function () {
+        dist = Math.max(0, htrack.scrollWidth - hstage.clientWidth);
+        hwrap.style.setProperty("--dist", dist + "px");
+      };
+      measure();
+      window.addEventListener("resize", measure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+      scenes.push(function (vh) {
+        var r = hwrap.getBoundingClientRect();
+        var stageH = vh - mastH();
+        var p = clamp(-r.top / Math.max(1, r.height - stageH), 0, 1);
+        htrack.style.setProperty("--tx", (-p * dist).toFixed(1) + "px");
+        var center = hstage.getBoundingClientRect().left + hstage.clientWidth * 0.5;
+        var trackLeft = htrack.getBoundingClientRect().left;
+        htrack.style.setProperty("--lf", Math.max(0, center - trackLeft).toFixed(1) + "px");
+        hsteps.forEach(function (step, i) {
+          var left = step.getBoundingClientRect().left;
+          step.classList.toggle("is-lit", left < center || (i === hsteps.length - 1 && p > 0.98));
+        });
+      });
+    }
+  }
+
+  var scenesQueued = false;
+  function runScenes() {
+    scenesQueued = false;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+    scenes.forEach(function (fn) { fn(vh); });
+  }
+  function requestScenes() { if (!scenesQueued && scenes.length) { scenesQueued = true; window.requestAnimationFrame(runScenes); } }
+  window.addEventListener("scroll", requestScenes, { passive: true });
+  window.addEventListener("resize", requestScenes);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(requestScenes);
+  requestScenes();
 
   /* ---------- fluted glass follows the cursor (hero + footer wordmark) ----------
      On touch / coarse pointers it drifts on its own (CSS .is-auto). */

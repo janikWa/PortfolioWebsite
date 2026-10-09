@@ -212,26 +212,41 @@ button { font: inherit; color: inherit; }
 .sec-sub { grid-column: 3 / span 2; color: var(--ink-2); max-width: 46ch; }
 .sec-num { font-variant-numeric: tabular-nums; }
 
-/* services — rows that come into focus */
-.rows { border-top: 1px solid var(--hair); }
-.row {
-  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); align-items: start;
-  padding: clamp(24px, 3vw, 44px) 0;
-  border-bottom: 1px solid var(--hair);
-  transition: filter .5s var(--ease), opacity .5s var(--ease);
+/* services — full panels; in the zoom scene (JS) they pin and zoom in one after another */
+.zoom-stage { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); display: grid; gap: var(--gap); }
+.zpanel {
+  position: relative; overflow: hidden; border-radius: 8px;
+  padding: clamp(18px, 2.6vw, 40px);
+  min-height: min(78svh, 760px);
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); grid-template-rows: auto 1fr auto;
+  column-gap: var(--gap); row-gap: clamp(16px, 2.5vh, 28px);
+  color: var(--ink);
 }
-.row-num { padding-top: .6em; }
-.row-title { grid-column: 1 / span 2; padding-left: clamp(44px, 5vw, 84px); font: 600 clamp(2.2rem, 5vw, 5.6rem)/.92 var(--font); letter-spacing: -.058em; text-wrap: balance; }
-.row-num { grid-column: 1; grid-row: 1; }
-.row-title { grid-row: 1; }
-.row-body { grid-column: 3 / span 2; color: var(--ink-2); max-width: 52ch; padding-top: .35em; }
-@media (hover: hover) and (pointer: fine) {
-  .rows:hover .row:not(:hover) { filter: blur(5px); opacity: .45; }
-}
-.chat { margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--hair); display: grid; gap: 8px; }
-.chat p { font: 500 1.05rem/1.3 var(--font); letter-spacing: -.02em; padding: 10px 14px; border-radius: 16px; max-width: 34ch; }
-.chat-q { background: var(--card); justify-self: start; border-bottom-left-radius: 4px; }
-.chat-a { background: var(--ink); color: var(--bg); justify-self: end; border-bottom-right-radius: 4px; }
+.zpanel--grey { background: var(--card); }
+.zpanel--ink { background: #0D0D0D; color: #ECECE9; }
+.zpanel--blue { background: var(--blue); color: #fff; }
+.zpanel-head { grid-column: 1 / -1; display: flex; justify-content: space-between; align-items: baseline; padding-bottom: 12px; border-bottom: var(--thick) solid currentColor; }
+.zpanel-title { grid-column: 1 / span 2; grid-row: 2; align-self: center; font: 600 clamp(3rem, 8.2vw, 9.6rem)/.86 var(--font); letter-spacing: -.066em; text-wrap: balance; }
+.zpanel-visual { grid-column: 3 / span 2; grid-row: 2 / span 2; align-self: center; justify-self: center; width: 100%; max-width: 620px; }
+.zpanel-text { grid-column: 1 / span 2; grid-row: 3; align-self: end; max-width: 42ch; font: 500 clamp(1.02rem, .95rem + .45vw, 1.35rem)/1.38 var(--font); letter-spacing: -.02em; opacity: .9; }
+.zpanel .dot { background: #6F8BFF; }
+
+.zv { width: 100%; height: auto; }
+.zv .frame { fill: none; stroke: currentColor; stroke-width: 2; opacity: .35; }
+.zv .dim { fill: currentColor; opacity: .22; }
+.zv .soft { fill: currentColor; opacity: .1; }
+.zv .ink { fill: currentColor; opacity: .9; }
+.zv .accent { fill: var(--blue); }
+.zv .tint { fill: var(--blue); opacity: .14; }
+.zv-dash .bar { fill: currentColor; opacity: .85; transform-box: fill-box; transform-origin: bottom; animation: bars 2.6s var(--ease) infinite alternate; animation-delay: var(--d); }
+.zv-dash .bar.accent { fill: #6F8BFF; opacity: 1; }
+.zv-dash .accent { fill: #6F8BFF; }
+.zv-dash .line { fill: none; stroke: #6F8BFF; stroke-width: 3; stroke-linejoin: round; stroke-linecap: round; }
+@keyframes bars { 0% { transform: scaleY(.72); } 100% { transform: scaleY(1); } }
+.zchat { display: grid; gap: 14px; }
+.zchat p { font: 500 clamp(1.15rem, 1rem + 1vw, 1.9rem)/1.25 var(--font); letter-spacing: -.03em; padding: .7em 1em; border-radius: 22px; max-width: 22ch; }
+.zchat-q { background: #fff; color: var(--ink); justify-self: start; border-bottom-left-radius: 6px; }
+.zchat-a { background: #0D0D0D; color: #fff; justify-self: end; border-bottom-right-radius: 6px; }
 
 /* approach — ink panel with the liquid line */
 .sec--ink {
@@ -241,8 +256,7 @@ button { font: inherit; color: inherit; }
 .sec--ink ::selection { background: #fff; color: var(--blue); }
 .sec--ink > .wrap { position: relative; z-index: 1; }
 .liquid { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
-.liquid-path { fill: none; stroke: var(--blue); stroke-width: 96; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: 0; transition: stroke-dashoffset 2.8s var(--ease); }
-.js .liquid:not(.is-drawn) .liquid-path { stroke-dashoffset: 1; }
+.liquid-path { fill: none; stroke: var(--blue); stroke-width: 96; stroke-linecap: round; stroke-dasharray: 1; stroke-dashoffset: var(--draw, 0); }
 
 .stages { counter-reset: s; }
 .stage { padding-top: 14px; border-top: var(--thick) solid var(--ink); display: flex; flex-direction: column; gap: 14px; }
@@ -255,11 +269,79 @@ button { font: inherit; color: inherit; }
 .note { margin-top: clamp(56px, 7vw, 104px); padding-top: 14px; border-top: 1px solid var(--hair); font: 500 clamp(1.2rem, 1rem + .8vw, 1.6rem)/1.25 var(--font); letter-spacing: -.03em; max-width: 34ch; }
 
 /* process */
+.htrack-stage { max-width: var(--wrap); margin-inline: auto; padding-inline: var(--gutter); }
 .steps { row-gap: 48px; }
-.step { padding-top: 14px; border-top: var(--thick) solid var(--ink); display: flex; flex-direction: column; gap: 12px; }
+.step { position: relative; padding-top: 14px; border-top: var(--thick) solid var(--ink); display: flex; flex-direction: column; gap: 12px; }
+.step-node { display: none; }
 .step-n { font: 600 clamp(6rem, 12vw, 12.5rem)/.78 var(--font); letter-spacing: -.08em; margin: 8px 0 clamp(20px, 3vw, 44px) -.06em; }
 .step p { color: var(--ink-2); max-width: 32ch; }
 .step:nth-child(1) .step-n { color: var(--blue); }
+
+/* ==========================================================================
+   Scroll scenes — scrubbed to scroll position (Apple-style), JS sets the vars.
+   Without JS or with reduced motion none of the classes below are applied.
+   ========================================================================== */
+
+/* headline words light up one by one */
+.h2 .w { opacity: var(--o, 1); transition: opacity .12s linear; }
+
+/* elements that rise out of blur as they enter */
+.scrub { opacity: var(--v, 1); transform: translate3d(0, calc((1 - var(--v, 1)) * 64px), 0); filter: blur(calc((1 - var(--v, 1)) * 10px)); will-change: transform, opacity; }
+
+/* pinned process scene */
+/* zoom scene (services) */
+.is-zoom .zoom-track { height: calc((var(--n) + .4) * 100svh); position: relative; }
+.is-zoom .zoom-stage {
+  position: sticky; top: var(--mast-h);
+  height: calc(100svh - var(--mast-h));
+  max-width: none; padding: 0; display: block; overflow: hidden;
+}
+.is-zoom .zpanel {
+  position: absolute; inset: 14px var(--gutter) 18px; min-height: 0;
+  transform: scale(calc(.5 + var(--z, 0) * .5 - var(--d, 0) * .07));
+  opacity: var(--a, 0);
+  border-radius: calc(8px + (1 - var(--z, 0)) * 28px);
+  will-change: transform, opacity;
+}
+.is-zoom .zpanel::after { content: ""; position: absolute; inset: 0; background: #000; opacity: calc(var(--d, 0) * .45); pointer-events: none; }
+.is-zoom .zpanel-head, .is-zoom .zpanel-title, .is-zoom .zpanel-visual, .is-zoom .zpanel-text {
+  opacity: var(--c, 1); transform: translate3d(0, calc((1 - var(--c, 1)) * 30px), 0);
+}
+
+/* horizontal timeline (process) */
+.is-htrack .htrack-wrap { position: relative; height: calc(var(--dist, 1500px) + 100svh - var(--mast-h)); }
+.is-htrack .htrack-stage {
+  position: sticky; top: var(--mast-h);
+  height: calc(100svh - var(--mast-h));
+  max-width: none; padding: 0; overflow: hidden;
+  display: flex; align-items: center;
+}
+.is-htrack .htrack {
+  display: flex; gap: clamp(20px, 2.4vw, 36px); width: max-content;
+  padding: 44px max(var(--gutter), calc((100vw - var(--wrap)) / 2 + var(--gutter))) 0;
+  transform: translate3d(var(--tx, 0px), 0, 0); will-change: transform;
+  position: relative;
+}
+.is-htrack .htrack::before, .is-htrack .htrack::after { content: ""; position: absolute; top: 15px; height: 2px; left: 0; }
+.is-htrack .htrack::before { right: 0; background: var(--hair); }
+.is-htrack .htrack::after { width: var(--lf, 0px); background: var(--blue); }
+.is-htrack .step {
+  flex: none; width: clamp(280px, 36vw, 520px); min-height: min(58svh, 520px);
+  border-top: 0; padding: clamp(20px, 2vw, 28px); background: var(--card);
+  opacity: .38; transform: scale(.94); transform-origin: left center;
+  transition: opacity .5s var(--ease), transform .6s var(--ease), box-shadow .6s var(--ease);
+}
+.is-htrack .step.is-lit { opacity: 1; transform: none; box-shadow: 0 30px 50px -40px rgba(0, 0, 0, .45); }
+.is-htrack .step-node {
+  display: block; position: absolute; left: 0; top: -37px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--ink); transition: background-color .3s, border-color .3s, transform .4s var(--ease);
+}
+.is-htrack .step.is-lit .step-node { background: var(--blue); border-color: var(--blue); transform: scale(1.15); }
+.is-htrack .step-n { color: var(--ink); margin-top: 0; }
+.is-htrack .step.is-lit .step-n { color: var(--blue); }
+.is-htrack .step .h3 { font-size: clamp(1.8rem, 1.4rem + 1.6vw, 3rem); margin-top: auto; }
+.is-htrack .step p { font-size: 1.05rem; }
+
 
 /* posters (work + side projects) */
 .posters { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--gap); align-items: stretch; }
@@ -428,8 +510,6 @@ a.poster:hover .mock { transform: scale(1.035); }
   .nav { justify-content: center; grid-template-columns: repeat(5, auto); }
 
   .posters { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .row-title { grid-column: 1 / -1; }
-  .row-body { grid-column: 1 / -1; padding-left: clamp(44px, 5vw, 84px); padding-top: 18px; max-width: 70ch; }
   .steps { grid-template-columns: repeat(2, minmax(0, 1fr)); }
   .teaser-name { grid-column: 1 / -1; }
   .teaser-photo { grid-column: 1 / span 2; max-width: 420px; }
@@ -481,10 +561,14 @@ a.poster:hover .mock { transform: scale(1.035); }
 }
 
 @media (max-width: 620px) {
+  .zpanel { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr auto; }
+  .zpanel-title, .zpanel-visual, .zpanel-text { grid-column: 1; grid-row: auto; }
+  .zpanel-title { font-size: clamp(2.6rem, 12.5vw, 4.4rem); }
+  .zpanel-visual { max-width: 340px; justify-self: start; }
+  .zchat p { font-size: 1.05rem; }
+  .is-htrack .step { width: 78vw; min-height: 52svh; }
+  .is-htrack .step-n { font-size: clamp(5rem, 28vw, 8rem); }
   .posters { grid-template-columns: 1fr; }
-  .row-title, .row-body { padding-left: 0; }
-  .row-num { grid-row: auto; padding: 0 0 10px; }
-  .row-title { grid-row: auto; }
   .steps { grid-template-columns: 1fr; }
   .teaser-photo, .teaser-text { grid-column: 1 / -1; }
   .teaser-photo { max-width: 320px; }
