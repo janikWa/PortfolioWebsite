@@ -428,6 +428,7 @@ a.poster:hover .mock { transform: scale(1.035); }
    CV page (/aboutme) — personal, static (no reveal animation)
    ========================================================================== */
 .cv-name .l-r { text-align: right; }
+@media (min-width: 1101px) { .cv-page .mast-actions { grid-column: 4; } }
 .cv-page .display { font-size: clamp(4rem, 17vw, 19rem); }
 
 .intro { row-gap: 40px; align-items: start; }
