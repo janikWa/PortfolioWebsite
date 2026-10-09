@@ -31,7 +31,6 @@
         en: "I build websites and custom IT solutions for small businesses and freelancers — personal, clear, and directly with me."
       },
       hero_aria: { de: "Einleitung", en: "Introduction" },
-      hero_eyebrow: { de: "Für Selbstständige & kleine Betriebe", en: "For freelancers & small local businesses" },
       hero_h1: {
         de: "<span class=\"l l1\">Individuelle</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"Websites|Automationen|Dashboards|Web-Apps\">Websites</span></span> <span class=\"l l3\">für dein</span> <span class=\"l l4\">Unternehmen\u00a0—</span> <span class=\"l l5 accent-text\">persönlich entwickelt.</span>",
         en: "<span class=\"l l1\">Custom</span> <span class=\"l l2\"><span class=\"rotator\" data-words=\"websites|automations|dashboards|web apps\">websites</span></span> <span class=\"l l3\">for your</span> <span class=\"l l4\">business\u00a0—</span> <span class=\"l l5 accent-text\">built by me, personally.</span>"
@@ -53,7 +52,6 @@
       demo3: { de: "Termin online gebucht", en: "Appointment booked online" },
       demo4: { de: "Im Dashboard sichtbar", en: "Visible in your dashboard" },
       tick_auto: { de: "Automationen", en: "Automation" },
-      meta_reply: { de: "Antwort innerhalb von 48 Stunden", en: "Reply within 48 hours" },
 
 
       services_eyebrow: { de: "Was ich anbiete", en: "What I offer" },
