@@ -274,115 +274,93 @@
         </header>
         <h2 class="h2" data-i18n="about.projects_h2">Weitere Arbeiten</h2>
 
-        <div class="posters posters--small">
-
-          <article class="poster">
-            <div class="poster-head"><span class="t-xs">No. 01</span><span class="t-xs" data-i18n="about.proj1_tag">Datenstrukturen &amp; Algorithmen</span></div>
-            <h3 class="poster-title">Dijkstra's Algorithm</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <path d="M40 74L88 38M40 74L96 108M88 38L148 62M96 108L148 62M96 108L176 112M148 62L176 112M148 62L204 46M176 112L204 46"/>
-                <path class="hl" d="M40 74L88 38L148 62L204 46"/>
-                <circle cx="40" cy="74" r="6" class="fill"/><circle cx="88" cy="38" r="6" class="node"/><circle cx="96" cy="108" r="6" class="node"/>
-                <circle cx="148" cy="62" r="6" class="node"/><circle cx="176" cy="112" r="6" class="node"/><circle cx="204" cy="46" r="6" class="fill"/>
-              </svg>
+        <!-- side projects as files in a code editor -->
+        <div class="editor" data-editor>
+          <div class="editor-bar">
+            <span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+            <span class="editor-title t-xs">~/projects — janik</span>
+          </div>
+          <div class="editor-body">
+            <div class="editor-side">
+              <p class="editor-folder t-xs">▾ projects</p>
+              <div class="editor-files" role="tablist" aria-label="Projekte" data-i18n-attr="aria-label:about.projects_eyebrow">
+                <button class="editor-file f-java" role="tab" id="ef-dijkstra" aria-controls="ep-dijkstra" aria-selected="true" data-lang="Java">dijkstra.java</button>
+                <button class="editor-file f-py" role="tab" id="ef-racereport" aria-controls="ep-racereport" aria-selected="false" data-lang="Python">racereport.py</button>
+                <button class="editor-file f-py" role="tab" id="ef-laerm" aria-controls="ep-laerm" aria-selected="false" data-lang="Python">verkehrslaerm.py</button>
+                <button class="editor-file f-jsx" role="tab" id="ef-movies" aria-controls="ep-movies" aria-selected="false" data-lang="React">movies.jsx</button>
+                <button class="editor-file f-py" role="tab" id="ef-pitting" aria-controls="ep-pitting" aria-selected="false" data-lang="Python">pitting_detection.py</button>
+                <button class="editor-file f-md" role="tab" id="ef-usegradias" aria-controls="ep-usegradias" aria-selected="false" data-lang="Markdown">usegradias.md</button>
+              </div>
             </div>
-            <div class="poster-foot">
-              <p data-i18n="about.proj1_desc">Eine interaktive Visualisierung von Dijkstras Shortest-Path-Algorithmus.</p>
-              <span class="t-xs">Java</span>
+            <div class="editor-main">
+              <div class="editor-tab t-xs" data-editor-tab>dijkstra.java</div>
+              <div class="editor-panels">
+                <section class="editor-panel" role="tabpanel" id="ep-dijkstra" aria-labelledby="ef-dijkstra">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span>Dijkstra&#x27;s Algorithm</span></li>
+                    <li></li>
+                    <li class="c-q"><span class="c-mark">&gt;</span> <span data-i18n="about.proj1_tag">Datenstrukturen &amp; Algorithmen</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n="about.proj1_desc">Eine interaktive Visualisierung von Dijkstras Shortest-Path-Algorithmus.</span></li>
+                    <li></li>
+                    <li><span class="c-k">stack</span>: [<span class="c-s">"Java"</span>]</li>
+                  </ol>
+                </section>
+                <section class="editor-panel" role="tabpanel" id="ep-racereport" aria-labelledby="ef-racereport">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span>racereport</span></li>
+                    <li></li>
+                    <li class="c-q"><span class="c-mark">&gt;</span> <span data-i18n="about.proj2_tag">Datenvisualisierung &amp; Reporting</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n="about.proj2_desc">Verwandelt eine URL mit Laufergebnissen automatisch in einen Bericht — erstellt mit Quarto, um Pace- und Leistungsdaten aus Laufwettbewerben sichtbar zu machen.</span></li>
+                    <li></li>
+                    <li><span class="c-k">stack</span>: [<span class="c-s">"Python"</span>, <span class="c-s">"Quarto"</span>]</li>
+                  </ol>
+                </section>
+                <section class="editor-panel" role="tabpanel" id="ep-laerm" aria-labelledby="ef-laerm">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span data-i18n="about.proj3_title">Straßenverkehrslärm</span></li>
+                    <li></li>
+                    <li class="c-q"><span class="c-mark">&gt;</span> <span data-i18n="about.proj3_tag">Universitätsprojekt</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n="about.proj3_desc">Ein Universitätsprojekt zur Analyse von Straßenverkehrslärm-Daten.</span></li>
+                    <li></li>
+                    <li><span class="c-k">stack</span>: [<span class="c-s">"Python"</span>]</li>
+                  </ol>
+                </section>
+                <section class="editor-panel" role="tabpanel" id="ep-movies" aria-labelledby="ef-movies">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span>Movies</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n="about.proj4_desc">Eine React + Vite App zum Durchsuchen einer Filmdatenbank, mit einem Appwrite-Backend, das die meistgesuchten Titel in einem Live-Ranking erfasst.</span></li>
+                    <li></li>
+                    <li><span class="c-k">stack</span>: [<span class="c-s">"React"</span>, <span class="c-s">"Vite"</span>, <span class="c-s">"Appwrite"</span>]</li>
+                  </ol>
+                </section>
+                <section class="editor-panel" role="tabpanel" id="ep-pitting" aria-labelledby="ef-pitting">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span>Pitting Detection</span></li>
+                    <li></li>
+                    <li class="c-q"><span class="c-mark">&gt;</span> <span data-i18n="about.proj5_tag">Vorausschauende Qualitätsüberwachung</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n="about.proj5_desc">Ein Universitätsprojekt zur Erkennung von Lochfraß (Pitting) in der Produktion anhand von Live-Daten, mit Streamlit-Dashboard und automatischen E-Mail-Warnungen.</span></li>
+                    <li></li>
+                    <li><span class="c-k">stack</span>: [<span class="c-s">"Python"</span>, <span class="c-s">"Streamlit"</span>]</li>
+                  </ol>
+                </section>
+                <section class="editor-panel" role="tabpanel" id="ep-usegradias" aria-labelledby="ef-usegradias">
+                  <ol class="code">
+                    <li class="c-h"><span class="c-mark">#</span> <span>usegradias.ai</span></li>
+                    <li></li>
+                    <li class="c-p"><span data-i18n-html="about.proj6_desc">Unser Startup – gemeinsam gegründet im Dezember 2025.</span></li>
+                    <li></li>
+                    <li><span class="c-k">link</span>: <a class="c-link" href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai ↗</a></li>
+                  </ol>
+                </section>
+              </div>
             </div>
-          </article>
-
-          <article class="poster">
-            <div class="poster-head"><span class="t-xs">No. 02</span><span class="t-xs" data-i18n="about.proj2_tag">Datenvisualisierung &amp; Reporting</span></div>
-            <h3 class="poster-title">racereport</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <path d="M28 24v92h188"/>
-                <path d="M28 70h188" stroke-dasharray="3 5" class="soft"/>
-                <path class="hl" d="M36 92L60 76L84 82L108 60L132 66L156 46L180 54L208 32"/>
-                <circle cx="108" cy="60" r="3.5" class="fill"/><circle cx="156" cy="46" r="3.5" class="fill"/><circle cx="208" cy="32" r="3.5" class="fill"/>
-              </svg>
-            </div>
-            <div class="poster-foot">
-              <p data-i18n="about.proj2_desc">Verwandelt eine URL mit Laufergebnissen automatisch in einen Bericht — erstellt mit Quarto, um Pace- und Leistungsdaten aus Laufwettbewerben sichtbar zu machen.</p>
-              <span class="t-xs">Python · Quarto</span>
-            </div>
-          </article>
-
-          <article class="poster">
-            <div class="poster-head"><span class="t-xs">No. 03</span><span class="t-xs" data-i18n="about.proj3_tag">Universitätsprojekt</span></div>
-            <h3 class="poster-title" data-i18n="about.proj3_title">Straßenverkehrslärm</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <path d="M30 70h4M42 62v16M50 54v32M58 64v12M66 46v48M74 58v24M82 66v8M90 50v40M98 38v64M106 56v28M114 64v12M122 48v44M130 60v20M138 30v80M146 52v36M154 62v16M162 44v52M170 58v24M178 66v8M186 54v32M194 62v16M202 68v4M210 70h4"/>
-                <path class="hl" d="M98 38v64M138 30v80M162 44v52"/>
-              </svg>
-            </div>
-            <div class="poster-foot">
-              <p data-i18n="about.proj3_desc">Ein Universitätsprojekt zur Analyse von Straßenverkehrslärm-Daten.</p>
-              <span class="t-xs">Python</span>
-            </div>
-          </article>
-
-          <article class="poster">
-            <div class="poster-head"><span class="t-xs">No. 04</span><span class="t-xs">Web-App</span></div>
-            <h3 class="poster-title">Movies</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <rect x="40" y="26" width="48" height="72" rx="1" class="fill"/>
-                <rect x="96" y="26" width="48" height="72" rx="1"/>
-                <rect x="152" y="26" width="48" height="72" rx="1"/>
-                <path d="M40 112h48M96 112h36M152 112h40" class="soft"/>
-                <text x="47" y="46" class="num on-fill">1</text><text x="103" y="46" class="num">2</text><text x="159" y="46" class="num">3</text>
-              </svg>
-            </div>
-            <div class="poster-foot">
-              <p data-i18n="about.proj4_desc">Eine React + Vite App zum Durchsuchen einer Filmdatenbank, mit einem Appwrite-Backend, das die meistgesuchten Titel in einem Live-Ranking erfasst.</p>
-              <span class="t-xs">React · Vite · Appwrite</span>
-            </div>
-          </article>
-
-          <article class="poster">
-            <div class="poster-head"><span class="t-xs">No. 05</span><span class="t-xs" data-i18n="about.proj5_tag">Vorausschauende Qualitätsüberwachung</span></div>
-            <h3 class="poster-title">Pitting Detection</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <g class="dots">
-                  <circle cx="48" cy="34" r="3"/><circle cx="72" cy="34" r="3"/><circle cx="96" cy="34" r="3"/><circle cx="120" cy="34" r="3"/><circle cx="144" cy="34" r="3"/>
-                  <circle cx="48" cy="58" r="3"/><circle cx="72" cy="58" r="3"/><circle cx="96" cy="58" r="3"/><circle cx="144" cy="58" r="3"/>
-                  <circle cx="48" cy="82" r="3"/><circle cx="72" cy="82" r="3"/><circle cx="96" cy="82" r="3"/><circle cx="120" cy="82" r="3"/><circle cx="144" cy="82" r="3"/>
-                  <circle cx="48" cy="106" r="3"/><circle cx="72" cy="106" r="3"/><circle cx="96" cy="106" r="3"/><circle cx="120" cy="106" r="3"/><circle cx="144" cy="106" r="3"/>
-                </g>
-                <circle cx="120" cy="58" r="4" class="fill"/>
-                <circle cx="120" cy="58" r="13" class="hl"/>
-                <path class="hl" d="M133 58h33"/>
-                <rect x="166" y="46" width="40" height="26" rx="1" class="hl"/>
-                <path class="hl" d="M166 47l20 14 20-14"/>
-              </svg>
-            </div>
-            <div class="poster-foot">
-              <p data-i18n="about.proj5_desc">Ein Universitätsprojekt zur Erkennung von Lochfraß (Pitting) in der Produktion anhand von Live-Daten, mit Streamlit-Dashboard und automatischen E-Mail-Warnungen.</p>
-              <span class="t-xs">Python · Streamlit</span>
-            </div>
-          </article>
-
-          <article class="poster poster--blue">
-            <div class="poster-head"><span class="t-xs">No. 06</span><span class="t-xs">Startup</span></div>
-            <h3 class="poster-title">usegradias.ai</h3>
-            <div class="poster-media art" aria-hidden="true">
-              <svg viewBox="0 0 240 140">
-                <path d="M30 108h180" class="soft"/>
-                <path d="M30 108C80 106 110 96 136 72S182 34 210 30"/>
-                <circle cx="210" cy="30" r="5" class="dot-on"/>
-              </svg>
-            </div>
-            <div class="poster-foot">
-              <p data-i18n-html="about.proj6_desc">Unser Startup – gemeinsam gegründet im Dezember 2025.</p>
-              <a class="t-xs link" href="https://usegradias.ai/" target="_blank" rel="noopener" data-i18n="about.proj6_link">usegradias.ai besuchen →</a>
-            </div>
-          </article>
-
+          </div>
+          <div class="editor-status t-xs" aria-hidden="true"><span>● main</span><span data-editor-lang>Java</span><span>UTF-8</span></div>
         </div>
       </div>
     </section>

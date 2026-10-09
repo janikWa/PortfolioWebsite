@@ -41,7 +41,7 @@
 
   // the CV page (/aboutme) stays static: no reveal animation
   var revealTargets = document.body.classList.contains("cv-page") ? [] : Array.prototype.slice.call(document.querySelectorAll(
-    ".poster, .teaser-name, .teaser-photo, .teaser-text, " +
+    ".browser, .teaser-name, .teaser-photo, .teaser-text, " +
     ".contact-copy, .big-links li"
   ));
   revealTargets.forEach(function (el) {
@@ -207,6 +207,66 @@
         ts = 1; kick();
       });
       area.addEventListener("pointerleave", function () { ts = 0; placed = false; kick(); });
+    });
+  }
+
+  /* ---------- tabbed windows: client sites (browser) and side projects (editor) ---------- */
+  function tabs(root, tabSel, onSelect) {
+    var list = Array.prototype.slice.call(root.querySelectorAll(tabSel));
+    if (!list.length) return;
+    root.classList.add("is-tabs");
+    var select = function (tab, focus) {
+      list.forEach(function (t) {
+        var on = t === tab;
+        t.setAttribute("aria-selected", String(on));
+        t.tabIndex = on ? 0 : -1;
+        var panel = document.getElementById(t.getAttribute("aria-controls"));
+        if (panel) panel.classList.toggle("is-active", on);
+      });
+      if (focus) tab.focus();
+      onSelect(tab);
+    };
+    list.forEach(function (tab, i) {
+      tab.addEventListener("click", function () { select(tab); });
+      tab.addEventListener("keydown", function (evt) {
+        var d = evt.key === "ArrowRight" || evt.key === "ArrowDown" ? 1 : evt.key === "ArrowLeft" || evt.key === "ArrowUp" ? -1 : 0;
+        if (!d) return;
+        evt.preventDefault();
+        select(list[(i + d + list.length) % list.length], true);
+      });
+    });
+    select(list.filter(function (t) { return t.getAttribute("aria-selected") === "true"; })[0] || list[0]);
+  }
+
+  var browser = document.querySelector("[data-browser]");
+  if (browser) {
+    var addr = browser.querySelector("[data-addr]");
+    var open = browser.querySelector("[data-open]");
+    var caps = Array.prototype.slice.call(document.querySelectorAll(".bcap"));
+    if (caps.length) caps[0].parentNode.classList.add("is-tabs");
+    tabs(browser, ".browser-tab", function (tab) {
+      addr.textContent = tab.getAttribute("data-url") || "about:blank";
+      var href = tab.getAttribute("data-href");
+      open.hidden = !href;
+      if (href) open.href = href;
+      caps.forEach(function (c) { c.classList.toggle("is-active", c.getAttribute("data-cap") === tab.id); });
+    });
+    // the live site only takes the pointer after an explicit click, so page scrolling is never hijacked
+    browser.querySelectorAll("[data-shield]").forEach(function (shield) {
+      shield.addEventListener("click", function () { shield.closest(".bpanel").classList.add("is-live"); });
+    });
+  }
+
+  var editor = document.querySelector("[data-editor]");
+  if (editor) {
+    var tabLabel = editor.querySelector("[data-editor-tab]");
+    var langLabel = editor.querySelector("[data-editor-lang]");
+    editor.querySelectorAll(".code").forEach(function (code) {
+      Array.prototype.forEach.call(code.children, function (li, k) { li.style.setProperty("--li", k); });
+    });
+    tabs(editor, ".editor-file", function (file) {
+      tabLabel.textContent = file.textContent;
+      langLabel.textContent = file.getAttribute("data-lang");
     });
   }
 

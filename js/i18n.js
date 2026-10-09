@@ -158,6 +158,8 @@
       work_h2: { de: "Kundenprojekte", en: "Client projects" },
       work_sub: { de: "Websites, die ich für Kunden gebaut habe – weitere folgen.", en: "Websites I’ve built for clients — more to come." },
 
+      work_open: { de: "Im neuen Tab öffnen", en: "Open in new tab" },
+      work_explore: { de: "Website erkunden", en: "Explore the website" },
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
       work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
       work_placeholder_desc: { de: "Hier erscheint bald ein Kundenprojekt.", en: "A client project will appear here soon." },
