@@ -263,7 +263,6 @@
       tech_cat_tools: { de: "Tools & Plattformen", en: "Tools & platforms" },
       tech_use: { de: "Damit arbeite ich", en: "What I work with" },
       tech_hint: { de: "Für Details über eine Technologie fahren oder tippen.", en: "Hover or tap a technology for details." },
-      strava: { de: "Wer’s nicht glaubt: meine Kilometer auf Strava", en: "Don’t believe me? My kilometres are on Strava" },
       tg_data: { de: "Daten", en: "Data" },
       tg_viz: { de: "Visualisierung", en: "Visualization" },
       tg_ml: { de: "Machine Learning", en: "Machine learning" },
