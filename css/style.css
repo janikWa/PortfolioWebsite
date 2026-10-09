@@ -333,9 +333,6 @@ a.poster:hover .mock { transform: scale(1.035); }
 /* ==========================================================================
    CV page (/aboutme) — personal, static (no reveal animation)
    ========================================================================== */
-.cv-nav { grid-column: 2 / span 2; display: flex; gap: 20px; flex-wrap: wrap; }
-.cv-nav a { color: var(--mute); transition: color .2s; }
-.cv-nav a:hover { color: var(--ink); }
 .cv-name .l-r { text-align: right; }
 .cv-page .display { font-size: clamp(4rem, 17vw, 19rem); }
 
@@ -356,13 +353,33 @@ a.poster:hover .mock { transform: scale(1.035); }
   .stack:hover li:not(:hover) { filter: blur(4px); opacity: .4; }
 }
 
-.cv { border-top: var(--thick) solid var(--ink); }
-.cv-row { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 6px; padding: 18px 0 20px; border-bottom: 1px solid var(--hair); align-items: baseline; }
-.cv-date { display: inline-flex; align-items: center; gap: 9px; color: var(--mute); }
-.cv-row.is-now .cv-date { color: var(--ink); }
-.cv-row.is-now .cv-date::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: var(--blue); }
+/* CV timeline — a cobalt line fills with scroll, steps lock in as it reaches them */
+.cv { position: relative; border-top: var(--thick) solid var(--ink); padding-left: 40px; --p: 1; }
+.cv::before, .cv::after { content: ""; position: absolute; left: 7px; top: 0; width: 2px; }
+.cv::before { bottom: 0; background: var(--hair); }
+.cv::after { height: calc(var(--p) * 100%); background: var(--blue); }
+.cv-row { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); row-gap: 6px; padding: 20px 0 22px; align-items: baseline; }
+.cv-row::after { content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 1px; background: var(--hair); transform-origin: left; transition: transform 1.1s var(--ease); }
+.cv-row::before {
+  content: ""; position: absolute; left: -40px; top: 23px; width: 16px; height: 16px; border-radius: 50%;
+  background: var(--bg); border: 2px solid var(--ink); box-sizing: border-box; z-index: 1;
+  transition: background-color .35s var(--ease), border-color .35s var(--ease), transform .45s var(--ease);
+}
+.cv-row.is-passed::before { background: var(--blue); border-color: var(--blue); transform: scale(1.12); }
+.cv-row.is-now.is-passed::before { animation: ping 2.4s var(--ease) infinite; }
+.cv-date { color: var(--mute); font-variant-numeric: tabular-nums; transition: color .3s; }
+.cv-row.is-passed .cv-date { color: var(--ink); }
+.cv-date.is-scrambling { color: var(--blue); }
 .cv-row h3 { grid-column: 2; font: 600 clamp(1.15rem, 1rem + .6vw, 1.5rem)/1.12 var(--font); letter-spacing: -.035em; }
 .cv-row p { grid-column: 3 / span 2; color: var(--ink-2); font-size: .95rem; max-width: 56ch; }
+.cv-row h3, .cv-row p { transition: transform .9s var(--ease), opacity .9s var(--ease), clip-path .9s var(--ease); }
+.cv-row p { transition-delay: .08s; }
+
+/* entry state (only when JS runs and motion is allowed) */
+.cv-anim .cv-row:not(.is-in)::after { transform: scaleX(0); }
+.cv-anim .cv-row:not(.is-in) h3, .cv-anim .cv-row:not(.is-in) p { opacity: 0; transform: translateY(70%); clip-path: inset(0 0 100% 0); }
+.cv-anim .cv-row:not(.is-in) .cv-date { opacity: 0; }
+.cv-anim .cv-row:not(.is-in)::before { transform: scale(0); }
 
 .posters--small .poster-title { font-size: clamp(1.6rem, 2.2vw, 2.4rem); min-height: 0; }
 .posters--small .poster-head { grid-template-columns: auto 1fr; }
@@ -381,12 +398,7 @@ a.poster:hover .mock { transform: scale(1.035); }
 .poster--blue .art .dot-on { fill: #fff; }
 .poster--blue .link { text-decoration: underline; text-underline-offset: 3px; }
 
-.cv-page .contact-copy { margin: 0; }
-.cv-page .foot { padding-top: 0; }
 
-@media (max-width: 1100px) {
-  .cv-nav { display: none; }
-}
 @media (max-width: 860px) {
   .intro-photo { grid-column: 1 / -1; position: static; max-width: 420px; }
   .intro-text { grid-column: 1 / -1; }

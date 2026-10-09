@@ -26,21 +26,28 @@
 
   <a class="skip-link" href="#main" data-i18n="common.skip_link">Zum Inhalt springen</a>
 
-  <!-- personal masthead: no business navigation on the CV page -->
   <header class="mast" id="top">
     <div class="wrap mast-inner">
-      <a class="brand" href="./" aria-label="Janik Wahrheit">
+      <a class="brand" href="../index.html" aria-label="Janik Wahrheit">
         <svg class="mark" viewBox="0 0 1700 1540" aria-hidden="true" focusable="false"><use href="#jw-mark"/></svg>
         <span class="brand-name" aria-hidden="true">Janik<br>Wahrheit</span>
       </a>
-      <nav class="cv-nav" aria-label="Abschnitte">
-        <a class="t-xs" href="#cv" data-i18n="about.cv_h2">Lebenslauf</a>
-        <a class="t-xs" href="#tech-stack" data-i18n="about.techstack_h2">Kern-Technologien</a>
-        <a class="t-xs" href="#projects" data-i18n="about.projects_eyebrow">Projekte</a>
-        <a class="t-xs" href="#contact" data-i18n="common.nav_contact_btn">Kontakt</a>
+      <p class="mast-tag t-xs" data-i18n="common.tagline">Websites &amp; Automationen</p>
+      <nav class="nav" id="nav">
+        <a href="../index.html"><span data-i18n="common.nav_home">Start</span></a>
+        <a href="../index.html#services"><span data-i18n="common.nav_services">Leistungen</span></a>
+        <a href="../index.html#process"><span data-i18n="common.nav_process">Ablauf</span></a>
+        <a href="../index.html#work"><span data-i18n="common.nav_work">Referenzen</span></a>
+        <a href="./index.html" class="active"><span data-i18n="common.nav_about">Über mich</span></a>
+        <a class="nav-contact" href="#contact"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
       </nav>
       <div class="mast-actions">
         <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
+        <a class="btn btn-ink btn-sm mast-cta" href="#contact"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
+        <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menü öffnen"
+          data-i18n-attr="aria-label:common.nav_toggle_aria" aria-expanded="false" aria-controls="nav">
+          <span></span><span></span>
+        </button>
       </div>
     </div>
   </header>
@@ -53,7 +60,7 @@
         <div class="meta-row g4">
           <p class="t-xs">Janik Wahrheit</p>
           <p class="t-xs" data-i18n="about.cv11_title">M.Sc. Wirtschaftsingenieurwesen</p>
-          <p class="t-xs">KIT · Porsche · usegradias.ai</p>
+          <p class="t-xs">KIT · usegradias.ai</p>
           <p class="t-xs"><a href="mailto:janik.wahrheit@icloud.com">janik.wahrheit@icloud.com</a></p>
         </div>
         <div class="hero-title" data-glass-area>
@@ -61,7 +68,7 @@
           <div class="glass" data-glass="follow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
         </div>
         <div class="foot-row g4">
-          <p class="hero-sub" data-i18n="about.cv_sub_line">Masterstudent Wirtschaftsingenieurwesen am KIT. Data Science bei Porsche, Mitgründer von usegradias.ai.</p>
+          <p class="hero-sub" data-i18n="about.cv_sub_line">Masterstudent Wirtschaftsingenieurwesen am KIT · Data Science · Mitgründer von usegradias.ai.</p>
         </div>
       </div>
     </section>
@@ -253,18 +260,23 @@
       </div>
     </section>
 
-    <!-- CONTACT — personal, no sales copy -->
+    <!-- CONTACT -->
     <section class="sec contact" id="contact">
       <div class="wrap">
         <header class="sec-head g4">
           <span class="t-xs sec-num">04</span>
           <span class="t-br" data-i18n="common.nav_contact_btn">Kontakt</span>
+          <p class="t-xs status sec-sub"><span class="dot" aria-hidden="true"></span><span data-i18n="home.contact_status">Ich habe Zeit für neue Projekte</span></p>
         </header>
+        <h2 class="h2 h2--xl" data-i18n="home.contact_h2">Lass uns über dein Projekt sprechen</h2>
         <div class="contact-grid g4">
-          <h2 class="h2 contact-copy" data-i18n="common.nav_contact_btn">Kontakt</h2>
+          <div class="contact-copy">
+            <p class="lead" data-i18n="home.contact_sub">Ob Website oder individuelles Tool: Erzähl mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden persönlich bei dir – mit einer ersten, ehrlichen Einschätzung.</p>
+            <p class="t-xs" data-i18n="home.contact_meta">Gern auch remote – egal, wo du sitzt.</p>
+          </div>
           <ul class="big-links">
-            <li><a href="mailto:janik.wahrheit@icloud.com"><span class="bl-main">E-Mail <span class="bl-arr" aria-hidden="true">↗</span></span><span class="bl-sub t-xs">janik.wahrheit@icloud.com</span></a></li>
-            <li><a href="https://www.linkedin.com/in/janik-wahrheit-402186225/" target="_blank" rel="noopener"><span class="bl-main">LinkedIn <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
+            <li><a href="mailto:janik.wahrheit@icloud.com"><span class="bl-main"><span data-i18n="home.contact_email_btn">Schreib mir</span> <span class="bl-arr" aria-hidden="true">↗</span></span><span class="bl-sub t-xs">janik.wahrheit@icloud.com</span></a></li>
+            <li><a href="https://www.linkedin.com/in/janik-wahrheit-402186225/" target="_blank" rel="noopener"><span class="bl-main"><span data-i18n="home.contact_linkedin_btn">LinkedIn</span> <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
             <li><a href="https://github.com/janikWa" target="_blank" rel="noopener"><span class="bl-main">GitHub <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
           </ul>
         </div>
@@ -275,12 +287,27 @@
 
   <footer class="foot">
     <div class="wrap">
+      <div class="foot-mark" data-glass-area>
+        <p class="mega" aria-hidden="true">Janik Wahrheit</p>
+        <div class="glass" data-glass="follow" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+      </div>
       <div class="foot-row g4">
-        <p class="t-xs">Janik Wahrheit</p>
-        <p class="t-xs"><a href="mailto:janik.wahrheit@icloud.com">janik.wahrheit@icloud.com</a></p>
-        <p class="t-xs"><a href="#top"><span data-i18n="common.back_to_top">Nach oben</span> ↑</a></p>
+        <p class="t-xs" data-i18n="common.footer_name">janik wahrheit · Websites &amp; Tools</p>
+        <nav class="foot-nav" aria-label="Footer-Navigation" data-i18n-attr="aria-label:common.footer_nav_aria">
+          <a class="t-xs" href="../index.html" data-i18n="common.nav_home">Start</a>
+          <a class="t-xs" href="../index.html#services" data-i18n="common.nav_services">Leistungen</a>
+          <a class="t-xs" href="../index.html#process" data-i18n="common.nav_process">Ablauf</a>
+          <a class="t-xs" href="../index.html#work" data-i18n="common.nav_work">Referenzen</a>
+          <a class="t-xs" href="./index.html" data-i18n="common.nav_about">Über mich</a>
+        </nav>
+        <ul class="foot-nav" aria-label="Soziale Netzwerke" data-i18n-attr="aria-label:common.social_aria">
+          <li><a class="t-xs" href="https://www.linkedin.com/in/janik-wahrheit-402186225/" target="_blank" rel="noopener">LinkedIn ↗</a></li>
+          <li><a class="t-xs" href="https://github.com/janikWa" target="_blank" rel="noopener">GitHub ↗</a></li>
+          <li><a class="t-xs" href="https://www.instagram.com/janik_wahrheit/" target="_blank" rel="noopener">Instagram ↗</a></li>
+        </ul>
         <div class="foot-end">
-          <p class="t-xs made-by"><svg class="mark" viewBox="0 0 1700 1540" aria-hidden="true" focusable="false"><use href="#jw-mark"/></svg><span>©<span data-year>2026</span></span></p>
+          <a class="t-xs" href="#top"><span data-i18n="common.back_to_top">Nach oben</span> ↑</a>
+          <p class="t-xs made-by"><span data-i18n="common.made_by">Made by</span><svg class="mark" viewBox="0 0 1700 1540" aria-hidden="true" focusable="false"><use href="#jw-mark"/></svg><span>©<span data-year>2026</span></span></p>
         </div>
       </div>
     </div>

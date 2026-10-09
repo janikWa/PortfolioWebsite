@@ -214,8 +214,8 @@
         en: "Janik Wahrheit — Master's student in Industrial Engineering at KIT. CV, projects and skills."
       },
       cv_sub_line: {
-        de: "Masterstudent Wirtschaftsingenieurwesen am KIT. Data Science bei Porsche, Mitgründer von usegradias.ai.",
-        en: "Master's student in Industrial Engineering at KIT. Data Science at Porsche, co-founder of usegradias.ai."
+        de: "Masterstudent Wirtschaftsingenieurwesen am KIT · Data Science · Mitgründer von usegradias.ai.",
+        en: "Master's student in Industrial Engineering at KIT · Data Science · Co-founder of usegradias.ai."
       },
       cv_p2: {
         de: 'Mein technisches Fundament habe ich in der Data-Science-Abteilung bei Porsche gesammelt – erst als Praktikant, dann als Werkstudent im Bereich Data.Driven.Quality. Seit Dezember 2025 baue ich als Mitgründer <a href="https://usegradias.ai/" target="_blank" rel="noopener">usegradias.ai</a> auf.',

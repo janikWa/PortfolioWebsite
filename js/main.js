@@ -124,6 +124,49 @@
     })();
   }
 
+  /* ---------- CV timeline (/aboutme) ----------
+     A cobalt line fills with scroll progress; each step's node lights up once the line passes it.
+     Steps enter by drawing their rule, scrambling the date and sliding the text up. */
+  var cv = document.querySelector(".cv");
+  if (cv) {
+    var rows = Array.prototype.slice.call(cv.querySelectorAll(".cv-row"));
+
+    if (!prefersReduced) {
+      cv.parentNode.classList.add("cv-anim");
+      var queued = 0;
+      observe(rows, function (row) {
+        var delay = queued++ * 110;
+        setTimeout(function () { queued = Math.max(0, queued - 1); }, 400);
+        setTimeout(function () {
+          row.classList.add("is-in");
+          var date = row.querySelector(".cv-date");
+          if (date) { date.style.opacity = "1"; scramble(date, date.textContent.trim()); }
+        }, delay);
+      }, { threshold: 0.35, rootMargin: "0px 0px -8% 0px" });
+    } else {
+      rows.forEach(function (row) { row.classList.add("is-in"); });
+    }
+
+    var ticking = false;
+    var update = function () {
+      ticking = false;
+      var vh = window.innerHeight || document.documentElement.clientHeight;
+      var line = vh * 0.62;
+      var rect = cv.getBoundingClientRect();
+      var atEnd = window.scrollY + vh >= document.documentElement.scrollHeight - 2;
+      var p = atEnd ? 1 : Math.min(1, Math.max(0, (line - rect.top) / rect.height));
+      cv.style.setProperty("--p", p.toFixed(4));
+      rows.forEach(function (row) {
+        var top = row.getBoundingClientRect().top + 30;
+        row.classList.toggle("is-passed", atEnd || top < line);
+      });
+    };
+    var request = function () { if (!ticking) { ticking = true; window.requestAnimationFrame(update); } };
+    window.addEventListener("scroll", request, { passive: true });
+    window.addEventListener("resize", request);
+    update();
+  }
+
   /* ---------- rotating word in the hero headline ----------
      Re-queried each tick because the language toggle replaces the h1's innerHTML. */
   if (!prefersReduced) {
