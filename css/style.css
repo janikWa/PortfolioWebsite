@@ -45,10 +45,12 @@ body {
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
 }
-/* print grain over everything */
+/* print grain over everything — absolute over the whole page, not fixed: iOS Safari takes the colour of its
+   status-bar area from fixed layers at the top, and a near-transparent one lets the page show through there */
+body { position: relative; }
 body::after {
   content: "";
-  position: fixed; inset: 0; z-index: 300; pointer-events: none;
+  position: absolute; inset: 0; z-index: 300; pointer-events: none;
   opacity: .085;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -133,8 +135,6 @@ button { font: inherit; color: inherit; }
   background: var(--bg);
   border-bottom: var(--thick) solid var(--ink);
 }
-/* iOS Safari draws the page behind the status bar: extend the bar upwards so nothing shows above it */
-.mast::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: max(env(safe-area-inset-top, 0px), 120px); background: var(--bg); pointer-events: none; }
 .mast-inner {
   height: var(--mast-h);
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); align-items: center;
@@ -655,9 +655,11 @@ button { font: inherit; color: inherit; }
     display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 0;
     padding: var(--mast-h) var(--gutter) 40px;
     background: var(--bg);
-    opacity: 0; visibility: hidden; transition: opacity .35s var(--ease), visibility 0s .35s;
+    /* closed = display: none, not an invisible full-screen layer (iOS Safari would tint its status bar from it) */
+    display: none; opacity: 0; transition: opacity .35s var(--ease), display .35s allow-discrete;
   }
-  .nav.is-open { opacity: 1; visibility: visible; transition: opacity .35s var(--ease); }
+  .nav.is-open { display: flex; opacity: 1; }
+  @starting-style { .nav.is-open { opacity: 0; } .nav.is-open a { filter: blur(10px); opacity: 0; } }
   .nav a {
     font: 600 clamp(2.8rem, 12vw, 4.4rem)/.98 var(--font); letter-spacing: -.06em; color: var(--ink);
     filter: blur(10px); opacity: 0; transition: filter .6s var(--ease), opacity .6s var(--ease);
