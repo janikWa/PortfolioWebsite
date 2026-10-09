@@ -329,7 +329,7 @@ button { font: inherit; color: inherit; }
 }
 
 /* horizontal timeline (process) */
-.is-htrack .htrack-wrap { position: relative; height: calc(var(--dist, 1500px) + 100svh - var(--mast-h)); }
+.is-htrack .htrack-wrap { position: relative; height: calc(var(--dist, 1500px) + var(--zlen, 0px) + 100svh - var(--mast-h)); }
 .is-htrack .htrack-stage {
   position: sticky; top: var(--mast-h);
   height: calc(100svh - var(--mast-h));
@@ -361,6 +361,22 @@ button { font: inherit; color: inherit; }
 .is-htrack .step.is-lit .step-n { color: var(--blue); }
 .is-htrack .step .h3 { font-size: clamp(1.8rem, 1.4rem + 1.6vw, 3rem); margin-top: auto; }
 .is-htrack .step p { font-size: 1.05rem; }
+
+/* finale: the last card zooms in around the hole of its "4" and the camera flies through it into the next
+   section (JS writes --zk, the card's transform and the stage's clip-path with the hole cut out) */
+.step-n-mark { display: inline-block; width: 0; height: 0; }
+/* no cached layer while flying, so the glyph is redrawn sharp at every scale */
+.is-htrack .htrack.is-flying { will-change: auto; }
+.is-htrack .htrack::before, .is-htrack .htrack::after { opacity: calc(1 - var(--zk, 0)); }
+.is-htrack .htrack .step.is-lit:not(:last-child) { opacity: calc(1 - var(--zk, 0)); }
+.is-htrack .step.is-zooming { transition: none; z-index: 2; }
+.is-htrack .step.is-zooming .step-node { opacity: calc(1 - var(--zk, 0)); }
+/* portal: the stage is opaque, the next section tucks in behind its final position */
+/* it overlaps the next section, so only the header takes clicks */
+.is-htrack { z-index: 1; padding-bottom: 0; pointer-events: none; }
+.is-htrack > .wrap { pointer-events: auto; }
+.is-htrack .htrack-stage { background: var(--bg); }
+.is-portal-dest { z-index: 0; margin-top: calc(var(--mast-h) - 100svh); }
 
 
 /* client work — live sites in a browser window */

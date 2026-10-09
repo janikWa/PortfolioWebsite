@@ -138,26 +138,97 @@
       });
     }
 
-    // 4) process: the stage pins and the row of steps slides sideways along the line
+    // 4) process: the stage pins, the row of steps slides sideways along the line,
+    //    then the last card zooms in around the hole of its big "4" and the camera flies
+    //    through it into the next section, which waits behind the stage (a portal)
     var hwrap = document.querySelector("[data-htrack]");
     if (hwrap) {
-      hwrap.closest("section").classList.add("is-htrack");
+      var hsec = hwrap.closest("section");
+      hsec.classList.add("is-htrack");
+      var hdest = hsec.nextElementSibling;
+      if (!hdest || hdest.tagName !== "SECTION") hdest = null;
       var htrack = hwrap.querySelector(".htrack");
       var hstage = hwrap.querySelector(".htrack-stage");
       var hsteps = Array.prototype.slice.call(htrack.querySelectorAll(".step"));
-      var dist = 0;
+      var hlast = hsteps[hsteps.length - 1];
+      var hnum = hlast.querySelector(".step-n");
+      // zero-size marker in front of the glyph: its top edge sits on the baseline, its left edge where the glyph starts
+      var hmark = document.createElement("i");
+      hmark.className = "step-n-mark";
+      hnum.insertBefore(hmark, hnum.firstChild);
+      var dist = 0, zlen = 0, hole = null;
+
+      // find the counter (enclosed hole) of the glyph: draw it, flood-fill the outside, what stays empty is the hole.
+      // Returns its centre, inner radius and outline (convex hull), relative to the glyph origin (left edge, baseline).
+      var findHole = function () {
+        var cs = getComputedStyle(hnum);
+        var ch = hnum.textContent.trim();
+        var res = 3;   // draw oversized so the outline is precise
+        var font = cs.fontWeight + " " + (parseFloat(cs.fontSize) * res) + "px " + cs.fontFamily;
+        var c = document.createElement("canvas").getContext("2d", { willReadFrequently: true });
+        c.font = font;
+        var m = c.measureText(ch), pad = 4;
+        var W = Math.ceil(m.actualBoundingBoxLeft + m.actualBoundingBoxRight) + pad * 2;
+        var H = Math.ceil(m.actualBoundingBoxAscent + m.actualBoundingBoxDescent) + pad * 2;
+        if (W < 8 || H < 8) return null;
+        c.canvas.width = W; c.canvas.height = H;
+        c.font = font;
+        var ox = pad + m.actualBoundingBoxLeft, oy = pad + m.actualBoundingBoxAscent;
+        c.fillText(ch, ox, oy);
+        var px = c.getImageData(0, 0, W, H).data, n = W * H, i, x, y;
+        var ink = new Uint8Array(n), seen = new Uint8Array(n);
+        for (i = 0; i < n; i++) ink[i] = px[i * 4 + 3] > 128 ? 1 : 0;
+        var stack = [0]; seen[0] = 1;
+        while (stack.length) {
+          var q = stack.pop(); x = q % W; y = (q - x) / W;
+          if (x > 0 && !seen[q - 1] && !ink[q - 1]) { seen[q - 1] = 1; stack.push(q - 1); }
+          if (x < W - 1 && !seen[q + 1] && !ink[q + 1]) { seen[q + 1] = 1; stack.push(q + 1); }
+          if (y > 0 && !seen[q - W] && !ink[q - W]) { seen[q - W] = 1; stack.push(q - W); }
+          if (y < H - 1 && !seen[q + W] && !ink[q + W]) { seen[q + W] = 1; stack.push(q + W); }
+        }
+        // hole pixels: centroid, and the left/right end of each row for the outline
+        var sx = 0, sy = 0, cnt = 0, ends = [];
+        for (y = 0; y < H; y++) {
+          var lo = -1, hi = -1;
+          for (x = 0; x < W; x++) { i = y * W + x; if (!ink[i] && !seen[i]) { sx += x; sy += y; cnt++; if (lo < 0) lo = x; hi = x; } }
+          if (lo >= 0) { ends.push([lo - 0.5, y - 0.5], [lo - 0.5, y + 0.5], [hi + 0.5, y - 0.5], [hi + 0.5, y + 0.5]); }
+        }
+        if (cnt < 60) return null;
+        var hx = sx / cnt, hy = sy / cnt, r2 = Infinity;
+        for (i = 0; i < n; i++) if (ink[i]) { var dx = i % W - hx, dy = (i - i % W) / W - hy; if (dx * dx + dy * dy < r2) r2 = dx * dx + dy * dy; }
+        // convex hull (monotone chain) of the row ends
+        ends.sort(function (p1, p2) { return p1[0] - p2[0] || p1[1] - p2[1]; });
+        var cross = function (o, p1, p2) { return (p1[0] - o[0]) * (p2[1] - o[1]) - (p1[1] - o[1]) * (p2[0] - o[0]); };
+        var lower = [], upper = [];
+        ends.forEach(function (pt) { while (lower.length > 1 && cross(lower[lower.length - 2], lower[lower.length - 1], pt) <= 0) lower.pop(); lower.push(pt); });
+        for (i = ends.length - 1; i >= 0; i--) { var pt = ends[i]; while (upper.length > 1 && cross(upper[upper.length - 2], upper[upper.length - 1], pt) <= 0) upper.pop(); upper.push(pt); }
+        // push the outline ~0.6px outward so it tucks under the glyph's anti-aliased edge (no seam of card colour)
+        var hull = lower.slice(0, -1).concat(upper.slice(0, -1)).map(function (pt) {
+          var vx = pt[0] - hx, vy = pt[1] - hy, len = Math.sqrt(vx * vx + vy * vy) || 1, grow = 0.6 * res;
+          return [(pt[0] + vx / len * grow - ox) / res, (pt[1] + vy / len * grow - oy) / res];
+        });
+        return { x: (hx - ox) / res, y: (hy - oy) / res, r: Math.max(1, Math.sqrt(r2) / res), hull: hull };
+      };
+
       var measure = function () {
+        hole = findHole();
         dist = Math.max(0, htrack.scrollWidth - hstage.clientWidth);
+        zlen = hole ? Math.round(hstage.clientHeight * 1.5) : 0;   // extra scroll for the fly-through (the end is a short hold)
         hwrap.style.setProperty("--dist", dist + "px");
+        hwrap.style.setProperty("--zlen", zlen + "px");
+        // without a hole there is no portal: the next section stays where it is
+        if (hdest) hdest.classList.toggle("is-portal-dest", !!hole);
       };
       measure();
       window.addEventListener("resize", measure);
-      if (document.fonts && document.fonts.ready) document.fonts.ready.then(measure);
+      if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { measure(); requestScenes(); });
+
       scenes.push(function (vh) {
         var r = hwrap.getBoundingClientRect();
-        var stageH = vh - mastH();
-        var p = clamp(-r.top / Math.max(1, r.height - stageH), 0, 1);
-        htrack.style.setProperty("--tx", (-p * dist).toFixed(1) + "px");
+        var scrolled = Math.max(0, -r.top);
+        var p = dist ? clamp(scrolled / dist, 0, 1) : 1;
+        var tx = -p * dist;
+        htrack.style.setProperty("--tx", tx.toFixed(1) + "px");
         var center = hstage.getBoundingClientRect().left + hstage.clientWidth * 0.5;
         var trackLeft = htrack.getBoundingClientRect().left;
         htrack.style.setProperty("--lf", Math.max(0, center - trackLeft).toFixed(1) + "px");
@@ -165,6 +236,38 @@
           var left = step.getBoundingClientRect().left;
           step.classList.toggle("is-lit", left < center || (i === hsteps.length - 1 && p > 0.98));
         });
+
+        // fly-through: the other cards fade, the hole glides to the centre, then the whole card scales up around it
+        var k = zlen ? clamp((scrolled - dist) / (zlen * 0.85), 0, 1) : 0;
+        htrack.style.setProperty("--zk", clamp(k / 0.22, 0, 1).toFixed(4));
+        hlast.classList.toggle("is-zooming", k > 0);
+        htrack.classList.toggle("is-flying", k > 0);
+        if (k > 0) {
+          var sw = hstage.clientWidth, sh = hstage.clientHeight;
+          var cardX = htrack.offsetLeft + tx + hlast.offsetLeft, cardY = htrack.offsetTop + hlast.offsetTop;
+          var ox = hmark.offsetLeft + hole.x, oy = hmark.offsetTop + hole.y;   // hole centre in card coordinates
+          var m = clamp(k / 0.45, 0, 1); m = m < 0.5 ? 2 * m * m : 1 - Math.pow(-2 * m + 2, 2) / 2;
+          var z = clamp((k - 0.12) / 0.88, 0, 1); z = z * z * (3 - 2 * z);
+          // the hole must end up wider than the stage diagonal
+          var S = Math.max(2, 1.15 * Math.sqrt(sw * sw + sh * sh) / 2 / hole.r);
+          var sc = Math.pow(S, z);
+          var dx = (sw / 2 - cardX - ox) * m, dy = (sh / 2 - cardY - oy) * m;
+          hlast.style.transformOrigin = ox.toFixed(1) + "px " + oy.toFixed(1) + "px";
+          hlast.style.transform = "translate3d(" + dx.toFixed(1) + "px," + dy.toFixed(1) + "px,0) scale(" + sc.toFixed(4) + ")";
+          // cut the hole out of the stage (vector, follows the card exactly) so the next section shows through it
+          if (hdest) {
+            var pts = hole.hull.map(function (pt) {
+              return (cardX + ox + dx + (hmark.offsetLeft + pt[0] - ox) * sc).toFixed(1) + "px " + (cardY + oy + dy + (hmark.offsetTop + pt[1] - oy) * sc).toFixed(1) + "px";
+            });
+            hstage.style.clipPath = "polygon(evenodd, 0 0, 100% 0, 100% 100%, 0 100%, 0 0, " + pts.join(", ") + ", " + pts[0] + ", 0 0)";
+          }
+        } else {
+          hlast.style.transform = "";
+          hlast.style.transformOrigin = "";
+          hstage.style.clipPath = "";
+        }
+        // the next section sits right behind the stage while flying, and lands exactly where it belongs when the pin ends
+        if (hdest && hole) hdest.style.transform = k > 0 ? "translate3d(0," + (-Math.max(0, dist + zlen - scrolled)).toFixed(1) + "px,0)" : "";
       });
     }
   }
