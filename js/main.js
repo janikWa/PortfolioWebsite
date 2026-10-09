@@ -273,12 +273,20 @@
   /* ---------- core technologies: detail card on hover (pointer) or tap (touch / keyboard) ---------- */
   var techs = Array.prototype.slice.call(document.querySelectorAll(".tech")).filter(function (t) { return t.querySelector(".tech-pop"); });
   if (techs.length) {
+    // shift each card sideways so it always stays on screen (also while hidden, so it never widens the page)
     var place = function (tech) {
-      var r = tech.getBoundingClientRect();
       var pop = tech.querySelector(".tech-pop");
-      var w = pop ? Math.min(420, pop.scrollWidth || 320) : 320;
-      tech.classList.toggle("pop-left", r.left + w > document.documentElement.clientWidth - 16);
+      if (!pop) return;
+      var vw = document.documentElement.clientWidth, pad = 16;
+      var left = tech.getBoundingClientRect().left, w = pop.offsetWidth;
+      var shift = Math.min(0, vw - pad - (left + w));   // pull left when it would run off the right edge
+      shift = Math.max(shift, pad - left);              // but never past the left edge
+      pop.style.setProperty("--px", Math.round(shift) + "px");
     };
+    var placeAll = function () { techs.forEach(place); };
+    placeAll();
+    window.addEventListener("resize", placeAll);
+    if (document.fonts && document.fonts.ready) document.fonts.ready.then(placeAll);
     var closeAll = function (except) {
       techs.forEach(function (t) {
         if (t === except) return;

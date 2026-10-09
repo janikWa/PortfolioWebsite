@@ -34,7 +34,8 @@
 
 /* ---------- reset ---------- */
 *, *::before, *::after { box-sizing: border-box; }
-html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--mast-h) + 12px); }
+/* overflow-x: clip on html too — iOS ignores it on body alone; clip (unlike hidden) keeps the sticky header working */
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--mast-h) + 12px); overflow-x: clip; }
 body {
   margin: 0;
   background: var(--bg);
@@ -43,7 +44,7 @@ body {
   letter-spacing: -.01em;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  overflow-x: hidden;
+  overflow-x: clip;
 }
 /* print grain over everything — absolute over the whole page, not fixed: iOS Safari takes the colour of its
    status-bar area from fixed layers at the top, and a near-transparent one lets the page show through there */
@@ -504,6 +505,7 @@ button { font: inherit; color: inherit; }
 .tech-pop {
   position: absolute; left: 0; top: calc(100% + 10px); z-index: 20;
   width: max-content; max-width: min(420px, 82vw);
+  translate: var(--px, 0px) 0;   /* JS keeps the card on screen */
   padding: 16px 18px 18px; border-radius: 6px;
   background: #0D0D0D; color: #ECECE9;
   font: 500 1rem/1.4 var(--font); letter-spacing: -.01em;
@@ -511,7 +513,6 @@ button { font: inherit; color: inherit; }
   opacity: 0; visibility: hidden; transform: translateY(8px);
   transition: opacity .25s var(--ease), transform .35s var(--ease), visibility 0s .25s;
 }
-.tech.pop-left .tech-pop { left: auto; right: 0; }
 .tech-pop .t-br { color: rgba(236, 236, 233, .6); }
 .tech-libs { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
 .tech-pop--wide { max-width: min(520px, 86vw); }
