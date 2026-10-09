@@ -135,8 +135,7 @@ button { font: inherit; color: inherit; }
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); align-items: center;
 }
 .brand { display: inline-flex; align-items: center; gap: 12px; position: relative; z-index: 2; justify-self: start; }
-.mark { width: 38px; height: auto; aspect-ratio: 1700 / 1540; }
-.brand-name { font: 700 1.02rem/.95 var(--font); letter-spacing: -.045em; }
+.mark { width: 44px; height: auto; aspect-ratio: 1700 / 1540; }
 .mast-tag { max-width: 11ch; }
 .nav { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 2px 22px; }
 .nav a { font: 600 .8125rem/1.25 var(--font); letter-spacing: -.01em; color: var(--mute); transition: color .2s; }
@@ -695,5 +694,4 @@ button { font: inherit; color: inherit; }
   .teaser-photo, .teaser-text { grid-column: 1 / -1; }
   .teaser-photo { max-width: 320px; }
   .hero .foot-row .btn { grid-column: 1 / -1; }
-  .brand-name { font-size: .95rem; }
 }

@@ -122,6 +122,11 @@
       flow3_chip1: { de: "Anfragen automatisch erfassen", en: "Capture enquiries automatically" },
       flow3_chip2: { de: "Excel → Dashboard", en: "Spreadsheet → dashboard" },
       flow3_chip3: { de: "Online-Terminbuchung", en: "Online booking" },
+      flow3_chip4: { de: "Angebote & Rechnungen per Klick", en: "Quotes & invoices in one click" },
+      flow3_chip5: { de: "Kundendaten an einem Ort", en: "All customer data in one place" },
+      flow3_chip6: { de: "Digitale Formulare statt Papier", en: "Digital forms instead of paper" },
+      flow3_chip7: { de: "Automatische Erinnerungen", en: "Automatic reminders" },
+      flow3_chip8: { de: "Lagerbestand im Blick", en: "Stock levels at a glance" },
       flow_note: {
         de: "Kein Muss: Wenn eine Website alles ist, was du brauchst, bleibt es genau dabei.",
         en: "No pressure: if a website is all you need, that's exactly what you get."
