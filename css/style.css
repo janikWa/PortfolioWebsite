@@ -202,8 +202,17 @@ button { font: inherit; color: inherit; }
 .glass i:nth-child(4n+3) { --b: 8px; }
 .glass i:nth-child(4n) { --b: 14px; }
 
-.glass.is-auto { animation: drift 16s ease-in-out infinite alternate; transform: none; }
-@keyframes drift { from { left: 2%; } to { left: 62%; } }
+
+/* ---------- hover blur — a soft round blur spot that follows the cursor over big type ---------- */
+.blur-lens {
+  position: absolute; left: 0; top: 0; z-index: 3; pointer-events: none;
+  width: clamp(220px, 24vw, 400px); aspect-ratio: 1; border-radius: 50%;
+  -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+  -webkit-mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+  mask-image: radial-gradient(closest-side, #000 45%, transparent 100%);
+  transform: translate3d(calc(var(--lx, 0px) - 50%), calc(var(--ly, 0px) - 50%), 0) scale(var(--ls, 0));
+  will-change: transform;
+}
 
 /* ---------- sections ---------- */
 .sec { padding-block: var(--sec-y); position: relative; }
@@ -511,7 +520,6 @@ a.poster:hover .mock { transform: scale(1.035); }
   html { scroll-behavior: auto; }
   *, *::before, *::after { animation: none !important; transition-duration: .01ms !important; transition-delay: 0s !important; }
   .js .reveal { opacity: 1; filter: none; transform: none; }
-  .glass.is-auto { left: 30%; }
 }
 
 /* ==========================================================================
@@ -587,7 +595,4 @@ a.poster:hover .mock { transform: scale(1.035); }
   .teaser-photo { max-width: 320px; }
   .hero .foot-row .btn { grid-column: 1 / -1; }
   .brand-name { font-size: .95rem; }
-  .glass { width: 34%; }
-  .glass i:nth-child(4n) { --b: 9px; }
-  .glass i:nth-child(4n+2) { --b: 7px; }
 }

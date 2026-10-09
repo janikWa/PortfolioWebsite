@@ -181,39 +181,34 @@
   if (document.fonts && document.fonts.ready) document.fonts.ready.then(requestScenes);
   requestScenes();
 
-  /* ---------- fluted glass follows the cursor (hero + footer wordmark) ----------
-     On touch / coarse pointers it drifts on its own (CSS .is-auto). */
-  document.querySelectorAll('[data-glass="follow"]').forEach(function (glass) {
-    var area = glass.closest("[data-glass-area]");
-    if (!area) return;
+  /* ---------- hover blur: a soft blur spot grows under the cursor over big type ----------
+     Pointer devices only; on touch the type simply stays sharp. */
+  if (finePointer) {
+    document.querySelectorAll(".blur-lens").forEach(function (lens) {
+      var area = lens.closest("[data-glass-area]");
+      if (!area) return;
+      var tx = 0, ty = 0, cx = 0, cy = 0, ts = 0, cs = 0, raf = null, placed = false;
+      var ease = prefersReduced ? 1 : 0.16;
 
-    if (prefersReduced || !finePointer) {
-      glass.classList.add("is-auto");
-      return;
-    }
+      var step = function () {
+        cx += (tx - cx) * ease; cy += (ty - cy) * ease; cs += (ts - cs) * (prefersReduced ? 1 : 0.12);
+        lens.style.setProperty("--lx", cx.toFixed(1) + "px");
+        lens.style.setProperty("--ly", cy.toFixed(1) + "px");
+        lens.style.setProperty("--ls", cs.toFixed(3));
+        var moving = Math.abs(tx - cx) > 0.3 || Math.abs(ty - cy) > 0.3 || Math.abs(ts - cs) > 0.002;
+        raf = moving ? window.requestAnimationFrame(step) : null;
+      };
+      var kick = function () { if (!raf) raf = window.requestAnimationFrame(step); };
 
-    var target = 0, current = 0, frame = null;
-    var rest = function () { return area.clientWidth * 0.18; };
-    current = target = rest();
-    glass.style.setProperty("--gx", current.toFixed(1) + "px");
-
-    var step = function () {
-      current += (target - current) * 0.085;
-      glass.style.setProperty("--gx", current.toFixed(1) + "px");
-      frame = Math.abs(target - current) > 0.4 ? window.requestAnimationFrame(step) : null;
-    };
-    var kick = function () { if (!frame) frame = window.requestAnimationFrame(step); };
-
-    var zone = area.closest("section, footer") || area;
-    zone.addEventListener("pointermove", function (evt) {
-      var rect = area.getBoundingClientRect();
-      var w = glass.offsetWidth;
-      target = Math.max(-w * 0.3, Math.min(rect.width - w * 0.7, evt.clientX - rect.left - w / 2));
-      kick();
+      area.addEventListener("pointermove", function (evt) {
+        var r = area.getBoundingClientRect();
+        tx = evt.clientX - r.left; ty = evt.clientY - r.top;
+        if (!placed) { cx = tx; cy = ty; placed = true; }   // appear where the cursor enters, then follow
+        ts = 1; kick();
+      });
+      area.addEventListener("pointerleave", function () { ts = 0; placed = false; kick(); });
     });
-    zone.addEventListener("pointerleave", function () { target = rest(); kick(); });
-    window.addEventListener("resize", function () { target = rest(); kick(); });
-  });
+  }
 
   /* ---------- scramble: letters cycle through glyphs before they lock, left to right ---------- */
   var GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
