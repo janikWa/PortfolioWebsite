@@ -100,13 +100,16 @@ button { font: inherit; color: inherit; }
 
 /* fluted backdrop — soft vertical reeds like ribbed glass */
 .flutes {
-  background-image: repeating-linear-gradient(90deg,
+  --fl: 66px;   /* reed width */
+  --flutes: repeating-linear-gradient(90deg,
     rgba(255, 255, 255, 0) 0px,
-    rgba(255, 255, 255, .34) 14px,
-    rgba(255, 255, 255, .06) 34px,
-    rgba(0, 0, 0, .035) 58px,
-    rgba(255, 255, 255, 0) 66px);
+    rgba(255, 255, 255, .34) calc(var(--fl) * .21),
+    rgba(255, 255, 255, .06) calc(var(--fl) * .52),
+    rgba(0, 0, 0, .035) calc(var(--fl) * .88),
+    rgba(255, 255, 255, 0) var(--fl));
+  background-image: var(--flutes);
 }
+.hero.flutes { background-image: linear-gradient(to bottom, transparent calc(100% - 140px), var(--bg)), var(--flutes); }
 
 /* ---------- buttons ---------- */
 .btn {
@@ -130,6 +133,8 @@ button { font: inherit; color: inherit; }
   background: var(--bg);
   border-bottom: var(--thick) solid var(--ink);
 }
+/* iOS Safari draws the page behind the status bar: extend the bar upwards so nothing shows above it */
+.mast::before { content: ""; position: absolute; left: 0; right: 0; bottom: 100%; height: max(env(safe-area-inset-top, 0px), 120px); background: var(--bg); pointer-events: none; }
 .mast-inner {
   height: var(--mast-h);
   display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); column-gap: var(--gap); align-items: center;
@@ -683,6 +688,10 @@ button { font: inherit; color: inherit; }
 }
 
 @media (max-width: 620px) {
+  /* finer, slightly crisper reeds so the ribbed glass still reads on a narrow screen */
+  .flutes { --fl: 30px; }
+  .hero.flutes { background-image: linear-gradient(to bottom, transparent calc(100% - 100px), var(--bg)),
+    repeating-linear-gradient(90deg, rgba(255, 255, 255, 0) 0px, rgba(255, 255, 255, .45) 6px, rgba(255, 255, 255, .08) 16px, rgba(0, 0, 0, .05) 26px, rgba(255, 255, 255, 0) 30px); }
   .zpanel { grid-template-columns: 1fr; grid-template-rows: auto auto 1fr auto; }
   .zpanel-title, .zpanel-visual, .zpanel-text { grid-column: 1; grid-row: auto; }
   .zpanel-title { font-size: clamp(2.6rem, 12.5vw, 4.4rem); }
