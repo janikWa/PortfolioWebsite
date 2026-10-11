@@ -8,6 +8,16 @@
   /* ---------- current year in the footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 
+  /* ---------- back to top ----------
+     #top is the sticky header, which is always in view, so the browser never scrolls to it. */
+  document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+    link.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
   /* ---------- iPhone / iPad: draw ↗ as a text arrow, not the emoji ----------
      iOS renders a bare ↗ as an emoji; U+FE0E asks for the text glyph. Only there,
      so desktop keeps its arrow exactly as it is. */
@@ -15,7 +25,7 @@
   if (iOS) {
     var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
     for (var tn = walker.nextNode(); tn; tn = walker.nextNode()) {
-      if (tn.nodeValue.indexOf("↗") > -1) tn.nodeValue = tn.nodeValue.replace(/↗(?!︎)/g, "↗︎");
+      if (tn.nodeValue.indexOf("\u2197") > -1) tn.nodeValue = tn.nodeValue.replace(/\u2197(?!\uFE0E)/g, "\u2197\uFE0E");
     }
   }
 
@@ -35,6 +45,46 @@
     nav.querySelectorAll("a").forEach(function (link) { link.addEventListener("click", function () { setNav(false); }); });
     document.addEventListener("keydown", function (evt) { if (evt.key === "Escape") setNav(false); });
     window.addEventListener("resize", function () { if (window.innerWidth > 860) setNav(false); });
+  }
+
+  /* ---------- nav: underline the section currently in view ----------
+     Links to sections on this page follow the scroll; the link to this page itself
+     (Start / Über mich) is active above the first section. Links to other pages never are. */
+  if (nav) {
+    var pagePath = function (p) { return p.replace(/index\.html$/, ""); };
+    var here = pagePath(location.pathname);
+    var topLink = null, spots = [];
+    nav.querySelectorAll("a").forEach(function (a) {
+      var u = new URL(a.getAttribute("href"), location.href);
+      if (pagePath(u.pathname) !== here) return;
+      if (!u.hash) { topLink = a; return; }
+      var target = document.getElementById(u.hash.slice(1));
+      if (target) spots.push({ link: a, el: target });
+    });
+    var spyQueued = false;
+    var spy = function () {
+      spyQueued = false;
+      var vh = window.innerHeight;
+      var line = (parseFloat(getComputedStyle(root).getPropertyValue("--mast-h")) || 76) + vh * 0.3;
+      var current = topLink, best = -Infinity;
+      spots.forEach(function (s) {
+        var top = s.el.getBoundingClientRect().top;
+        if (top <= line && top > best) { best = top; current = s.link; }
+      });
+      // at the very bottom the last section may never reach the line
+      if (window.scrollY + vh >= document.documentElement.scrollHeight - 2 && spots.length) {
+        current = spots.reduce(function (a, b) { return a.el.getBoundingClientRect().top > b.el.getBoundingClientRect().top ? a : b; }).link;
+      }
+      nav.querySelectorAll("a").forEach(function (a) {
+        var on = a === current;
+        a.classList.toggle("active", on);
+        if (on) a.setAttribute("aria-current", "true"); else a.removeAttribute("aria-current");
+      });
+    };
+    var requestSpy = function () { if (!spyQueued) { spyQueued = true; window.requestAnimationFrame(spy); } };
+    window.addEventListener("scroll", requestSpy, { passive: true });
+    window.addEventListener("resize", requestSpy);
+    requestSpy();
   }
 
   /* ---------- reveal: things come into focus ---------- */
