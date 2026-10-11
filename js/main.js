@@ -8,6 +8,16 @@
   /* ---------- current year in the footer ---------- */
   document.querySelectorAll("[data-year]").forEach(function (el) { el.textContent = String(new Date().getFullYear()); });
 
+  /* ---------- back to top ----------
+     #top is the sticky header, which is always in view, so the browser never scrolls to it. */
+  document.querySelectorAll('a[href="#top"]').forEach(function (link) {
+    link.addEventListener("click", function (evt) {
+      evt.preventDefault();
+      window.scrollTo({ top: 0, behavior: prefersReduced ? "auto" : "smooth" });
+      if (history.replaceState) history.replaceState(null, "", location.pathname + location.search);
+    });
+  });
+
   /* ---------- iPhone / iPad: draw ↗ as a text arrow, not the emoji ----------
      iOS renders a bare ↗ as an emoji; U+FE0E asks for the text glyph. Only there,
      so desktop keeps its arrow exactly as it is. */
