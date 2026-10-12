@@ -18,7 +18,11 @@
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
       made_by: { de: "Made by", en: "Made by" },
       tagline: { de: "Websites & Automationen", en: "Websites & automation" },
-      back_to_top: { de: "Nach oben", en: "Back to top" }
+      back_to_top: { de: "Nach oben", en: "Back to top" },
+      nav_imprint: { de: "Impressum", en: "Legal notice" },
+      nav_privacy: { de: "Datenschutz", en: "Privacy" },
+      legal_aria: { de: "Rechtliches", en: "Legal" },
+      legal_de_only: { de: "", en: "This page is provided in German, the legally binding version." }
     },
 
     home: {
