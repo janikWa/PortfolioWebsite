@@ -61,6 +61,15 @@ body::after {
   opacity: .085;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='200' height='200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
+/* iOS Safari (floating address bar) paints the strip below the page end in its own lighter tint (#ECECE9 instead
+   of --bg) unless a fixed layer touches the bottom edge — this one gives it the page colour; z-index -1 keeps it
+   behind every section, so it only shows where there is no content */
+body::before {
+  content: "";
+  position: fixed; left: 0; right: 0; bottom: 0; z-index: -1; pointer-events: none;
+  height: calc(env(safe-area-inset-bottom, 0px) + 120px);
+  background: var(--bg);
+}
 img, svg { display: block; max-width: 100%; }
 h1, h2, h3, p, figure, ul, ol { margin: 0; padding: 0; }
 ul, ol { list-style: none; }
