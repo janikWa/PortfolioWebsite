@@ -2,7 +2,7 @@
   "use strict";
 
   /* ---------- contact form backend: the only place the endpoint lives (go-live = change API_URL) ---------- */
-  const API_URL = "https://dev.form.janikwahrheit.de/send-mail"; // Prod: https://form.janikwahrheit.de/send-mail
+  const API_URL = "https://form.janikwahrheit.de/send-mail"; // Prod: https://form.janikwahrheit.de/send-mail
   const CLIENT_ID = "janikwahrheit";
 
   var root = document.documentElement;
