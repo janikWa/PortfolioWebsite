@@ -620,6 +620,58 @@ html:not(.js) .chat-form { display: none; }
 .tech.is-open .tech-pop, .tech-btn:focus-visible + .tech-pop { opacity: 1; visibility: visible; transform: none; transition: opacity .25s var(--ease), transform .35s var(--ease), visibility 0s; }
 .tech-hint { margin-top: 14px; color: var(--mute); }
 
+/* core & satellites — data at the centre, design + full stack in orbit */
+.cs { margin-top: clamp(64px, 8vw, 120px); padding-top: 14px; border-top: var(--thick) solid var(--ink); row-gap: 48px; align-items: center; }
+.cs-text { grid-column: 1 / span 2; display: flex; flex-direction: column; gap: 18px; max-width: 54ch; }
+.cs-text .h3 { margin-top: 6px; font-size: clamp(2.1rem, 1.4rem + 2.4vw, 3.6rem); letter-spacing: -.055em; line-height: .98; }
+.cs-lead { font: 500 clamp(1.1rem, 1rem + .4vw, 1.35rem)/1.38 var(--font); letter-spacing: -.02em; }
+.cs-bridges { margin-top: 4px; border-top: var(--thick) solid var(--ink); }
+.cs-bridge { display: grid; grid-template-columns: 8.5em minmax(0, 1fr); gap: 14px; padding: 14px 0; border-bottom: 1px solid var(--hair); transition: background-color .3s var(--ease); }
+.cs-bridge-k { display: flex; align-items: baseline; gap: 10px; font-weight: 600; color: var(--blue); }
+.cs-bridge-n, .cs-sat-n { color: var(--mute); font-variant-numeric: tabular-nums; }
+.cs-close { color: var(--ink-2); }
+
+.cs-orbit { grid-column: 3 / span 2; position: relative; width: 100%; max-width: 600px; justify-self: end; aspect-ratio: 1; container-type: inline-size; }
+.cs-lines { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.cs-ring { fill: none; stroke: var(--ink); stroke-width: 1.5; stroke-dasharray: 1 7; stroke-linecap: round; vector-effect: non-scaling-stroke; transform-origin: 50px 50px; animation: cs-spin 120s linear infinite; }
+.cs-ring--inner { stroke: var(--hair); stroke-dasharray: none; animation: none; }
+.cs-flow { stroke: var(--blue); stroke-width: 2; stroke-dasharray: 3 5; stroke-linecap: round; vector-effect: non-scaling-stroke; animation: cs-flow 1.4s linear infinite; }
+.cs-port { fill: var(--blue); stroke: var(--bg-2); stroke-width: 3; vector-effect: non-scaling-stroke; }
+@keyframes cs-spin { to { transform: rotate(360deg); } }
+@keyframes cs-flow { to { stroke-dashoffset: -8; } }
+
+.cs-core {
+  position: absolute; left: 50%; top: 50%; width: 41%; aspect-ratio: 1; translate: -50% -50%;
+  display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 2.4cqi;
+  border-radius: 50%; background: var(--ink); color: var(--card); text-align: center;
+  box-shadow: 0 30px 60px -30px rgba(0, 0, 0, .6);
+}
+.cs-core .t-br { color: var(--blue-light); font-size: max(.62rem, 2.1cqi); }
+.cs-core ul { display: flex; flex-direction: column; align-items: center; gap: .25em; font: 600 max(.76rem, 3.2cqi)/1.15 var(--font); letter-spacing: -.03em; }
+
+.cs-sat {
+  position: absolute; width: 42%; display: flex; flex-direction: column; gap: max(6px, 1.4cqi);
+  padding: max(11px, 2.8cqi) max(12px, 3cqi) max(12px, 3cqi); border-radius: 16px;
+  background: var(--card); border: var(--thick) solid var(--ink);
+  box-shadow: 0 24px 44px -30px rgba(0, 0, 0, .55);
+  transition: transform .45s var(--ease), border-color .3s, box-shadow .45s var(--ease);
+}
+.cs-sat--a { right: 0; top: 0; }
+.cs-sat--b { left: 0; bottom: 0; }
+.cs-sat-head { display: flex; justify-content: space-between; align-items: baseline; }
+.cs-sat .t-br { color: var(--mute); font-size: max(.6rem, 2cqi); }
+.cs-sat-n { font-size: max(.62rem, 2cqi); }
+.cs-sat strong { font: 600 max(1.1rem, 4.6cqi)/1 var(--font); letter-spacing: -.05em; }
+.cs-tags { display: flex; flex-wrap: wrap; gap: 4px; }
+.cs-tags li { font: 600 max(.62rem, 1.95cqi)/1 var(--font); letter-spacing: -.01em; padding: .45em .62em; border-radius: 999px; border: 1.5px solid var(--hair); }
+
+/* text line ↔ satellite card: hovering one highlights the other */
+@media (hover: hover) and (pointer: fine) {
+  .cs-bridge:hover, .cs:has(.cs-sat--a:hover) .cs-bridge--a, .cs:has(.cs-sat--b:hover) .cs-bridge--b { background: rgba(31, 71, 224, .06); }
+  .cs-sat:hover, .cs:has(.cs-bridge--a:hover) .cs-sat--a, .cs:has(.cs-bridge--b:hover) .cs-sat--b { transform: translateY(-4px); border-color: var(--blue); box-shadow: 0 30px 50px -28px rgba(31, 71, 224, .55); }
+}
+@media (max-width: 560px) { .cs-orbit { aspect-ratio: 1 / 1.26; } .cs-sat { width: 46%; } }
+
 /* CV timeline — a cobalt line fills with scroll, steps lock in as it reaches them */
 .cv { position: relative; border-top: var(--thick) solid var(--ink); padding-left: 40px; --p: 1; }
 .cv::before, .cv::after { content: ""; position: absolute; left: 7px; top: 0; width: 2px; }
@@ -712,6 +764,9 @@ html:not(.js) .chat-form { display: none; }
   .chat-fields { grid-template-columns: minmax(0, 1fr); }
   .tech-cat { padding-top: 0; }
   .cv-row h3, .cv-row p { grid-column: 1; }
+  .cs-text, .cs-orbit { grid-column: 1 / -1; }
+  .cs-bridge { grid-template-columns: minmax(0, 1fr); gap: 4px; }
+  .cs-orbit { justify-self: center; }
 }
 
 /* ==========================================================================
