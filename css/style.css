@@ -411,16 +411,14 @@ button { font: inherit; color: inherit; }
 .browser-shield .btn { pointer-events: none; box-shadow: 0 14px 30px -14px rgba(0, 0, 0, .5); }
 .browser-shield:hover .btn { background: var(--blue); border-color: var(--blue); color: #fff; }
 .bpanel.is-live .browser-shield { opacity: 0; pointer-events: none; }
-.bpanel--soon { background-color: var(--card); display: grid; place-items: center; padding: 6%; }
-.bpanel--soon .soon { width: 100%; }
-.bpanel-status { position: absolute; left: 20px; bottom: 18px; }
-.bpanel--empty { background: var(--card); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 18px; border: 2px dashed var(--hair); }
-.soon { position: relative; display: grid; align-items: center; min-height: 220px; overflow: hidden; }
-.soon-title { font: 600 clamp(2.8rem, 9vw, 9rem)/.86 var(--font); letter-spacing: -.065em; }
-.soon-title--sm { font-size: clamp(2rem, 4.5vw, 4.4rem); color: var(--mute); }
-.soon-plus { width: 34px; height: 34px; position: relative; }
-.soon-plus::before, .soon-plus::after { content: ""; position: absolute; inset: 16px 0; background: var(--mute); }
-.soon-plus::after { inset: 0 16px; }
+.bpanel--cta { background-color: var(--card); display: flex; align-items: center; padding: clamp(24px, 6%, 72px); overflow: auto; }
+.bpanel--cta::before { content: ""; position: absolute; inset: 14px; border: 2px dashed var(--hair); border-radius: 14px; pointer-events: none; }
+.cta-slot { position: relative; display: flex; flex-direction: column; align-items: flex-start; gap: clamp(14px, 2.4vw, 24px); max-width: 860px; }
+.cta-slot-kicker { display: inline-flex; align-items: center; gap: 10px; padding: 7px 14px; border-radius: 999px; background: var(--bg); border: 1px solid var(--hair); }
+.cta-slot-title { font: 600 clamp(2.2rem, 6.4vw, 6.4rem)/.9 var(--font); letter-spacing: -.06em; }
+.cta-slot-title em { font-style: normal; color: var(--blue); }
+.cta-slot-text { max-width: 52ch; color: var(--ink-2); }
+.cta-slot-actions { display: flex; flex-wrap: wrap; gap: 12px; }
 .browser-captions { margin-top: 22px; }
 .bcap { padding-top: 14px; border-top: var(--thick) solid var(--ink); align-items: baseline; row-gap: 8px; }
 .bcap .h3 { grid-column: 2; }

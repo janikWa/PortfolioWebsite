@@ -168,15 +168,25 @@
       work_open: { de: "Im neuen Tab öffnen", en: "Open in new tab" },
       work_explore: { de: "Website erkunden", en: "Explore the website" },
       work_placeholder_cat: { de: "Kundenprojekt", en: "Client project" },
-      work_placeholder_title: { de: "Demnächst hier", en: "Coming soon" },
-      work_placeholder_desc: { de: "Hier erscheint bald ein Kundenprojekt.", en: "A client project will appear here soon." },
+      work_placeholder_tab: { de: "Dein Projekt", en: "Your project" },
+      work_placeholder_title: { de: "Dein Projekt", en: "Your project" },
+      work_placeholder_desc: {
+        de: "Website, Automation oder individuelles Tool – dieser Platz ist für das nächste Projekt reserviert. Vielleicht ja deins.",
+        en: "Website, automation or custom tool — this spot is reserved for the next project. Maybe it’s yours."
+      },
+      work_cta_kicker: { de: "Platz für dein Projekt", en: "Room for your project" },
+      work_cta_title: { de: "Hier könnte <em>deine</em> Website stehen.", en: "<em>Your</em> website could be right here." },
+      work_cta_text: {
+        de: "Erzähl mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden persönlich bei dir – mit einer ersten, ehrlichen Einschätzung.",
+        en: "Tell me briefly what you have in mind. I'll get back to you personally within 48 hours with an honest first take."
+      },
+      work_cta_primary: { de: "Projekt anfragen", en: "Start a project" },
+      work_cta_secondary: { de: "So arbeite ich", en: "How I work" },
       ref_cat: { de: "Kundenprojekt · Website", en: "Client project · Website" },
       ref1_desc: {
         de: "Website für einen Heizungsfachbetrieb aus Jockgrim: Leistungen, Wartungsverträge, Spartipps und ein Kontaktformular.",
         en: "Website for a heating specialist based in Jockgrim, Germany: services, maintenance contracts, energy-saving tips and a contact form."
       },
-      ref2_desc: { de: "Website für ein Feinkostgeschäft mit mediterranen Spezialitäten.", en: "Website for a delicatessen with Mediterranean specialities." },
-      ref2_status: { de: "Noch nicht online", en: "Not live yet" },
       teaser_p1: {
         de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites, Automationen und individuelle Tools für Selbstständige und kleine Betriebe.",
         en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites, automation and custom tools for freelancers and small businesses."
