@@ -344,6 +344,36 @@
         de: "Bachelorarbeit zu heavy-tailed Regularisierung in neuronalen Netzen (Note 1,0).",
         en: "Bachelor's thesis on heavy-tailed regularization in neural networks (grade 1.0)."
       },
+      cs_eyebrow: { de: "Profil", en: "Profile" },
+      cs_h3: { de: "Kern & Satelliten", en: "Core & satellites" },
+      cs_p1: {
+        de: "Mein Kern sind Daten: Statistik, Data Science, Machine Learning und Data Engineering. Darum kreisen zwei Satelliten, die ich aus Leidenschaft betreibe – Design und Full-Stack-Entwicklung.",
+        en: "My core is data: statistics, data science, machine learning and data engineering. Two satellites orbit it that I pursue out of passion – design and full-stack development."
+      },
+      cs_b1: {
+        de: "Ergebnisse so aufbereiten, dass sie verstanden werden – von der Visualisierung bis zur fertigen Oberfläche.",
+        en: "Presenting results so they are understood – from the visualization to the finished interface."
+      },
+      cs_b2: {
+        de: "Modelle und Pipelines nicht im Notebook liegen lassen, sondern als kleine Web-App oder API nutzbar machen.",
+        en: "Not leaving models and pipelines in a notebook, but making them usable as a small web app or API."
+      },
+      cs_p2: {
+        de: "So verstehe ich nicht nur die Daten, sondern bringe die Ergebnisse auch zu den Menschen, die damit arbeiten.",
+        en: "So I don't just understand the data – I also get the results to the people who work with them."
+      },
+      cs_core_label: { de: "Kern", en: "Core" },
+      cs_sat_label: { de: "Satellit", en: "Satellite" },
+      cs_c1: { de: "Statistik", en: "Statistics" },
+      cs_s1_title: { de: "Design", en: "Design" },
+      cs_s1_t2: { de: "Kundenprojekte", en: "Client projects" },
+      cs_s1_t3: { de: "Diese Website", en: "This website" },
+      cs_s2_title: { de: "Full-Stack", en: "Full stack" },
+      cs_s2_t1: { de: "Web-Apps", en: "Web apps" },
+      cs_aria: {
+        de: "Kern: Statistik, Data Science, Machine Learning, Data Engineering. Satelliten: Design und Full-Stack-Entwicklung.",
+        en: "Core: statistics, data science, machine learning, data engineering. Satellites: design and full-stack development."
+      },
       techstack_sub: {
         de: "Die Sprachen, Frameworks und Tools, die ich für meine Projekte nutze.",
         en: "The languages, frameworks, and tools I use to build my projects."
