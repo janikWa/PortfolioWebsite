@@ -41,3 +41,17 @@ We maintain a global memory bank at:
 
 - **Mandatory Reading:** At the start of every session, or before making major architectural decisions, you must read this file to avoid repeating past mistakes.
 - **Mandatory Writing:** Unprompted, whenever we fix a difficult bug, establish a great UI pattern, or finish a milestone, you must open this file and append a new bullet point documenting the insight.
+
+
+## 4. Contact Form 
+
+If you are instructed to add a contact form, please use `../claude-brain/contact_form.md`
+
+
+## 5. Contracts (Trigger: `[vertrag]`)
+
+If my prompt starts with `[vertrag]`, or I ask for contracts for this project, read and follow `../claude-brain/vertraege.md`.
+
+- Determine from this project which contracts the client needs. Write only the contract **text**: one Markdown file per contract in `/Users/janikwahrheit/Library/CloudStorage/OneDrive-Persönlich/06_Workspace/jw/Organisation/Verträge/<Kunde>/Texte/`.
+- Generate the PDF and DOCX with the shared generator (`Verträge/_Generator/build.py`). The design is fixed for all clients. Never change it for a project.
+- Contracts never go into this website repository.

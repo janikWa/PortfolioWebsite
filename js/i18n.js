@@ -216,7 +216,56 @@
         en: "Write to me"
       },
       contact_linkedin_btn: { de: "LinkedIn", en: "LinkedIn" },
-      contact_meta: { de: "Gern auch remote – egal, wo du sitzt.", en: "Remote works too — wherever you are." }
+      contact_meta: { de: "Gern auch remote – egal, wo du sitzt.", en: "Remote works too — wherever you are." },
+      contact_alt: { de: "Lieber direkt?", en: "Rather go direct?" },
+
+      chat_status: { de: "Antwortet innerhalb von 48 Stunden", en: "Replies within 48 hours" },
+      chat_log_aria: { de: "Chatverlauf", en: "Chat history" },
+      chat_next: { de: "Weiter", en: "Next" },
+      chat_q_name: { de: "Hi! Schön, dass du da bist. Wie heißt du?", en: "Hi! Great to have you here. What's your name?" },
+      chat_q_topic: { de: "Freut mich, {name}! Worum geht's?", en: "Nice to meet you, {name}! What's it about?" },
+      chat_q_message: {
+        de: "Erzähl mir kurz von deinem Projekt: Was hast du vor, und gibt es schon einen Zeitrahmen?",
+        en: "Tell me a bit about your project: what do you have in mind, and is there a timeframe yet?"
+      },
+      chat_q_contact: { de: "Klingt spannend! Wie erreiche ich dich?", en: "Sounds exciting! How can I reach you?" },
+      chat_q_send: { de: "Alles beisammen. Soll ich die Nachricht abschicken?", en: "Got everything. Shall I send your message?" },
+      chat_l_name: { de: "Dein Name", en: "Your name" },
+      chat_l_topic: { de: "Worum geht es?", en: "What's it about?" },
+      chat_l_message: { de: "Deine Nachricht", en: "Your message" },
+      chat_l_email: { de: "E-Mail-Adresse", en: "Email address" },
+      chat_l_phone: { de: "Telefon (optional)", en: "Phone (optional)" },
+      chat_t1: { de: "Website", en: "Website" },
+      chat_t2: { de: "Automation", en: "Automation" },
+      chat_t3: { de: "Individuelles Tool", en: "Custom tool" },
+      chat_t4: { de: "Etwas anderes", en: "Something else" },
+      chat_hint_message: { de: "Strg/⌘ + Enter zum Weiter", en: "Ctrl/⌘ + Enter to continue" },
+      chat_privacy: {
+        de: "Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage übermittelt. Mehr dazu in der <a href=\"datenschutz/\">Datenschutzerklärung</a>.",
+        en: "When you send this, your details are transmitted so I can handle your request. More in the <a href=\"datenschutz/\">privacy policy</a> (German)."
+      },
+      chat_send: { de: "Nachricht senden", en: "Send message" },
+      chat_sending: { de: "Wird gesendet …", en: "Sending …" },
+      chat_restart: { de: "Neue Nachricht schreiben", en: "Write a new message" },
+      chat_edit: { de: "Antwort ändern", en: "Change answer" },
+      chat_ok: {
+        de: "Danke, {name}! Deine Nachricht ist angekommen. Ich melde mich so schnell wie möglich bei dir.",
+        en: "Thanks, {name}! Your message has arrived. I'll get back to you as soon as possible."
+      },
+      chat_err_generic: {
+        de: "Da ist bei mir etwas schiefgelaufen. Schreib mir bitte direkt an hallo@janikwahrheit.de.",
+        en: "Something went wrong on my end. Please email me directly at hallo@janikwahrheit.de."
+      },
+      chat_err_links: {
+        de: "Deine Nachricht enthält zu viele Links (maximal 2). Tipp oben auf deine Nachricht, um sie zu ändern.",
+        en: "Your message contains too many links (2 at most). Tap your message above to change it."
+      },
+      chat_err_input: {
+        de: "Bitte prüf deine Angaben, da passt etwas noch nicht. Tipp auf eine Antwort, um sie zu ändern.",
+        en: "Please check your details, something isn't right yet. Tap an answer to change it."
+      },
+      chat_err_rate: { de: "Zu viele Anfragen. Bitte versuch es später noch einmal.", en: "Too many requests. Please try again later." },
+      chat_err_network: { de: "Senden fehlgeschlagen. Bitte versuch es später noch einmal.", en: "Sending failed. Please try again later." }
     },
 
     about: {
@@ -454,6 +503,14 @@
       toggle.setAttribute("aria-label", lang === "de" ? "Switch to English" : "Auf Deutsch umschalten");
     }
   }
+
+  // lookup for scripts that build text at runtime (e.g. the contact chat); "{name}" placeholders are filled from vars
+  window.siteT = function (key, vars) {
+    var entry = get(key);
+    var lang = document.documentElement.lang === "en" ? "en" : "de";
+    var text = entry && entry[lang] != null ? entry[lang] : key;
+    return text.replace(/\{(\w+)\}/g, function (m, k) { return vars && vars[k] != null ? vars[k] : m; });
+  };
 
   var initialLang = "de";
   try {

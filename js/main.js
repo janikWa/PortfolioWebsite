@@ -1,6 +1,10 @@
 (function () {
   "use strict";
 
+  /* ---------- contact form backend: the only place the endpoint lives (go-live = change API_URL) ---------- */
+  const API_URL = "https://dev.form.janikwahrheit.de/send-mail"; // Prod: https://form.janikwahrheit.de/send-mail
+  const CLIENT_ID = "janikwahrheit";
+
   var root = document.documentElement;
   var prefersReduced = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   var finePointer = window.matchMedia && window.matchMedia("(hover: hover) and (pointer: fine)").matches;
@@ -433,6 +437,231 @@
     window.addEventListener("scroll", request, { passive: true });
     window.addEventListener("resize", request);
     update();
+  }
+
+  /* ---------- contact form as a chat ----------
+     One question at a time; each answer becomes a bubble that can be tapped to go back and change it.
+     Sends JSON to API_URL (only Content-Type header, otherwise the CORS preflight fails). */
+  var chat = document.querySelector("[data-chat]");
+  if (chat) {
+    var T = window.siteT || function (k) { return k; };
+    var form = chat.querySelector("[data-chat-form]");
+    var log = chat.querySelector("[data-chat-log]");
+    var ORDER = ["name", "topic", "message", "contact", "send", "done"];
+    var QUESTIONS = { name: "home.chat_q_name", topic: "home.chat_q_topic", message: "home.chat_q_message", contact: "home.chat_q_contact", send: "home.chat_q_send" };
+    var current = "name";
+    var busy = false;
+    var timer = null;
+
+    var stepEl = function (name) { return form.querySelector('[data-step="' + name + '"]'); };
+    var field = function (name) { return form.elements[name]; };
+    var nameVal = function () { return field("name").value.trim(); };
+    var scrollLog = function () { log.scrollTop = log.scrollHeight; };
+
+    log.firstElementChild.setAttribute("data-for", "name");
+
+    function focusStep(name) {
+      var el = stepEl(name);
+      var target = el && el.querySelector("input:not([type=radio]), textarea, input[type=radio], button");
+      if (target) target.focus({ preventScroll: true });
+    }
+
+    function showStep(name, focus) {
+      current = name;
+      Array.prototype.forEach.call(form.querySelectorAll(".chat-step"), function (el) { el.hidden = el.getAttribute("data-step") !== name; });
+      if (focus) focusStep(name);
+      scrollLog();
+    }
+
+    function botSay(text, opts) {
+      var p = document.createElement("p");
+      p.className = "chat-msg chat-msg--bot" + (opts && opts.tone ? " chat-msg--" + opts.tone : "");
+      p.textContent = text;
+      if (opts && opts.step) p.setAttribute("data-for", opts.step);
+      log.appendChild(p);
+      scrollLog();
+    }
+
+    // typing dots, then the bot's next line, then the matching input
+    function ask(step, opts) {
+      Array.prototype.forEach.call(form.querySelectorAll(".chat-step"), function (el) { el.hidden = true; });
+      var typing = document.createElement("p");
+      typing.className = "chat-typing";
+      typing.setAttribute("aria-hidden", "true");
+      typing.innerHTML = "<i></i><i></i><i></i>";
+      log.appendChild(typing);
+      scrollLog();
+      clearTimeout(timer);
+      timer = setTimeout(function () {
+        typing.remove();
+        if (QUESTIONS[step]) botSay(T(QUESTIONS[step], { name: nameVal() }), { step: step });
+        else if (opts && opts.text) botSay(opts.text, { tone: opts.tone });
+        showStep(step, !(opts && opts.noFocus));
+      }, prefersReduced ? 0 : 650);
+    }
+
+    function userSay(step, text) {
+      var b = document.createElement("button");
+      b.type = "button";
+      b.className = "chat-msg chat-msg--me";
+      b.setAttribute("data-edit", step);
+      b.title = T("home.chat_edit");
+      var span = document.createElement("span");
+      span.textContent = text;
+      var sr = document.createElement("span");
+      sr.className = "sr-only";
+      sr.textContent = " – " + T("home.chat_edit");
+      b.appendChild(span);
+      b.appendChild(sr);
+      log.appendChild(b);
+    }
+
+    // go back: drop everything after that step's question and show its input again
+    function editStep(step) {
+      if (busy) return;
+      var q = log.querySelector('[data-for="' + step + '"]');
+      if (!q) return;
+      clearTimeout(timer);
+      while (q.nextSibling) log.removeChild(q.nextSibling);
+      showStep(step, true);
+    }
+
+    function valid(step) {
+      var inputs = stepEl(step).querySelectorAll("input, textarea");
+      for (var i = 0; i < inputs.length; i++) {
+        var el = inputs[i];
+        if (el.type !== "radio" && el.type !== "checkbox") el.value = el.value.trim();
+        if (!el.checkValidity()) { el.reportValidity(); return false; }
+      }
+      return true;
+    }
+
+    function answerText(step) {
+      if (step === "name") return nameVal();
+      if (step === "topic") {
+        var checked = form.querySelector('input[name="topic"]:checked');
+        return checked ? checked.nextElementSibling.textContent : "";
+      }
+      if (step === "message") return field("message").value;
+      if (step === "contact") return field("email").value + (field("phone").value ? " · " + field("phone").value : "");
+      return "";
+    }
+
+    function next() {
+      if (busy || current === "send" || current === "done") return;
+      if (!valid(current)) return;
+      userSay(current, answerText(current));
+      ask(ORDER[ORDER.indexOf(current) + 1]);
+    }
+
+    function setBusy(on) {
+      busy = on;
+      var btn = form.querySelector("[data-submit]");
+      btn.disabled = on;
+      btn.setAttribute("aria-busy", String(on));
+      btn.querySelector("span").textContent = T(on ? "home.chat_sending" : "home.chat_send");
+      Array.prototype.forEach.call(log.querySelectorAll("[data-edit]"), function (b) { b.disabled = on; });
+    }
+
+    function send() {
+      if (busy) return;
+      var topic = form.querySelector('input[name="topic"]:checked');
+      var payload = {
+        client_id: CLIENT_ID,
+        name: nameVal(),
+        email: field("email").value.trim(),
+        message: "Thema: " + (topic ? topic.value : "") + "\n\n" + field("message").value.trim(),
+        website_url: field("website_url").value
+      };
+      var phone = field("phone").value.trim();
+      if (phone) payload.phone = phone;
+
+      var fail = function (key) {
+        setBusy(false);
+        // drop an earlier error so only the latest one shows
+        var last = log.lastElementChild;
+        if (last && last.classList.contains("chat-msg--err")) last.remove();
+        botSay(T(key), { tone: "err" });
+        focusStep("send");
+      };
+
+      setBusy(true);
+      fetch(API_URL, { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(payload) })
+        .then(function (res) {
+          return res.json().catch(function () { return {}; }).then(function (data) { return { status: res.status, data: data || {} }; });
+        })
+        .then(function (r) {
+          if (r.status === 200) {
+            var name = payload.name;
+            setBusy(false);
+            Array.prototype.forEach.call(log.querySelectorAll("[data-edit]"), function (b) { b.disabled = true; });
+            var last = log.lastElementChild;
+            if (last && last.classList.contains("chat-msg--err")) last.remove();
+            form.reset();
+            botSay(T("home.chat_ok", { name: name }), { tone: "ok" });
+            showStep("done", true);
+          } else if (r.status === 400 && r.data.detail === "Nachricht enthält zu viele Links") {
+            fail("home.chat_err_links");
+          } else if (r.status === 400) {
+            console.error("Kontaktformular: Konfigurationsfehler", r.data);
+            fail("home.chat_err_generic");
+          } else if (r.status === 422) {
+            console.warn("Kontaktformular: Eingaben abgelehnt", r.data);
+            fail("home.chat_err_input");
+          } else if (r.status === 429) {
+            fail("home.chat_err_rate");
+          } else {
+            console.error("Kontaktformular: HTTP " + r.status, r.data);
+            fail("home.chat_err_network");
+          }
+        })
+        .catch(function (err) {
+          console.error("Kontaktformular: Netzwerkfehler", err);
+          fail("home.chat_err_network");
+        });
+    }
+
+    function restart() {
+      clearTimeout(timer);
+      form.reset();
+      while (log.children.length > 1) log.removeChild(log.lastChild);
+      showStep("name", true);
+    }
+
+    form.addEventListener("click", function (evt) {
+      if (evt.target.closest("[data-next]")) next();
+      else if (evt.target.closest("[data-restart]")) restart();
+    });
+    form.addEventListener("change", function (evt) {
+      if (evt.target.name === "topic" && current === "topic") next();
+    });
+    form.addEventListener("keydown", function (evt) {
+      if (evt.key !== "Enter" || evt.isComposing) return;
+      var t = evt.target;
+      if (t.tagName === "TEXTAREA") {
+        if (evt.metaKey || evt.ctrlKey) { evt.preventDefault(); next(); }
+      } else if (t.tagName === "INPUT" && t.type !== "radio") {
+        evt.preventDefault();
+        next();
+      }
+    });
+    form.addEventListener("submit", function (evt) {
+      evt.preventDefault();
+      if (current === "send") send(); else next();
+    });
+    log.addEventListener("click", function (evt) {
+      var b = evt.target.closest("[data-edit]");
+      if (b && !b.disabled) editStep(b.getAttribute("data-edit"));
+    });
+
+    // "Kontakt" links on desktop: land in the chat ready to type (no auto-focus on touch: it would pop the keyboard)
+    if (finePointer) {
+      document.querySelectorAll('a[href="#contact-form"]').forEach(function (a) {
+        a.addEventListener("click", function () {
+          setTimeout(function () { focusStep(current); }, prefersReduced ? 0 : 700);
+        });
+      });
+    }
   }
 
   /* ---------- rotating word in the hero headline ----------

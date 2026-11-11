@@ -35,11 +35,11 @@
         <a href="index.html#process"><span data-i18n="common.nav_process">Ablauf</span></a>
         <a href="index.html#work"><span data-i18n="common.nav_work">Referenzen</span></a>
         <a href="aboutme/index.html"><span data-i18n="common.nav_about">Über mich</span></a>
-        <a class="nav-contact" href="#contact"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
+        <a class="nav-contact" href="#contact-form"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
       </nav>
       <div class="mast-actions">
         <button class="lang-toggle" id="lang-toggle" type="button" aria-label="Switch to English">EN</button>
-        <a class="btn btn-ink btn-sm mast-cta" href="#contact"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
+        <a class="btn btn-ink btn-sm mast-cta" href="#contact-form"><span data-i18n="common.nav_contact_btn">Kontakt</span></a>
         <button class="nav-toggle" id="nav-toggle" type="button" aria-label="Menü öffnen"
           data-i18n-attr="aria-label:common.nav_toggle_aria" aria-expanded="false" aria-controls="nav">
           <span></span><span></span>
@@ -60,7 +60,7 @@
 
         <div class="foot-row g4">
           <p class="hero-sub" data-i18n="home.hero_sub">Ich baue dir eine moderne Website – und schaue gemeinsam mit dir, wo individuelle IT-Lösungen deinen Arbeitsalltag spürbar leichter machen. Persönlich, ehrlich und ohne Fachchinesisch.</p>
-          <a class="btn btn-ink" href="#contact"><span data-i18n="home.hero_cta_primary">Schreib mir</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+          <a class="btn btn-ink" href="#contact-form"><span data-i18n="home.hero_cta_primary">Schreib mir</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
           <a class="btn btn-line" href="#process"><span data-i18n="home.hero_cta_secondary">So arbeite ich</span><svg class="arr arr-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
         </div>
       </div>
@@ -288,7 +288,7 @@
                 <p class="cta-slot-title" data-i18n-html="home.work_cta_title">Hier könnte <em>deine</em> Website stehen.</p>
                 <p class="cta-slot-text" data-i18n="home.work_cta_text">Erzähl mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden persönlich bei dir – mit einer ersten, ehrlichen Einschätzung.</p>
                 <div class="cta-slot-actions">
-                  <a class="btn btn-ink" href="#contact"><span data-i18n="home.work_cta_primary">Projekt anfragen</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
+                  <a class="btn btn-ink" href="#contact-form"><span data-i18n="home.work_cta_primary">Projekt anfragen</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></a>
                   <a class="btn btn-line" href="#process"><span data-i18n="home.work_cta_secondary">So arbeite ich</span><svg class="arr arr-down" viewBox="0 0 16 16" aria-hidden="true"><path d="M8 3v10M4 9l4 4 4-4"/></svg></a>
                 </div>
               </div>
@@ -346,11 +346,69 @@
             <p class="lead" data-i18n="home.contact_sub">Ob Website oder individuelles Tool: Erzähl mir kurz, was du vorhast. Ich melde mich innerhalb von 48 Stunden persönlich bei dir – mit einer ersten, ehrlichen Einschätzung.</p>
             <p class="t-xs" data-i18n="home.contact_meta">Gern auch remote – egal, wo du sitzt.</p>
           </div>
-          <ul class="big-links">
-            <li><a href="mailto:hallo@janikwahrheit.de"><span class="bl-main"><span data-i18n="home.contact_email_btn">Schreib mir</span> <span class="bl-arr" aria-hidden="true">↗</span></span><span class="bl-sub t-xs">hallo@janikwahrheit.de</span></a></li>
-            <li><a href="https://www.linkedin.com/in/janik-wahrheit-402186225/" target="_blank" rel="noopener"><span class="bl-main"><span data-i18n="home.contact_linkedin_btn">LinkedIn</span> <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
-            <li><a href="https://github.com/janikWa" target="_blank" rel="noopener"><span class="bl-main">GitHub <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
-          </ul>
+
+          <!-- contact form as a chat: one question at a time, answers appear as bubbles; sends JSON to the form backend -->
+          <div class="chat" id="contact-form" data-chat>
+            <div class="chat-bar">
+              <span class="browser-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+              <img class="chat-avatar" src="assets/img/memoji.png" alt="" width="36" height="36">
+              <p class="chat-who"><strong>Janik Wahrheit</strong><span class="t-xs"><span class="dot" aria-hidden="true"></span><span data-i18n="home.chat_status">Antwortet innerhalb von 48 Stunden</span></span></p>
+            </div>
+            <div class="chat-log" role="log" aria-live="polite" aria-label="Chatverlauf" data-i18n-attr="aria-label:home.chat_log_aria" data-chat-log>
+              <p class="chat-msg chat-msg--bot" data-i18n="home.chat_q_name">Hi! Schön, dass du da bist. Wie heißt du?</p>
+            </div>
+            <form class="chat-form" data-chat-form>
+              <div class="chat-step" data-step="name">
+                <label class="sr-only" for="cf-name" data-i18n="home.chat_l_name">Dein Name</label>
+                <div class="chat-row">
+                  <input class="chat-input" id="cf-name" name="name" type="text" required maxlength="200" autocomplete="name" placeholder="Dein Name" data-i18n-attr="placeholder:home.chat_l_name">
+                  <button class="chat-go" type="button" data-next aria-label="Weiter" data-i18n-attr="aria-label:home.chat_next"><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+              </div>
+              <fieldset class="chat-step" data-step="topic" hidden>
+                <legend class="sr-only" data-i18n="home.chat_l_topic">Worum geht es?</legend>
+                <div class="chat-chips">
+                  <label class="chat-chip"><input type="radio" name="topic" value="Website" required><span data-i18n="home.chat_t1">Website</span></label>
+                  <label class="chat-chip"><input type="radio" name="topic" value="Automation"><span data-i18n="home.chat_t2">Automation</span></label>
+                  <label class="chat-chip"><input type="radio" name="topic" value="Individuelles Tool"><span data-i18n="home.chat_t3">Individuelles Tool</span></label>
+                  <label class="chat-chip"><input type="radio" name="topic" value="Etwas anderes"><span data-i18n="home.chat_t4">Etwas anderes</span></label>
+                </div>
+              </fieldset>
+              <div class="chat-step" data-step="message" hidden>
+                <label class="sr-only" for="cf-message" data-i18n="home.chat_l_message">Deine Nachricht</label>
+                <div class="chat-row chat-row--area">
+                  <textarea class="chat-input" id="cf-message" name="message" required maxlength="4900" rows="3" placeholder="Deine Nachricht" data-i18n-attr="placeholder:home.chat_l_message"></textarea>
+                  <button class="chat-go" type="button" data-next aria-label="Weiter" data-i18n-attr="aria-label:home.chat_next"><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+                </div>
+                <p class="chat-hint chat-hint--keys t-xs" data-i18n="home.chat_hint_message">Strg/⌘ + Enter zum Weiter</p>
+              </div>
+              <div class="chat-step" data-step="contact" hidden>
+                <div class="chat-fields">
+                  <label class="chat-field"><span class="t-xs" data-i18n="home.chat_l_email">E-Mail-Adresse</span><input class="chat-input" name="email" type="email" required maxlength="254" autocomplete="email" placeholder="name@beispiel.de"></label>
+                  <label class="chat-field"><span class="t-xs" data-i18n="home.chat_l_phone">Telefon (optional)</span><input class="chat-input" name="phone" type="tel" maxlength="50" autocomplete="tel"></label>
+                </div>
+                <button class="btn btn-ink btn-sm chat-step-btn" type="button" data-next><span data-i18n="home.chat_next">Weiter</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+              </div>
+              <div class="chat-step" data-step="send" hidden>
+                <p class="chat-hint t-xs" data-i18n-html="home.chat_privacy">Mit dem Absenden werden deine Angaben zur Bearbeitung deiner Anfrage übermittelt. Mehr dazu in der <a href="datenschutz/">Datenschutzerklärung</a>.</p>
+                <button class="btn btn-ink chat-step-btn" type="submit" data-submit><span data-i18n="home.chat_send">Nachricht senden</span><svg class="arr" viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4"/></svg></button>
+              </div>
+              <div class="chat-step" data-step="done" hidden>
+                <button class="btn btn-line btn-sm chat-step-btn" type="button" data-restart><span data-i18n="home.chat_restart">Neue Nachricht schreiben</span></button>
+              </div>
+              <!-- honeypot: off-screen, not display:none, so bots still fill it -->
+              <div class="hp" aria-hidden="true"><label>Website <input type="text" name="website_url" tabindex="-1" autocomplete="off"></label></div>
+            </form>
+            <noscript><p class="chat-noscript t-sm">Das Formular braucht JavaScript. Schreib mir gern direkt an <a href="mailto:hallo@janikwahrheit.de">hallo@janikwahrheit.de</a>.</p></noscript>
+          </div>
+          <div class="contact-alt">
+            <p class="t-br" data-i18n="home.contact_alt">Lieber direkt?</p>
+            <ul class="big-links big-links--sm">
+              <li><a href="mailto:hallo@janikwahrheit.de"><span class="bl-main"><span data-i18n="home.contact_email_btn">Schreib mir</span> <span class="bl-arr" aria-hidden="true">↗</span></span><span class="bl-sub t-xs">hallo@janikwahrheit.de</span></a></li>
+              <li><a href="https://www.linkedin.com/in/janik-wahrheit-402186225/" target="_blank" rel="noopener"><span class="bl-main"><span data-i18n="home.contact_linkedin_btn">LinkedIn</span> <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
+              <li><a href="https://github.com/janikWa" target="_blank" rel="noopener"><span class="bl-main">GitHub <span class="bl-arr" aria-hidden="true">↗</span></span></a></li>
+            </ul>
+          </div>
         </div>
       </div>
     </section>
