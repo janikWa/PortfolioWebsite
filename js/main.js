@@ -309,6 +309,19 @@
     var open = browser.querySelector("[data-open]");
     var caps = Array.prototype.slice.call(document.querySelectorAll(".bcap"));
     if (caps.length) caps[0].parentNode.classList.add("is-tabs");
+    // client tabs in a new random order on every load (the "Dein Projekt" tab stays last), first one opens
+    var tabBar = browser.querySelector(".browser-tabs");
+    var clientTabs = Array.prototype.slice.call(tabBar.querySelectorAll(".browser-tab[data-href]:not([data-href=''])"));
+    for (var k = clientTabs.length - 1; k > 0; k--) {
+      var r = Math.floor(Math.random() * (k + 1));
+      var tmp = clientTabs[k]; clientTabs[k] = clientTabs[r]; clientTabs[r] = tmp;
+    }
+    var restTab = tabBar.querySelector(".browser-tab[data-href='']");
+    clientTabs.forEach(function (t, n) {
+      tabBar.insertBefore(t, restTab);
+      t.setAttribute("aria-selected", String(n === 0));
+    });
+    if (restTab) restTab.setAttribute("aria-selected", "false");
     tabs(browser, ".browser-tab", function (tab) {
       addr.textContent = tab.getAttribute("data-url") || "about:blank";
       var href = tab.getAttribute("data-href");

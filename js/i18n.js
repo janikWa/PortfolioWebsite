@@ -187,6 +187,10 @@
         de: "Website für einen Heizungsfachbetrieb aus Jockgrim: Leistungen, Wartungsverträge, Spartipps und ein Kontaktformular.",
         en: "Website for a heating specialist based in Jockgrim, Germany: services, maintenance contracts, energy-saving tips and a contact form."
       },
+      ref2_desc: {
+        de: "Website für einen Landmaschinen- und Gartengerätehändler aus Rheinzabern: Sortiment und Marken, Werkstatt mit TÜV-Terminanfrage, Öffnungsstatus und Anfrageformular.",
+        en: "Website for an agricultural machinery and garden equipment dealer in Rheinzabern, Germany: product range and brands, workshop with MOT appointment requests, live opening status and an enquiry form."
+      },
       teaser_p1: {
         de: "<strong>Hi, ich bin Janik</strong> – ich studiere Wirtschaftsingenieurwesen (M.Sc.) am KIT und komme aus der Data Science. Ich baue Websites, Automationen und individuelle Tools für Selbstständige und kleine Betriebe.",
         en: "<strong>Hi, I’m Janik</strong> — I’m studying Industrial Engineering (M.Sc.) at KIT and come from a data science background. I build websites, automation and custom tools for freelancers and small businesses."
