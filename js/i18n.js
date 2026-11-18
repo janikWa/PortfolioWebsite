@@ -18,6 +18,7 @@
       footer_name: { de: "janik wahrheit · Websites & Tools", en: "janik wahrheit · Websites & tools" },
       made_by: { de: "Made by", en: "Made by" },
       tagline: { de: "Websites & Automationen", en: "Websites & automation" },
+      theme_toggle_aria: { de: "Dunkles Design", en: "Dark mode" },
       back_to_top: { de: "Nach oben", en: "Back to top" },
       nav_imprint: { de: "Impressum", en: "Legal notice" },
       nav_privacy: { de: "Datenschutz", en: "Privacy" },

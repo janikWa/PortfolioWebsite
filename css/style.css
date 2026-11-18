@@ -172,6 +172,15 @@ button { font: inherit; color: inherit; }
   font: 700 .75rem/1 var(--font); letter-spacing: .02em; cursor: pointer;
 }
 .lang-toggle:hover { background: var(--ink); color: var(--bg); }
+.theme-toggle {
+  width: 44px; height: 38px; padding: 0; border-radius: 999px; display: grid; place-items: center;
+  border: var(--thick) solid var(--ink); background: transparent; cursor: pointer;
+}
+.theme-toggle svg { width: 18px; height: 18px; transition: transform .5s var(--ease); }
+.theme-toggle circle { fill: none; stroke: currentColor; stroke-width: 2; }
+.theme-toggle path { fill: currentColor; }
+.theme-toggle:hover { background: var(--ink); color: var(--bg); }
+[data-theme="dark"] .theme-toggle svg { transform: rotate(180deg); }
 .nav-toggle { display: none; width: 44px; height: 38px; border-radius: 999px; border: var(--thick) solid var(--ink); background: transparent; cursor: pointer; position: relative; }
 .nav-toggle span { position: absolute; left: 12px; right: 12px; height: 2px; background: var(--ink); transition: transform .4s var(--ease), top .4s var(--ease); }
 .nav-toggle span:first-child { top: 13px; } .nav-toggle span:last-child { top: 20px; }
@@ -859,3 +868,66 @@ html:not(.js) .chat-form { display: none; }
   .teaser-photo { max-width: 320px; }
   .hero .foot-row .btn { grid-column: 1 / -1; }
 }
+
+/* ==========================================================================
+   Dark mode (test) — js/theme.js sets html[data-theme]. Tokens flip; the rest
+   below are spots that hard-code light colours.
+   ========================================================================== */
+:root[data-theme="dark"] {
+  --bg: #121211;
+  --bg-2: #1A1A19;
+  --card: #1F1F1D;
+  --ink: #ECECE9;
+  --ink-2: #C4C4BF;
+  --mute: #8E8E88;
+  --hair: rgba(236, 236, 233, .18);
+  --blue: #4D6BFF;          /* brighter cobalt: readable as text on near-black, still holds white text */
+  --blue-light: #8DA2FF;
+  color-scheme: dark;
+}
+[data-theme="dark"] body::after { opacity: .05; }
+
+/* fluted glass: white highlights would glare on dark — keep only a faint sheen and deeper shadows */
+[data-theme="dark"] .flutes {
+  --flutes: repeating-linear-gradient(90deg,
+    rgba(255, 255, 255, 0) 0px,
+    rgba(255, 255, 255, .055) calc(var(--fl) * .21),
+    rgba(255, 255, 255, .01) calc(var(--fl) * .52),
+    rgba(0, 0, 0, .28) calc(var(--fl) * .88),
+    rgba(255, 255, 255, 0) var(--fl));
+}
+[data-theme="dark"] .glass i {
+  background: linear-gradient(90deg, rgba(255, 255, 255, .07) 0%, rgba(255, 255, 255, .015) 22%, rgba(255, 255, 255, 0) 55%, rgba(0, 0, 0, .25) 88%, rgba(255, 255, 255, .05) 100%);
+}
+@media (max-width: 620px) {
+  [data-theme="dark"] .hero.flutes { background-image: linear-gradient(to bottom, transparent calc(100% - 100px), var(--bg)), var(--flutes); }
+}
+
+/* service panels */
+[data-theme="dark"] .zpanel--ink { background: #000; box-shadow: inset 0 0 0 1px var(--hair); }
+[data-theme="dark"] .zpanel--light { background: #2A2A27; }
+[data-theme="dark"] .zchat-q { background: var(--bg-2); }
+[data-theme="dark"] .zpanel--light .zchat-q { background: var(--bg); }
+[data-theme="dark"] .zchat-a { background: #000; }
+
+/* ink sections, popovers and the editor are already dark — set them apart with a hairline */
+[data-theme="dark"] .sec--ink { background: #000; border-block: 1px solid var(--hair); }
+[data-theme="dark"] .tech-pop { background: #000; box-shadow: inset 0 0 0 1px var(--hair), 0 24px 40px -24px rgba(0, 0, 0, .8); }
+[data-theme="dark"] .editor { background: #000; box-shadow: inset 0 0 0 1px var(--hair); }
+[data-theme="dark"] .editor-side { background: #0B0B0A; }
+
+/* browser window + chat */
+[data-theme="dark"] .browser, [data-theme="dark"] .chat { border-color: var(--hair); box-shadow: 0 40px 70px -50px rgba(0, 0, 0, .9); }
+[data-theme="dark"] .browser-dots i { background: rgba(236, 236, 233, .22); }
+[data-theme="dark"] .browser-tab:hover { background: rgba(255, 255, 255, .06); }
+[data-theme="dark"] .browser-view { border-top-color: var(--hair); }
+[data-theme="dark"] .chat-msg--bot, [data-theme="dark"] .chat-typing { background: #2A2A27; }
+
+/* core & satellites: the core stays a dark disc with a light ring */
+[data-theme="dark"] .cs-core { background: #000; color: var(--ink); box-shadow: inset 0 0 0 var(--thick) var(--ink), 0 30px 60px -30px rgba(0, 0, 0, .9); }
+[data-theme="dark"] .cs-sat { box-shadow: 0 24px 44px -30px rgba(0, 0, 0, .9); }
+[data-theme="dark"] .is-htrack .step.is-lit { box-shadow: 0 30px 50px -40px rgba(0, 0, 0, .9); }
+
+/* photos sit a touch darker so they do not glare */
+[data-theme="dark"] .bw img { filter: grayscale(1) contrast(1.1) brightness(.88); }
+[data-theme="dark"] .bw:hover img { filter: grayscale(0) brightness(.95); }
