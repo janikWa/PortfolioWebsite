@@ -390,7 +390,7 @@
       cv1_date: { de: "03/2021", en: "03/2021" },
       cv1_title: { de: "Abitur", en: "High School Diploma" },
       cv1_desc: {
-        de: "Europa-Gymnasium Wörth · Abiturnote: 1,3<br>Leistungskurse: Mathematik, Physik, Politikwissenschaft.",
+        de: "Europa-Gymnasium Wörth · Abiturnote: 1,3<br>Leistungskurse: Mathematik, Physik, Sozialkunde.",
         en: "Europa Gymnasium Wörth · GPA: 1.3 (equivalent to an A)<br>Advanced Courses: Mathematics, Physics, Political Science."
       },
       cv2_date: { de: "10/2021 – 10/2022", en: "10/2021 – 10/2022" },
